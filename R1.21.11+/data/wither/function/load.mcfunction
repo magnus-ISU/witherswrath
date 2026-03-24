@@ -1,6 +1,3 @@
-scoreboard objectives add witherCount dummy
-
-scoreboard players set witherCount witherCount 0
 scoreboard objectives add checkHealth dummy
 scoreboard objectives add playerCount dummy
 scoreboard objectives add witherCheck dummy
@@ -29,4 +26,7 @@ execute if entity @e[type=minecraft:wither] run function wither:wither/fix
 
 # prevents storage from being set if already initialized previously (saves current settings if any)
 execute unless data storage wither:options {initialized:2} run function wither:initialize_storage
+
+# Start the wither detection schedule (runs every 10 ticks)
+schedule function wither:tick 1t
 

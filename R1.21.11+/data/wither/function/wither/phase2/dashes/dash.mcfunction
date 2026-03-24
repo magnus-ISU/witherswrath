@@ -7,4 +7,4 @@ execute if score reset wchargereset matches 0 unless entity @e[type=minecraft:ar
 
 schedule function wither:wither/phase2/dashes/endloop 5t
 
-execute if score witherCount witherCount matches 1.. run schedule function wither:wither/phase2/dashes/dash 3s
+execute if entity @e[type=wither,tag=ominousWither] run schedule function wither:wither/phase2/dashes/dash 3s

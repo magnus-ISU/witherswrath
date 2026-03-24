@@ -1,6 +1,5 @@
 scoreboard objectives remove Health
 scoreboard objectives remove wcharge1
-scoreboard objectives remove witherCount
 scoreboard objectives remove checkHealth
 scoreboard objectives remove wticktime
 scoreboard objectives remove wchargereset
