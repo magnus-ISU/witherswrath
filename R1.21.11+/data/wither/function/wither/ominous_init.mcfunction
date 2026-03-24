@@ -5,6 +5,9 @@
 tag @s add ominousWither
 data merge entity @s {Invul:220}
 
+# Remove bad omen from nearby players so they don't trigger a raid
+effect clear @a[distance=..100] minecraft:bad_omen
+
 # Check gamerules and player count
 execute store result score cmdFbk rules run gamerule send_command_feedback
 execute store result score count playerCount run execute if entity @e[type=player,distance=..100]
