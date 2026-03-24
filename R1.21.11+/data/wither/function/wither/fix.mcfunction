@@ -31,6 +31,7 @@ team remove Wither
 
 advancement revoke @a only wither:wither/defeated_skeleton
 advancement revoke @a only wither:wither/defeated_wither
+advancement revoke @a only wither:wither/skull_placed
 advancement revoke @a only wither:wither/hit_wither
 advancement revoke @a only wither:wither/hit2_wither
 advancement revoke @a only wither:wither/hit3_wither
@@ -118,6 +119,8 @@ schedule clear wither:wither/passive/spawn
 schedule clear wither:wither/passive/convert
 schedule clear wither:wither/skull
 schedule clear wither:wither_check
+schedule clear wither:tick
+schedule clear wither:wither/ominous_check
 schedule clear wither:5tick
 schedule clear wither:xp/xp
 schedule clear wither:xp/xp1

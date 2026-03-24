@@ -1,0 +1,15 @@
+{
+    "criteria": {
+        "place_skull": {
+            "trigger": "minecraft:placed_block",
+            "conditions": {
+                "item": {
+                    "items": "minecraft:wither_skeleton_skull"
+                }
+            }
+        }
+    },
+    "rewards": {
+        "function": "wither:wither/skull_placed"
+    }
+}

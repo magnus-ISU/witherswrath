@@ -15,6 +15,7 @@ execute store result score count playerCount run execute if entity @e[type=playe
 # Schedule all fight functions
 schedule function wither:wither_check 1t
 schedule function wither:wither/fight_start/init 1t
+schedule function wither:tick 1t
 schedule function wither:wither/skull/launch 22s
 schedule function wither:wither/skull/burst/launch_burst_loop 30s
 execute if data storage wither:options {toggleanimation:Default} run schedule function wither:wither/passive/skull 12s

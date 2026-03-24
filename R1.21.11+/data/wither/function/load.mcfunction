@@ -27,6 +27,6 @@ execute if entity @e[type=minecraft:wither] run function wither:wither/fix
 # prevents storage from being set if already initialized previously (saves current settings if any)
 execute unless data storage wither:options {initialized:2} run function wither:initialize_storage
 
-# Start the wither detection schedule (runs every 10 ticks)
-schedule function wither:tick 1t
+# Wither detection is now event-driven (skull_placed advancement + ominous_check)
+# tick.mcfunction is started by ominous_init when a fight begins
 
