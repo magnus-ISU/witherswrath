@@ -1,9 +1,7 @@
 
 # Checks gamerules
 
-execute store result score mobGrf rules run gamerule mob_griefing
 execute store result score cmdFbk rules run gamerule send_command_feedback
-execute store result score dayCycl rules run gamerule advance_time
 execute store result score count playerCount run execute if entity @e[type=player,distance=..100]
 
 # FUNCTIONS
