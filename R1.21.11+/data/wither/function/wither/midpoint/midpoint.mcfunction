@@ -92,7 +92,7 @@ execute if data storage wither:options {toggleanimation:Default} at @e[type=mine
 schedule clear wither:wither/phase1/musicphase1
 execute as @a run stopsound @a record minecraft:wither.phase1
 function wither:wither/phase2/musicphase2
-effect give @e[type=wither_skeleton,distance=..20] resistance 3 10
+effect give @e[type=wither_skeleton,tag=!wArcher,distance=..20] resistance 3 10
 execute if data storage wither:options {toggleanimation:Default} run data merge entity @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=nearest] {Invulnerable:1b,NoAI:1b,NoGravity:1b,active_effects:[{id:"minecraft:resistance",amplifier:255,duration:5}]}
 
 
