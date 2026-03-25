@@ -116,7 +116,6 @@ schedule clear wither:wither/midpoint/particles/down5
 schedule clear wither:wither/midpoint/particles/clearlev
 schedule clear wither:wither/passive/skull
 schedule clear wither:wither/passive/spawn
-schedule clear wither:wither/passive/convert
 schedule clear wither:wither/skull
 schedule clear wither:wither_check
 schedule clear wither:tick

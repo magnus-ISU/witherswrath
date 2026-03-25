@@ -40,7 +40,6 @@ execute unless entity @e[type=wither,tag=ominousWither] run schedule clear withe
 # Passive abilities
 execute unless entity @e[type=wither,tag=ominousWither] run schedule clear wither:wither/passive/spawn
 execute unless entity @e[type=wither,tag=ominousWither] run schedule clear wither:wither/passive/skull
-execute unless entity @e[type=wither,tag=ominousWither] run schedule clear wither:wither/passive/convert
 
 # Fight start and unstuck
 execute unless entity @e[type=wither,tag=ominousWither] run schedule clear wither:wither/fight_start/part
