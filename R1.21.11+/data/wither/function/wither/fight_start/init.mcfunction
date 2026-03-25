@@ -22,16 +22,11 @@ execute as @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=nearest] at @
 execute as @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=nearest] at @s run playsound minecraft:music.nether.basalt_deltas music @a[distance=..100] ~ ~-2 ~ 2
 execute as @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=nearest] at @e[type=player,distance=..100] run playsound minecraft:entity.parrot.imitate.wither hostile @a ~ ~ ~ 2 0.1
 
-# CHEESING: breaks every block in area above and sides not below to avoid the void
-execute as @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=nearest] at @s if block ~ ~1 ~ minecraft:bedrock run tp ~ ~-8 ~
-execute as @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=nearest] at @s if block ~ ~2 ~ minecraft:bedrock run tp ~ ~-8 ~
-execute as @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=nearest] at @s if block ~ ~3 ~ minecraft:bedrock run tp ~ ~-8 ~
-execute as @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=nearest] at @s if block ~ ~4 ~ minecraft:bedrock run tp ~ ~-8 ~
-execute as @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=nearest] at @s if block ~ ~-1 ~ minecraft:bedrock run tp ~ ~8 ~
-execute as @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=nearest] at @s if block ~ ~-2 ~ minecraft:bedrock run tp ~ ~8 ~
-execute as @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=nearest] at @s if block ~ ~-3 ~ minecraft:bedrock run tp ~ ~8 ~
-execute as @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=nearest] at @s if block ~ ~-4 ~ minecraft:bedrock run tp ~ ~8 ~
-execute at @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=nearest] if data storage wither:options {toggledestruction:Enabled} unless block ^ ^ ^1 minecraft:bedrock unless block ^ ^ ^2 minecraft:bedrock unless block ^ ^ ^3 minecraft:bedrock unless block ~ ~-1 ~ minecraft:bedrock unless block ~ ~-2 ~ minecraft:bedrock unless block ~ ~1 ~ minecraft:bedrock unless block ~ ~2 ~ minecraft:bedrock unless block ~ ~3 ~ minecraft:bedrock unless block ~ ~4 ~ minecraft:bedrock unless block ~ ~5 ~ minecraft:bedrock run fill ~-2 ~1 ~-2 ~2 ~5 ~2 air destroy
+# OPENING: clear 13x13x13, center blast, three 8-skull rings → creeper radius 6 at 4s
+execute as @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=nearest] at @s run fill ~-6 ~-6 ~-6 ~6 ~6 ~6 minecraft:air
+execute as @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=nearest] at @s run summon minecraft:creeper ~ ~1 ~ {Team:"Wither",CustomName:'"Wither Arrival"',ExplosionRadius:8,Invulnerable:1b,Fuse:0,ignited:1b,Silent:1b,attributes:[{id:"minecraft:scale",base:0.0625}]}
+execute as @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=nearest] at @s run function wither:wither/fight_start/init_skull_rings
+schedule function wither:wither/fight_start/init_ring_explode 4s
 
 # ASCEND
 execute at @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=nearest] if data storage wither:options {toggleanimation:Default} if entity @e[type=player,distance=..30] as @s at @s run particle sculk_soul ~ ~1 ~ 0.5 .35 0.5 0.1 50 normal
@@ -47,5 +42,3 @@ execute as @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=nearest] at @
 execute at @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=nearest] if data storage wither:options {toggleanimation:Default} as @e[type=player,distance=..100] run attribute @s minecraft:gravity modifier add 1 0.05 add_value
 
 schedule function wither:wither/failsafe 900s
-
-

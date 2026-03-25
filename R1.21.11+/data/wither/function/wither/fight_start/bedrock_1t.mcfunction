@@ -1,3 +1,4 @@
+execute if entity @e[type=minecraft:wither_skull,tag=fightInitSkull] run function wither:wither/fight_start/init_skull_tick
 
 # Spin
 execute as @e[type=armor_stand,tag=wither_spin,limit=1] at @s run rotate @s ~20 ~

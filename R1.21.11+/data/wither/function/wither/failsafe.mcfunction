@@ -43,4 +43,5 @@ execute unless entity @e[type=wither,tag=ominousWither] run schedule clear withe
 
 # Fight start and unstuck
 execute unless entity @e[type=wither,tag=ominousWither] run schedule clear wither:wither/fight_start/part
+execute unless entity @e[type=wither,tag=ominousWither] run schedule clear wither:wither/fight_start/init_ring_explode
 execute unless entity @e[type=wither,tag=ominousWither] run schedule clear wither:wither/unstuck/check

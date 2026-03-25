@@ -23,6 +23,7 @@ scoreboard objectives remove wither.temp.z
 scoreboard objectives remove wither.temp.px
 scoreboard objectives remove wither.temp.py
 scoreboard objectives remove wither.temp.pz
+scoreboard objectives remove fightInitAge
 
 scoreboard objectives remove rules
 scoreboard objectives remove stages
@@ -71,6 +72,7 @@ schedule clear wither:wither/fight_start/part
 schedule clear wither:wither/fight_start/tick
 schedule clear wither:wither/fight_start/bedrock
 schedule clear wither:wither/fight_start/init
+schedule clear wither:wither/fight_start/init_ring_explode
 schedule clear wither:wither/lifecycle/spawn
 schedule clear wither:wither/midpoint/midpoint2
 schedule clear wither:wither/midpoint/midpointtick
