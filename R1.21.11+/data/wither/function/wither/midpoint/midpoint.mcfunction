@@ -1,6 +1,17 @@
 # ONE-TIME ONLY: Removing this tag will stop the adv from triggering
 tag @s remove Wither
 
+# Takeoff blast column
+execute if data storage wither:options {toggleanimation:Default} at @s run fill ~-1 ~ ~-1 ~1 ~47 ~1 air
+execute if data storage wither:options {toggleanimation:Default} at @s run summon creeper ~ ~ ~  {Team:"Wither",Silent:1b,Invulnerable:1b,NoAI:1b,ExplosionRadius:6b,Fuse:1,ignited:1b,active_effects:[{id:"minecraft:invisibility",amplifier:0,duration:-1,show_particles:0b,show_icon:0b}]}
+execute if data storage wither:options {toggleanimation:Default} at @s run summon creeper ~ ~6 ~  {Team:"Wither",Silent:1b,Invulnerable:1b,NoAI:1b,ExplosionRadius:7b,Fuse:3,ignited:1b,active_effects:[{id:"minecraft:invisibility",amplifier:0,duration:-1,show_particles:0b,show_icon:0b}]}
+execute if data storage wither:options {toggleanimation:Default} at @s run summon creeper ~ ~12 ~ {Team:"Wither",Silent:1b,Invulnerable:1b,NoAI:1b,ExplosionRadius:8b,Fuse:5,ignited:1b,active_effects:[{id:"minecraft:invisibility",amplifier:0,duration:-1,show_particles:0b,show_icon:0b}]}
+execute if data storage wither:options {toggleanimation:Default} at @s run summon creeper ~ ~18 ~ {Team:"Wither",Silent:1b,Invulnerable:1b,NoAI:1b,ExplosionRadius:9b,Fuse:7,ignited:1b,active_effects:[{id:"minecraft:invisibility",amplifier:0,duration:-1,show_particles:0b,show_icon:0b}]}
+execute if data storage wither:options {toggleanimation:Default} at @s run summon creeper ~ ~24 ~ {Team:"Wither",Silent:1b,Invulnerable:1b,NoAI:1b,ExplosionRadius:10b,Fuse:9,ignited:1b,active_effects:[{id:"minecraft:invisibility",amplifier:0,duration:-1,show_particles:0b,show_icon:0b}]}
+execute if data storage wither:options {toggleanimation:Default} at @s run summon creeper ~ ~30 ~ {Team:"Wither",Silent:1b,Invulnerable:1b,NoAI:1b,ExplosionRadius:11b,Fuse:11,ignited:1b,active_effects:[{id:"minecraft:invisibility",amplifier:0,duration:-1,show_particles:0b,show_icon:0b}]}
+execute if data storage wither:options {toggleanimation:Default} at @s run summon creeper ~ ~36 ~ {Team:"Wither",Silent:1b,Invulnerable:1b,NoAI:1b,ExplosionRadius:12b,Fuse:13,ignited:1b,active_effects:[{id:"minecraft:invisibility",amplifier:0,duration:-1,show_particles:0b,show_icon:0b}]}
+execute if data storage wither:options {toggleanimation:Default} at @s run summon creeper ~ ~42 ~ {Team:"Wither",Silent:1b,Invulnerable:1b,NoAI:1b,ExplosionRadius:13b,Fuse:15,ignited:1b,active_effects:[{id:"minecraft:invisibility",amplifier:0,duration:-1,show_particles:0b,show_icon:0b}]}
+
 # FUNCTIONS
 execute if data storage wither:options {toggleanimation:Default} run schedule function wither:wither/midpoint/midpoint2 2s
 execute if data storage wither:options {toggleanimation:Default} run schedule function wither:wither/midpoint/midpointtick 1t
