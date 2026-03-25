@@ -3,7 +3,7 @@
 
 # Tag and set invulnerability
 tag @s add ominousWither
-data merge entity @s {Invul:220}
+data merge entity @s {Invul:220,CustomName:'Ominous Wither'}
 
 # Remove bad omen from nearby players so they don't trigger a raid
 effect clear @a[distance=..100] minecraft:bad_omen

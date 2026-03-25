@@ -1,3 +1,9 @@
+# Clean up any leftover display entities and schedules from a previous uncollected nether star
+kill @e[type=item_display,tag=nether_star]
+kill @e[type=armor_stand,tag=starxp]
+schedule clear wither:nether_star/tick
+schedule clear wither:nether_star/endloop
+
 # DISPLAY
     execute if data storage wither:options {toggleanimation:Default} as @e[type=item,sort=nearest,nbt={Item:{id:"minecraft:nether_star",count:1}},limit=1] at @s run summon item_display ~ ~ ~ {NoGravity:1b,Glowing:1b,Tags:["nether_star"],glow_color_override:16777215,brightness:{sky:15,block:15},transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0.8f,0f],scale:[1.5f,1.5f,1.5f]},item:{id:"minecraft:nether_star",count:1}}
 
