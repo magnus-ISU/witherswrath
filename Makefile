@@ -8,7 +8,7 @@ ZIPNAME := $(NAME)-$(VERSION).zip
 all: dist
 
 dist:
-	cd "$(VERSION)" && zip -r "../$(ZIPNAME)" . -x "*.DS_Store"
+	cd "$(VERSION)" && zip -rq "../$(ZIPNAME)" . -x "*.DS_Store"
 	mv "$(ZIPNAME)" "$(OUTDIR)/$(ZIPNAME)"
 	@echo "Packaged: $(OUTDIR)/$(ZIPNAME)"
 

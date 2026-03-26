@@ -43,4 +43,3 @@ execute at @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=nearest] if d
 
 scoreboard players set ominousWither divecooldown 0
 
-schedule function wither:wither/failsafe 900s

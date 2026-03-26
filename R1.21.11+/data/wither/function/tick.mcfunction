@@ -23,8 +23,40 @@ execute at @e[type=wither,tag=ominousWither,limit=1] unless entity @a[distance=.
 # Aerial dive: if wither is >20 blocks above a player and within 5 blocks horizontal, slam down
 execute if score ominousWither divecooldown matches 0 as @e[type=wither,tag=ominousWither,limit=1] at @s positioned ~-5 ~-300 ~-5 if entity @a[dx=10,dy=280,dz=10] run function wither:wither/dive/dive
 
-# Force chunk load the ominous wither
+# Force chunk load the ominous wither and wArchers
 execute at @e[type=wither,tag=ominousWither,limit=1] run forceload add ~ ~
+execute as @e[type=wither_skeleton,tag=wArcher] at @s run forceload add ~ ~
+execute as @e[type=phantom,tag=wArcher] at @s run forceload add ~ ~
+
+# Phase 3 (<100 HP): Wither V for players further than 16 blocks, black particle ring around wither
+execute if entity @e[type=wither,tag=ominousWither,scores={Health=..99}] at @e[type=wither,tag=ominousWither,limit=1] run effect give @a[distance=16..150] wither 1 4 true
+execute if entity @e[type=wither,tag=ominousWither,scores={Health=..99}] at @e[type=wither,tag=ominousWither,limit=1] run particle minecraft:squid_ink ~0 ~1 ~16 0 0.3 0 0 3 force
+execute if entity @e[type=wither,tag=ominousWither,scores={Health=..99}] at @e[type=wither,tag=ominousWither,limit=1] run particle minecraft:squid_ink ~4.14 ~1 ~15.45 0 0.3 0 0 3 force
+execute if entity @e[type=wither,tag=ominousWither,scores={Health=..99}] at @e[type=wither,tag=ominousWither,limit=1] run particle minecraft:squid_ink ~8 ~1 ~13.86 0 0.3 0 0 3 force
+execute if entity @e[type=wither,tag=ominousWither,scores={Health=..99}] at @e[type=wither,tag=ominousWither,limit=1] run particle minecraft:squid_ink ~11.31 ~1 ~11.31 0 0.3 0 0 3 force
+execute if entity @e[type=wither,tag=ominousWither,scores={Health=..99}] at @e[type=wither,tag=ominousWither,limit=1] run particle minecraft:squid_ink ~13.86 ~1 ~8 0 0.3 0 0 3 force
+execute if entity @e[type=wither,tag=ominousWither,scores={Health=..99}] at @e[type=wither,tag=ominousWither,limit=1] run particle minecraft:squid_ink ~15.45 ~1 ~4.14 0 0.3 0 0 3 force
+execute if entity @e[type=wither,tag=ominousWither,scores={Health=..99}] at @e[type=wither,tag=ominousWither,limit=1] run particle minecraft:squid_ink ~16 ~1 ~0 0 0.3 0 0 3 force
+execute if entity @e[type=wither,tag=ominousWither,scores={Health=..99}] at @e[type=wither,tag=ominousWither,limit=1] run particle minecraft:squid_ink ~15.45 ~1 ~-4.14 0 0.3 0 0 3 force
+execute if entity @e[type=wither,tag=ominousWither,scores={Health=..99}] at @e[type=wither,tag=ominousWither,limit=1] run particle minecraft:squid_ink ~13.86 ~1 ~-8 0 0.3 0 0 3 force
+execute if entity @e[type=wither,tag=ominousWither,scores={Health=..99}] at @e[type=wither,tag=ominousWither,limit=1] run particle minecraft:squid_ink ~11.31 ~1 ~-11.31 0 0.3 0 0 3 force
+execute if entity @e[type=wither,tag=ominousWither,scores={Health=..99}] at @e[type=wither,tag=ominousWither,limit=1] run particle minecraft:squid_ink ~8 ~1 ~-13.86 0 0.3 0 0 3 force
+execute if entity @e[type=wither,tag=ominousWither,scores={Health=..99}] at @e[type=wither,tag=ominousWither,limit=1] run particle minecraft:squid_ink ~4.14 ~1 ~-15.45 0 0.3 0 0 3 force
+execute if entity @e[type=wither,tag=ominousWither,scores={Health=..99}] at @e[type=wither,tag=ominousWither,limit=1] run particle minecraft:squid_ink ~0 ~1 ~-16 0 0.3 0 0 3 force
+execute if entity @e[type=wither,tag=ominousWither,scores={Health=..99}] at @e[type=wither,tag=ominousWither,limit=1] run particle minecraft:squid_ink ~-4.14 ~1 ~-15.45 0 0.3 0 0 3 force
+execute if entity @e[type=wither,tag=ominousWither,scores={Health=..99}] at @e[type=wither,tag=ominousWither,limit=1] run particle minecraft:squid_ink ~-8 ~1 ~-13.86 0 0.3 0 0 3 force
+execute if entity @e[type=wither,tag=ominousWither,scores={Health=..99}] at @e[type=wither,tag=ominousWither,limit=1] run particle minecraft:squid_ink ~-11.31 ~1 ~-11.31 0 0.3 0 0 3 force
+execute if entity @e[type=wither,tag=ominousWither,scores={Health=..99}] at @e[type=wither,tag=ominousWither,limit=1] run particle minecraft:squid_ink ~-13.86 ~1 ~-8 0 0.3 0 0 3 force
+execute if entity @e[type=wither,tag=ominousWither,scores={Health=..99}] at @e[type=wither,tag=ominousWither,limit=1] run particle minecraft:squid_ink ~-15.45 ~1 ~-4.14 0 0.3 0 0 3 force
+execute if entity @e[type=wither,tag=ominousWither,scores={Health=..99}] at @e[type=wither,tag=ominousWither,limit=1] run particle minecraft:squid_ink ~-16 ~1 ~0 0 0.3 0 0 3 force
+execute if entity @e[type=wither,tag=ominousWither,scores={Health=..99}] at @e[type=wither,tag=ominousWither,limit=1] run particle minecraft:squid_ink ~-15.45 ~1 ~4.14 0 0.3 0 0 3 force
+execute if entity @e[type=wither,tag=ominousWither,scores={Health=..99}] at @e[type=wither,tag=ominousWither,limit=1] run particle minecraft:squid_ink ~-13.86 ~1 ~8 0 0.3 0 0 3 force
+execute if entity @e[type=wither,tag=ominousWither,scores={Health=..99}] at @e[type=wither,tag=ominousWither,limit=1] run particle minecraft:squid_ink ~-11.31 ~1 ~11.31 0 0.3 0 0 3 force
+execute if entity @e[type=wither,tag=ominousWither,scores={Health=..99}] at @e[type=wither,tag=ominousWither,limit=1] run particle minecraft:squid_ink ~-8 ~1 ~13.86 0 0.3 0 0 3 force
+execute if entity @e[type=wither,tag=ominousWither,scores={Health=..99}] at @e[type=wither,tag=ominousWither,limit=1] run particle minecraft:squid_ink ~-4.14 ~1 ~15.45 0 0.3 0 0 3 force
+
+# Despawn wither if no players within 150 blocks - massive explosion
+execute as @e[type=wither,tag=ominousWither,limit=1] at @s unless entity @a[distance=..150] run function wither:wither/lifecycle/despawn
 
 # Destroy nether portals in a 3x3x3 around all players within 150 blocks of the wither
 execute at @e[type=wither,tag=ominousWither,limit=1] as @a[distance=..150] at @s run fill ~-1 ~-1 ~-1 ~1 ~1 ~1 air replace nether_portal

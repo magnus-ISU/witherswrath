@@ -13,4 +13,4 @@ tag @e[type=item_display,tag=nether_star] add ns_orphaned
 execute as @e[type=item,tag=OminousNetherStar] on vehicle run tag @s[type=item_display,tag=nether_star] remove ns_orphaned
 kill @e[type=item_display,tag=ns_orphaned]
 
-schedule function wither:nether_star/tick 1t
+schedule function wither:nether_star/tick 4t

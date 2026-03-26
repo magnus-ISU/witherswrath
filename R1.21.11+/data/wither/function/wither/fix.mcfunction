@@ -53,9 +53,11 @@ schedule clear wither:wither/phase2/charge/charge
 schedule clear wither:wither/phase2/charge/charge2
 schedule clear wither:wither/phase2/charge/chargepre
 schedule clear wither:wither/phase2/charge/chargetick
+schedule clear wither:wither/phase2/charge/chargereset
 schedule clear wither:wither/phase2/dashes/dash
 schedule clear wither:wither/phase2/dashes/dashto
 schedule clear wither:wither/phase2/dashes/endloop
+schedule clear wither:wither/phase1/homing/homing
 schedule clear wither:wither/phase1/homing/homingpre
 schedule clear wither:wither/phase1/homing/homingtick
 schedule clear wither:wither/phase1/homing/homing5tick
@@ -67,6 +69,8 @@ schedule clear wither:wither/phase2/enraged/skulls/1
 schedule clear wither:wither/phase2/enraged/skulls/2
 schedule clear wither:wither/phase2/enraged/skulls/3
 schedule clear wither:wither/skull/launch_end
+schedule clear wither:wither/skull/burst/launch_burst_loop
+schedule clear wither:wither/skull/burst/launch_burst_loop_reset
 schedule clear wither:wither/unstuck/check
 schedule clear wither:wither/fight_start/part
 schedule clear wither:wither/fight_start/tick
@@ -157,6 +161,8 @@ kill @e[type=armor_stand,tag=midpointpos]
 execute at @e[type=item,tag=OminousNetherStar,limit=1] run kill @e[type=experience_orb,sort=nearest,distance=..10]
 
 execute as @e[type=player] run attribute @s minecraft:gravity modifier remove 1
+
+forceload remove all
 
 function wither:load
 
