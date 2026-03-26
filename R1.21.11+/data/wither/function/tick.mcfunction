@@ -58,5 +58,8 @@ execute if entity @e[type=wither,tag=ominousWither,scores={Health=..99}] at @e[t
 # Despawn wither if no players within 150 blocks - massive explosion
 execute as @e[type=wither,tag=ominousWither,limit=1] at @s unless entity @a[distance=..150] run function wither:wither/lifecycle/despawn
 
+# Replace wither effect on summoned skeletons with regeneration II
+execute as @e[tag=wSkel,nbt={active_effects:[{id:"minecraft:wither"}]}] run function wither:wither/passive/cure_wither
+
 # Destroy nether portals in a 3x3x3 around all players within 150 blocks of the wither
 execute at @e[type=wither,tag=ominousWither,limit=1] as @a[distance=..150] at @s run fill ~-1 ~-1 ~-1 ~1 ~1 ~1 air replace nether_portal
