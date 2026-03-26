@@ -9,6 +9,6 @@ data merge entity @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=neares
 
 execute if score enraged wenraged matches 1 run scoreboard players add reset wchargereset 1
 
-execute unless score enraged wenraged matches 1 if score wCharge wcharge1 matches 2 run schedule function wither:wither/phase2/charge/chargepre 20s
-execute if score enraged wenraged matches 1 if score wCharge wcharge1 matches 2 unless score reset wchargereset matches 3.. run schedule function wither:wither/phase2/charge/chargepre 4t
-execute if score enraged wenraged matches 1 if score wCharge wcharge1 matches 2 if score reset wchargereset matches 3.. run function wither:wither/phase2/charge/chargereset
+execute unless score enraged wenraged matches 1 run schedule function wither:wither/phase2/charge/chargepre 20s
+execute if score enraged wenraged matches 1 unless score reset wchargereset matches 3.. run schedule function wither:wither/phase2/charge/chargepre 4t
+execute if score enraged wenraged matches 1 if score reset wchargereset matches 3.. run function wither:wither/phase2/charge/chargereset

@@ -1,6 +1,8 @@
 # Fight tick loop - started from ominous_init, runs only while a fight is active
 # Reschedule only while the ominous wither is alive; naturally stops when fight ends
 execute if entity @e[type=wither,tag=ominousWither] run schedule function wither:tick 10t
+execute unless entity @e[type=wither,tag=ominousWither] run function wither:wither/lifecycle/cleanup
+execute unless entity @e[type=wither,tag=ominousWither] run return 0
 
 # Health tracking for ominous wither
 execute as @e[type=wither,tag=ominousWither,limit=1] store result score @s Health run data get entity @s Health
