@@ -6,7 +6,7 @@ execute if entity @e[type=wither,tag=ominousWither] run schedule function wither
 execute as @e[type=wither,tag=ominousWither,limit=1] store result score @s Health run data get entity @s Health
 
 # Health caps - prevent healing above phase thresholds
-execute as @e[type=wither,tag=ominousWither,tag=!Wither] if score @s Health matches 298.. run data modify entity @s Health set value 298.0f
+execute as @e[type=wither,tag=ominousWither,tag=!Phase1] if score @s Health matches 298.. run data modify entity @s Health set value 298.0f
 execute as @e[type=wither,tag=ominousWither,tag=!Dash] if score @s Health matches 100.. run data modify entity @s Health set value 98.0f
 
 # wArcher shield: while any wArcher is alive, keep the Ominous Wither immune and glowing

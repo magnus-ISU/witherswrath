@@ -8,7 +8,7 @@
       "conditions": {
         "entity": {
           "type": "minecraft:wither",
-          "nbt": "{Tags:[\"Wither\"]}"
+          "nbt": "{Tags:[\"Phase1\"]}"
         }
       }
     }
