@@ -7,6 +7,7 @@ To trigger the Ominous Wither, summon a wither and have Bad Omen within 32 block
 <br>
 
 <details>
+<summary>Fight Mechanics</summary>
 
 ---
 
@@ -52,8 +53,9 @@ To trigger the Ominous Wither, summon a wither and have Bad Omen within 32 block
 - **Weather & Atmosphere** -- Time is set to midnight and weather to thunderstorm when the fight begins. Custom music plays for each phase.
 
 </details>
-<summary> Changes from Wither's Wrath </summary>
 
+<details>
+<summary> Changes from Wither's Wrath </summary>
 <br>
 
 - **Renamed to Ominous Wither** -- and activated by Bad Omen instead of always replacing the wither.
@@ -73,6 +75,7 @@ To trigger the Ominous Wither, summon a wither and have Bad Omen within 32 block
 - **Despawning** if it kills all nearby players.
 
 <br>
+</details>
 
 ---
 
