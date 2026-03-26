@@ -3,23 +3,20 @@
 </div>
 <br><br>
 
-**Ominous Wither** is a fork of [Wither's Wrath](https://github.com/ImHer0/witherswrath) that overhauls the Wither boss fight with new attack patterns, summoning mechanics, and a multi-phase battle designed to be a real challenge. The Wither has **600 HP** (Bedrock parity), three distinct phases, and an army of minions at its command.
+**Ominous Wither** is a fork of [Wither's Wrath](https://github.com/ImHer0/witherswrath) with new attack patterns, summoning mechanics, and a multi-phase battle designed to be a real challenge. The Wither has **600 HP**, three distinct phases, and an army of minions at its command.
 
-To trigger the Ominous Wither, summon a regular wither while you have the **Bad Omen** effect. If no Bad Omen is present, the wither remains vanilla.
+To trigger the Ominous Wither, summon a wither and have Bad Omen within 32 blocks. Normal withers are not affected and will not change once they have completed summoning.
 
 <br>
 
 ---
 
-**This pack was designed for Minecraft version 1.21.11 and up.**
-
----
+**For Minecraft 1.21.11 and up.**
 
 ---
 
 
 <details>
-<summary>What does the Ominous Wither include?</summary>
 
 The Ominous Wither has **600 HP**, 1.5x scale, increased knockback resistance, and blast protection armor. Summoned mobs use vanilla-like sizes rather than custom scales for a more authentic feel. The tick loop is event-driven and only runs while a fight is active -- no persistent ticking when the wither isn't present.
 
@@ -27,46 +24,39 @@ The Ominous Wither has **600 HP**, 1.5x scale, increased knockback resistance, a
 
 ### Phase 1 (600 - 300 HP)
 
-- **Homing Skulls** -- Weaker but never miss. _Blocking with a shield is advised._ Activates below 450 HP.
+- **Distant Death** -- The wither will hover 20 blocks away from players, keeping its distance and attacking with its new ranged attacks.
+- **Burst of Skulls** -- Enhanced skull attacks including burst-fire volleys.
+- **Homing Skulls** -- Weaker but never miss. Can be blocked with a Shield.
 - **Skeleton Summons** -- Periodically spawns 8 skeletons (with levitation) in a ring around each player, plus a **Skeleton Captain** with a golden helmet, permanent strength, speed, and regeneration.
-- **Fleeing** -- When a player gets within 20 blocks, the wither uses motion to fly away and gain altitude, keeping its distance. This behavior continues throughout the fight.
-- **Wither Skulls** -- Enhanced skull attacks including burst-fire volleys.
-
----
-
-### Midpoint Transition (300 HP)
-
-- Massive **blast column** erupts upward with cascading explosions.
-- The wither ascends, then slams back to the ground with a shockwave.
-- **Phantom Riders (wArchers)** are summoned -- wither skeletons riding invisible phantoms, armed with Flame bows, golden helmets, and netherite chestplates.
-- **Wither Shield** -- While any wArcher is alive, the Ominous Wither is **immune to damage** (Resistance V, health locked, glowing). You must kill all the wArcher skeletons to lift the shield.
-- **Blazes** spawn during the transition, scaled to the number of players (up to 30 for large groups).
-- The wither gains increased armor and armor toughness.
 
 ---
 
 ### Phase 2 (300 - 100 HP)
 
-- **Charge Attack** -- Unlocked at 250 HP. The wither locks on, freezes in place, then rams toward the nearest player at high speed. Gives brief Resistance to nearby players to prevent one-shots.
-- **Aerial Dive** -- If the wither is more than 20 blocks above a player (and within 5 horizontal), it dives straight down, slamming into the ground with **creeper explosions**, a **lightning strike**, and a burst of particles.
-- **Skeleton Swarm** -- At 150 HP, summons 15 fast, tough wither skeletons wearing wither skeleton skulls.
+- The wither gains increased armor and armor toughness.
+- **Blast column** erupts upward with cascading explosions. The wither ascends, then slams back to the ground with a shockwave.
+- **Phantom Archers** are summoned -- wither skeletons riding invisible phantoms, armed with Flame bows, golden helmets, and netherite chestplates, scaled to the number of players.
+- **Wither Shield** -- While any Phantom Archer is alive, the Ominous Wither is **immune to damage**. You must kill the Phantom Archers to lift the shield.
+- **Charge Attack** -- Unlocked when the shield is broken. The wither locks on, freezes in place, then rams toward the nearest player at high speed.
+- **Skeleton Swarm** -- At 150 HP, summons 15 fast, tough wither skeletons.
 
 ---
 
-### Phase 3 / Enraged (<100 HP)
+### Phase 3 / Enraged (100 - 0 HP)
 
-- **Enraged Mode** activates -- the wither's team color turns dark red, heavy gravity grounds it, and particle effects intensify (mycelium cloud, trial omen particles).
+- **Enraged Mode** activates -- the wither's color turns dark red, stays low to the ground, and particle effects intensify.
 - **Resistance III** -- The wither permanently has Resistance III, making it much harder to kill.
+- **Faster Attacks** -- Homing skulls and charge attacks happen at double speed.
+- **Rotating Skull Ring** -- Orbiting wither skulls spin around the wither, face the player, then launch towards them.
 - **Aura of Destruction** -- All players more than 16 blocks away receive **Wither V**, forcing you to stay close. A ring of black squid ink particles marks the 16-block boundary.
 - **Dashes** -- The wither freezes, faces a player, then dashes toward them repeatedly every 3 seconds.
-- **Rotating Skull Ring** -- Orbiting wither skulls spin around the wither.
-- **Horse Riders** -- Summons 3 elite wither skeletons riding **skeleton horses** with netherite horse armor. The riders carry netherite swords with Fire Aspect II and wear full netherite armor with redstone rib trim.
-- **Faster Attacks** -- Homing skulls and charge attacks happen at double speed.
+- **Horse Riders** -- Summons 3 elite wither skeletons riding **skeleton horses** with netherite horse armor every 15 seconds.
 
 ---
 
 ### Other Mechanics
 
+- **Aerial Dive** -- If the wither is more than 20 blocks above a player, it dives straight down, slamming into the ground with a large explosion and a **lightning strike**. This keeps it near to the players no matter what.
 - **Nether Portal Destruction** -- Nether portals near players are destroyed during the fight to prevent escape.
 - **Despawn** -- If no players are within 150 blocks (e.g. you die and respawn far away), the wither despawns in a massive multi-ring explosion and the fight ends.
 - **Teleport Chase** -- If a player is 128-150 blocks away, the wither teleports above them.

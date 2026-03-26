@@ -31,5 +31,6 @@ execute if data storage wither:options {togglehoming:Enabled} run schedule funct
 execute if data storage wither:options {togglespawns:Enabled} run schedule function wither:wither/passive/spawn 15s
 schedule function wither:wither/lifecycle/spawn 219t
 schedule function wither:wither/unstuck/check 15s
+schedule function wither:wither/lifecycle/timeout 24000t
 execute if data storage wither:options {toggleanimation:Default} run schedule function wither:wither/fight_start/tick 1t
 execute if data storage wither:options {toggleanimation:Bedrock} run schedule function wither:wither/fight_start/bedrock 1t

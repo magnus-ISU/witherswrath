@@ -72,6 +72,7 @@ schedule clear wither:wither/skull/launch_end
 schedule clear wither:wither/skull/burst/launch_burst_loop
 schedule clear wither:wither/skull/burst/launch_burst_loop_reset
 schedule clear wither:wither/unstuck/check
+schedule clear wither:wither/lifecycle/timeout
 schedule clear wither:wither/fight_start/part
 schedule clear wither:wither/fight_start/tick
 schedule clear wither:wither/fight_start/bedrock

@@ -4,6 +4,7 @@ scoreboard players set wspawn spawn 0
 scoreboard players set wChargereset wchargereset 0
 scoreboard players set enraged wenraged 0
 scoreboard players set ominousWither divecooldown 0
+tag @e[type=wither,tag=ominousWither] remove shieldActive
 schedule clear wither:wither/dive/land
 
 # Clear all fight schedules
@@ -36,6 +37,7 @@ schedule clear wither:wither/passive/skull
 schedule clear wither:wither/fight_start/part
 schedule clear wither:wither/fight_start/init_ring_explode
 schedule clear wither:wither/unstuck/check
+schedule clear wither:wither/lifecycle/timeout
 
     schedule function wither:xp/xp 1t
 
