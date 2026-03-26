@@ -2,3 +2,4 @@
 advancement revoke @s only wither:wither/hit3_wither
 
 execute as @e[type=wither,tag=ominousWither,scores={Health=..260}] at @s run scoreboard players set wCharge wcharge1 2
+execute as @e[type=wither,tag=ominousWither,scores={Health=..250}] if data storage wither:options {togglecharge:Enabled} at @s run function wither:wither/phase2/charge/chargepre
