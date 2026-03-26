@@ -1,8 +1,11 @@
-# wither skeleton spawns
-execute as @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=nearest] at @s unless entity @e[type=wither_skeleton,distance=..10] at @s run summon wither_skeleton ~ ~ ~ {Team:"Wither",DeathLootTable: "wither:entities/withermobs", Tags: ["wSkel"], attributes:[{id:"minecraft:max_health",base:50},{id:"minecraft:safe_fall_distance",base:100}], equipment:{feet:{id:"minecraft:netherite_boots",count:1,components:{"minecraft:unbreakable":{},"minecraft:trim":{material:"minecraft:diamond",pattern:"minecraft:silence"}}}},drop_chances:{feet:0.000}, Health: 50}
-execute as @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=nearest] at @s unless entity @e[type=wither_skeleton,distance=..10] as @s at @s run particle minecraft:squid_ink ~ ~-0.3 ~ 0 0.5 0 0.07 120 force
-execute as @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=nearest] at @s unless entity @e[type=wither_skeleton,distance=..10] as @s at @s run particle minecraft:smoke ~ ~-0.3 ~ 1 0.5 1 0.1 450 force
+# Phase 1 (600-300 HP): Spawn 8 skeletons around each player within 150 blocks
+execute if entity @e[type=minecraft:wither,tag=ominousWither,scores={Health=300..600}] at @e[type=minecraft:wither,tag=ominousWither,limit=1] as @a[distance=..150] at @s run function wither:wither/passive/spawn_skeletons
 
-execute if score enraged wenraged matches 1 run schedule function wither:wither/passive/spawn 5s
-execute unless score enraged wenraged matches 1 run schedule function wither:wither/passive/spawn 10s
+# Phase 3 (<100 HP): Spawn 3 wither skeletons around the wither
+execute if entity @e[type=minecraft:wither,tag=ominousWither,scores={Health=..99}] as @e[type=minecraft:wither,tag=ominousWither,limit=1] at @s run function wither:wither/passive/spawn_wither_skeletons
 
+# Reschedule based on phase
+execute if entity @e[type=minecraft:wither,tag=ominousWither,scores={Health=300..600}] run schedule function wither:wither/passive/spawn 25s
+execute if entity @e[type=minecraft:wither,tag=ominousWither,scores={Health=..99}] run schedule function wither:wither/passive/spawn 15s
+# Keep checking during phase 2 (100-299 HP) so we catch the transition to phase 3
+execute if entity @e[type=minecraft:wither,tag=ominousWither,scores={Health=100..299}] run schedule function wither:wither/passive/spawn 5s
