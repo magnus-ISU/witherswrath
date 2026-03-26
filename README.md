@@ -1,33 +1,21 @@
-<div align="center">
-  <img src="https://cdn.modrinth.com/data/cached_images/8d5aaaefc87dc119197586f7725d20513ee9e2ae.png" alt="Logo" width="500">
-</div>
-<br><br>
+# Ominous Wither
 
-**Ominous Wither** is a fork of [Wither's Wrath](https://github.com/ImHer0/witherswrath) with new attack patterns, summoning mechanics, and a multi-phase battle designed to be a real challenge. The Wither has **600 HP**, three distinct phases, and an army of minions at its command.
+**Ominous Wither** is a fork of [Wither's Wrath](https://github.com/ImHer0/witherswrath) for 1.21.11+ with new attack patterns, summoning mechanics, and a multi-phase battle. The Wither has **600 HP**, three distinct phases, and an army of minions at its command.
 
 To trigger the Ominous Wither, summon a wither and have Bad Omen within 32 blocks. Normal withers are not affected and will not change once they have completed summoning.
 
 <br>
 
----
-
-**For Minecraft 1.21.11 and up.**
-
----
-
-
 <details>
-
-The Ominous Wither has **600 HP**, 1.5x scale, increased knockback resistance, and blast protection armor. Summoned mobs use vanilla-like sizes rather than custom scales for a more authentic feel. The tick loop is event-driven and only runs while a fight is active -- no persistent ticking when the wither isn't present.
 
 ---
 
 ### Phase 1 (600 - 300 HP)
-
-- **Distant Death** -- The wither will hover 20 blocks away from players, keeping its distance and attacking with its new ranged attacks.
-- **Burst of Skulls** -- Enhanced skull attacks including burst-fire volleys.
-- **Homing Skulls** -- Weaker but never miss. Can be blocked with a Shield.
-- **Skeleton Summons** -- Periodically spawns 8 skeletons (with levitation) in a ring around each player, plus a **Skeleton Captain** with a golden helmet, permanent strength, speed, and regeneration.
+- **600 HP**, 1.5x scale, increased knockback resistance, and blast protection.
+- **Burst of Skulls** -- Enhanced skull attacks including burst-fire volleys. Persist in all phases.
+- **Homing Skulls** -- Weaker but never miss. Can be blocked with a Shield. Persist in all phases.
+- **Ranged Attacks** -- The wither will hover 25 blocks away from players for now, keeping its distance and attacking with its new ranged attacks.
+- **Skeleton Summons** -- Every 25 seconds 8 skeletons rise from the ground in a ring around each player, plus a **Skeleton Captain** with a golden helmet, permanent strength, speed, and regeneration.
 
 ---
 
@@ -65,60 +53,25 @@ The Ominous Wither has **600 HP**, 1.5x scale, increased knockback resistance, a
 
 </details>
 
-<details>
-<summary>How to enable Bedrock Mode</summary>
-
-
-https://github.com/user-attachments/assets/58b41e93-03e0-4469-af28-27580a54e916
-
-
-</details>
-
----
-
-<br>
-
-### **Toggle Options**
-To configure settings, use the following command:
-`/function wither:config`
-
-Available toggles across 3 config pages:
-
-| Toggle | Description |
-|--------|-------------|
-| **Animation** | Off / Default / Bedrock parity |
-| **Trophy** | Toggle the trophy dropped on death |
-| **Destruction** | Block breaking, explosions, etc. |
-| **Homing** | Homing skull attacks |
-| **Charge Attack** | The charge/ram at 250 HP |
-| **Spawns** | Periodic skeleton summons |
-| **Direct Hits** | Explosion + teleport when hit in Phase 1 |
-| **Dashes** | Dash attacks in Phase 3 |
-| **Weather** | Midnight + thunderstorm on fight start |
-
-> Warning:
-> This Wither is highly destructive. Fight it far from your base, or toggle the option to disable destructive features.
-
-<br>
-
----
-
 <br>
 
 ### **Changes from Wither's Wrath**
 
-- Renamed to **Ominous Wither** -- activated by Bad Omen instead of always replacing the wither
-- **No persistent ticking** -- the tick loop is event-driven, only running during an active fight
-- **Vanilla-like summons** -- mobs use vanilla sizes instead of custom scales
-- **Skeleton summons** in Phase 1 (skeletons + captains per player)
-- **Phantom riders (wArchers)** at the midpoint with a **shield mechanic** protecting the wither
-- **Wither flees further** using motion-based movement when players get close
-- **Downward dive attack** -- aerial slam with creeper explosions and lightning
-- **Horse riders** in the final phase -- elite netherite wither skeletons on skeleton horses
-- **Aura of destruction** in the final phase -- Wither V to distant players with a visible particle boundary
-- **Resistance III** in the final phase making the wither harder to kill
-- **Skeleton swarm** at 150 HP -- 15 wither skeletons summoned at once
-- **Nether portal destruction** during the fight
+- **Renamed to Ominous Wither** -- and activated by Bad Omen instead of always replacing the wither.
+- **No persistent ticking** -- the tick loop is event-driven, only running during an active fight. There is no performance overhead when not fighting and no scheduled events cluttering things.
+- **Tweaked thresholds for behaviors** to have 3 more consistent phases.
+- **Vanilla-size minions** instead of custom scales, with fewer HP or attribute changes.
+- **Wither flees further** -- 25 blocks away instead of very close to melee.
+- **Skeleton summons** in Phase 1 (skeletons + captains per player).
+- **Phantom riders (wArchers)** at the midpoint with a **shield mechanic** protecting the wither.
+- **Downward dive attack** -- aerial slam with creeper explosions and lightning.
+- **Horse riders** are summoned in the final phase; elite netherite wither skeletons on horseback.
+- **Aura of destruction** in the final phase -- Wither V to distant players forcing chaos.
+- **Resistance III** in the final phase making the wither harder to kill -- it has 750 effective HP.
+- **Skeleton swarm** at 150 HP -- 15 wither skeletons summoned at once.
+- **Nether portal destruction** during the fight.
+- **Teleport Chase** to prevent fleeing with elytra.
+- **Despawning** if it kills all nearby players.
 
 <br>
 
