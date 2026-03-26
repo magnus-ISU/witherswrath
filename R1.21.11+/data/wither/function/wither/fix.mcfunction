@@ -146,6 +146,7 @@ tp @e[type=wither] ~ -200 ~
 kill @e[type=wither]
 kill @e[type=wither_skull]
 kill @e[type=item_display,tag=nether_star]
+kill @e[type=item,tag=OminousNetherStar]
 kill @e[tag=wither_dash]
 kill @e[tag=wSkel]
 kill @e[tag=wArcher]
@@ -153,7 +154,7 @@ kill @e[type=armor_stand,tag=hStand]
 kill @e[type=armor_stand,tag=starxp]
 kill @e[type=armor_stand,tag=chargew]
 kill @e[type=armor_stand,tag=midpointpos]
-execute at @e[type=item,sort=nearest,nbt={Item:{id:"minecraft:nether_star",count:1}},limit=1,tag=] run kill @e[type=experience_orb,sort=nearest,distance=..10]
+execute at @e[type=item,tag=OminousNetherStar,limit=1] run kill @e[type=experience_orb,sort=nearest,distance=..10]
 
 execute as @e[type=player] run attribute @s minecraft:gravity modifier remove 1
 

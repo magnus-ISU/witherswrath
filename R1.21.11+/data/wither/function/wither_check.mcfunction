@@ -7,4 +7,4 @@ execute if entity @e[type=wither,tag=ominousWither] run scoreboard players set w
 execute unless entity @e[type=wither,tag=ominousWither] run scoreboard players set witherCheck witherCheck 0
 
 # Reschedule if fight is still active
-execute unless entity @e[type=item,sort=nearest,tag=nether_star] if entity @e[type=wither,tag=ominousWither] run schedule function wither:wither_check 1t
+execute unless entity @e[type=item,tag=OminousNetherStar] if entity @e[type=wither,tag=ominousWither] run schedule function wither:wither_check 1t
