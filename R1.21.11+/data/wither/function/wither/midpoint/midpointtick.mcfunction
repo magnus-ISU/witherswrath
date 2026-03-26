@@ -3,6 +3,6 @@ execute unless score midpoint stages matches 1 as @e[type=minecraft:armor_stand,
 execute if score midpoint stages matches 1 unless entity @e[type=minecraft:armor_stand,limit=1,sort=nearest,tag=midpointpos,nbt={OnGround:1b}] run data merge entity @s {Motion:[0.0,0.2,0.0]}
 execute if score midpoint stages matches 1 if entity @e[type=minecraft:armor_stand,limit=1,sort=nearest,tag=midpointpos,nbt={OnGround:1b}] run function wither:wither/midpoint/midpointground
 
-execute as @e[type=minecraft:wither,limit=1,sort=nearest] run tp @e[type=minecraft:armor_stand,limit=1,sort=nearest,tag=midpointpos]
+execute as @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=nearest] run tp @e[type=minecraft:armor_stand,limit=1,sort=nearest,tag=midpointpos]
 
 execute if entity @e[type=minecraft:armor_stand,limit=1,sort=nearest,tag=midpointpos] run schedule function wither:wither/midpoint/midpointtick 1t
