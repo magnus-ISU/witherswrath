@@ -12,6 +12,9 @@ execute at @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=nearest] as @
 execute if score enraged wenraged matches 1 at @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=nearest] run particle minecraft:mycelium ~ ~1 ~ 1 1 1 0 1500 normal
 execute if score enraged wenraged matches 1 at @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=nearest] run particle trial_omen ~ ~1 ~ 1 1 1 2 10 normal
 
+# Resistance III when below 100 HP (reapplied every 5 ticks; won't overwrite higher resistance from dash/charge)
+execute as @e[type=minecraft:wither,tag=ominousWither,limit=1,scores={Health=..100}] run effect give @s minecraft:resistance 1 2 true
+
 execute as @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=nearest] at @s run particle minecraft:ash ~ ~ ~ 10 10 10 0 300
 
 execute if entity @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=nearest,tag=Swarm] run function wither:wither/hit/hit6
