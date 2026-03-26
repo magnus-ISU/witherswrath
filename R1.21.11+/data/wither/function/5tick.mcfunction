@@ -1,5 +1,3 @@
-# Multiple withers are now handled in tick.mcfunction detection
-
 execute as @e[type=wither_skeleton,nbt={Tags:["wArcher"]},limit=1,sort=random] at @e[type=blaze,nbt={Tags: ["wArcher"]},sort=nearest,limit=1] unless block ~ ~-.1 ~ air run ride @s dismount
 
 #execute if entity @e[type=blaze,nbt={Tags: ["wArcher"]}] unless data entity @e[type=blaze,limit=1] {Passengers: [{}]} run kill @e[type=blaze,limit=1]
@@ -29,5 +27,8 @@ execute if entity @e[type=minecraft:wither,limit=1,sort=nearest,tag=Dash] run fu
 execute if entity @e[type=minecraft:wither,limit=1,sort=nearest,tag=Charge] run function wither:wither/hit/hit3
 execute if entity @e[type=minecraft:wither,limit=1,sort=nearest,tag=Wither] run function wither:wither/hit/hit2
 execute as @e[type=minecraft:wither,limit=1,sort=nearest] unless data entity @s Tags run function wither:wither/hit/hit
+
+# Aerial dive: if wither is >20 blocks above a player and within 5 blocks horizontal, slam down
+execute if score ominousWither divecooldown matches 0 as @e[type=wither,tag=ominousWither,limit=1] at @s positioned ~-5 ~-300 ~-5 if entity @a[dx=10,dy=280,dz=10] run function wither:wither/dive/dive
 
 schedule function wither:5tick 5t

@@ -1,6 +1,9 @@
 # ONE-TIME ONLY: Removing this tag will stop the adv from triggering
 tag @s remove Wither
 
+scoreboard players set ominousWither divecooldown 1
+schedule function wither:wither/dive/divecooldown 200t
+
 # Takeoff blast column
 execute if data storage wither:options {toggleanimation:Default} at @s run fill ~-1 ~ ~-1 ~1 ~47 ~1 air
 execute if data storage wither:options {toggleanimation:Default} at @s run summon creeper ~ ~ ~  {Team:"Wither",Silent:1b,Invulnerable:1b,NoAI:1b,ExplosionRadius:6b,Fuse:1,ignited:1b,active_effects:[{id:"minecraft:invisibility",amplifier:0,duration:-1,show_particles:0b,show_icon:0b}]}
