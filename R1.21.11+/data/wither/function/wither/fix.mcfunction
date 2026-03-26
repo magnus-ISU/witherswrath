@@ -122,6 +122,7 @@ schedule clear wither:wither/midpoint/particles/down5
 schedule clear wither:wither/midpoint/particles/clearlev
 schedule clear wither:wither/passive/skull
 schedule clear wither:wither/passive/spawn
+schedule clear wither:wither/passive/spawn_captain
 schedule clear wither:wither/skull
 schedule clear wither:wither_check
 schedule clear wither:tick
@@ -158,6 +159,7 @@ kill @e[type=armor_stand,tag=hStand]
 kill @e[type=armor_stand,tag=starxp]
 kill @e[type=armor_stand,tag=chargew]
 kill @e[type=armor_stand,tag=midpointpos]
+kill @e[type=marker,tag=wSpawnMarker]
 execute at @e[type=item,tag=OminousNetherStar,limit=1] run kill @e[type=experience_orb,sort=nearest,distance=..10]
 
 execute as @e[type=player] run attribute @s minecraft:gravity modifier remove 1

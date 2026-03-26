@@ -31,6 +31,7 @@ schedule clear wither:wither/skull/launch_end
 schedule clear wither:wither/skull/burst/launch_burst_loop
 schedule clear wither:wither/skull/burst/launch_burst_loop_reset
 schedule clear wither:wither/passive/spawn
+schedule clear wither:wither/passive/spawn_captain
 schedule clear wither:wither/passive/skull
 schedule clear wither:wither/fight_start/part
 schedule clear wither:wither/fight_start/init_ring_explode
@@ -54,6 +55,7 @@ schedule clear wither:wither/unstuck/check
     execute at @e[type=item_display,tag=nether_star,limit=1] run kill @e[type=creeper,distance=..80]
     execute at @e[type=item_display,tag=nether_star,limit=1] run kill @e[type=armor_stand,tag=hStand,distance=..100]
     execute at @e[type=item_display,tag=nether_star,limit=1] run kill @e[type=armor_stand,tag=chargew,distance=..100]
+    kill @e[type=marker,tag=wSpawnMarker]
 
 # Remove force-loaded chunks
 forceload remove all

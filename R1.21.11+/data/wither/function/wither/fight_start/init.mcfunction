@@ -24,7 +24,7 @@ execute as @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=nearest] at @
 
 # OPENING: clear 13x13x13, center blast, three 8-skull rings → creeper radius 6 at 4s
 execute as @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=nearest] at @s run fill ~-6 ~-6 ~-6 ~6 ~6 ~6 minecraft:air
-execute as @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=nearest] at @s run summon minecraft:creeper ~ ~1 ~ {Team:"Wither",CustomName:"Ominous Wither's Arrival",ExplosionRadius:8,Invulnerable:1b,Fuse:0,ignited:1b,Silent:1b,attributes:[{id:"minecraft:scale",base:0.0625}]}
+schedule function wither:wither/fight_start/init_sphere 1t
 execute as @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=nearest] at @s run function wither:wither/fight_start/init_skull_rings
 schedule function wither:wither/fight_start/init_ring_explode 4s
 

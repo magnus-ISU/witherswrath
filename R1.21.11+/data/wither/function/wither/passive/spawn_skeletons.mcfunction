@@ -11,3 +11,6 @@ summon skeleton ~-1 ~-1.9 ~-3 {active_effects:[{id:levitation,amplifier:0,durati
 
 particle minecraft:squid_ink ~ ~-0.3 ~ 2 0.5 2 0.07 120 force
 particle minecraft:smoke ~ ~-0.3 ~ 3 0.5 3 0.1 450 force
+
+# Mark this player's position for the captain spawn 1s later
+summon marker ~ ~ ~ {Tags:["wSpawnMarker"]}
