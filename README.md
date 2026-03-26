@@ -45,17 +45,16 @@ To trigger the Ominous Wither, summon a wither and have Bad Omen within 32 block
 ### Other Mechanics
 
 - **Aerial Dive** -- If the wither is more than 20 blocks above a player, it dives straight down, slamming into the ground with a large explosion and a **lightning strike**. This keeps it near to the players no matter what.
-- **Nether Portal Destruction** -- Nether portals near players are destroyed during the fight to prevent escape.
-- **Despawn** -- If no players are within 150 blocks (e.g. you die and respawn far away), the wither despawns in a massive multi-ring explosion and the fight ends.
 - **Teleport Chase** -- If a player is 128-150 blocks away, the wither teleports above them.
-- **Summoned Mob Healing** -- Summoned skeletons have their wither effect replaced with Regeneration II so they don't die to the wither's own aura.
+- **Despawn** -- If no players are within 150 blocks (e.g. you die and respawn far away), the wither despawns in a massive multi-ring explosion and the fight ends.
+- **Nether Portal Destruction** -- Nether portals near players are destroyed during the fight to prevent escape.
+- **Summoned Mob Healing** -- Summoned skeletons have their wither effect replaced with Regeneration II so they don't die to the wither's own attacks (as much).
 - **Weather & Atmosphere** -- Time is set to midnight and weather to thunderstorm when the fight begins. Custom music plays for each phase.
 
 </details>
+<summary> Changes from Wither's Wrath </summary>
 
 <br>
-
-### **Changes from Wither's Wrath**
 
 - **Renamed to Ominous Wither** -- and activated by Bad Omen instead of always replacing the wither.
 - **No persistent ticking** -- the tick loop is event-driven, only running during an active fight. There is no performance overhead when not fighting and no scheduled events cluttering things.
