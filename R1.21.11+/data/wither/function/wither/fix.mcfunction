@@ -148,7 +148,7 @@ stopsound @a record
 
 kill @e[type=armor_stand,tag=wither_spin]
 kill @e[type=armor_stand,tag=wither_stasis]
-tp @e[type=wither] ~ -200 ~
+execute as @e[type=wither,tag=ominousWither,limit=1] at @s run tp @s ~ -200 ~
 kill @e[type=wither]
 kill @e[type=wither_skull]
 kill @e[type=item_display,tag=nether_star]
