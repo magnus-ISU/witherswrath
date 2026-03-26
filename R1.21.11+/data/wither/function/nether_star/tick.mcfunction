@@ -1,4 +1,4 @@
-
+execute unless entity @e[type=item,tag=nether_star] run return 0
 
 execute if entity @e[type=item,tag=nether_star] as @e[type=item,sort=nearest,tag=nether_star,limit=1] at @s run tp @s ~ ~ ~ ~10 ~
 
@@ -12,4 +12,3 @@ execute as @e[type=item_display,tag=nether_star,limit=1] at @s run tp @s @e[type
 execute unless entity @e[type=item,nbt={Item:{id:"minecraft:nether_star"}}] run kill @e[type=item_display,tag=nether_star,limit=1]
 
 schedule function wither:nether_star/tick 1t
-

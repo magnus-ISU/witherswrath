@@ -20,6 +20,7 @@ scoreboard players set ominousWither divecooldown 0
 schedule function wither:wither_check 1t
 schedule function wither:wither/fight_start/init 1t
 schedule function wither:tick 1t
+schedule function wither:5tick 2t
 schedule function wither:wither/skull/launch 22s
 schedule function wither:wither/skull/burst/launch_burst_loop 30s
 execute if data storage wither:options {toggleanimation:Default} run schedule function wither:wither/passive/skull 12s
@@ -32,4 +33,3 @@ schedule function wither:wither/lifecycle/spawn 219t
 schedule function wither:wither/unstuck/check 15s
 execute if data storage wither:options {toggleanimation:Default} run schedule function wither:wither/fight_start/tick 1t
 execute if data storage wither:options {toggleanimation:Bedrock} run schedule function wither:wither/fight_start/bedrock 1t
-schedule function wither:wither/safemode 24000t
