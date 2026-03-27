@@ -93,7 +93,7 @@ schedule clear wither:wither/midpoint/midpoint2
 schedule clear wither:wither/midpoint/midpointtick
 schedule clear wither:wither/midpoint/midpointparttick
 schedule clear wither:wither/midpoint/midpointbedrock
-schedule clear wither:wither/midpoint/midpoint2.5
+schedule clear wither:wither/midpoint/midpoint_end
 schedule clear wither:wither/midpoint/midpointground
 schedule clear wither:wither/midpoint/spawns/blaze1
 schedule clear wither:wither/midpoint/spawns/blaze2

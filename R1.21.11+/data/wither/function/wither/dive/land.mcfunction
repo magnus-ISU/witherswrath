@@ -1,5 +1,4 @@
-say land
-data merge entity @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=nearest] {NoAI:0b}
+execute as @e[type=wither,tag=ominousWither,limit=1] run data merge entity @s {NoAI:0b,active_effects:[{id:"minecraft:resistance",amplifier:4,duration:200,show_particles:0b}]}
 execute as @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=nearest] at @s run summon minecraft:lightning_bolt ~ ~ ~ {}
 execute as @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=nearest] at @s run summon minecraft:creeper ~3 ~1 ~ {Team:"Wither",CustomName:"Ominous Wither's Dive",ExplosionRadius:4,Invulnerable:1b,Fuse:0,ignited:1b,Silent:1b,attributes:[{id:"minecraft:scale",base:0.0625}]}
 execute as @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=nearest] at @s run summon minecraft:creeper ~-3 ~1 ~ {Team:"Wither",CustomName:"Ominous Wither's Dive",ExplosionRadius:4,Invulnerable:1b,Fuse:0,ignited:1b,Silent:1b,attributes:[{id:"minecraft:scale",base:0.0625}]}

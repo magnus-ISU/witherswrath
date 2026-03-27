@@ -1,9 +1,7 @@
 # ONE-TIME ONLY: Removing this tag will stop the adv from triggering
 tag @s remove Phase1
 tag @s add Phase2
-
-scoreboard players set ominousWither divecooldown 1
-schedule function wither:wither/dive/divecooldown 200t
+tag @s add MidpointAnimation
 
 # Schedule beam attack 35s into Phase 2
 execute if data storage wither:options {togglebeam:Enabled} run schedule function wither:wither/phase2/beam/beampre 35s

@@ -20,7 +20,6 @@ scoreboard objectives add wither.temp.px dummy
 scoreboard objectives add wither.temp.py dummy
 scoreboard objectives add wither.temp.pz dummy
 scoreboard objectives add fightInitAge dummy
-scoreboard objectives add divecooldown dummy
 scoreboard objectives add beamTimer dummy
 scoreboard objectives add beamStep dummy
 

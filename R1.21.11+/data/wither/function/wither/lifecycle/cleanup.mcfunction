@@ -3,8 +3,8 @@ scoreboard players set wCharge wcharge1 1
 scoreboard players set wspawn spawn 0
 scoreboard players set wChargereset wchargereset 0
 scoreboard players set enraged wenraged 0
-scoreboard players set ominousWither divecooldown 0
-tag @e[type=wither,tag=ominousWither] remove shieldActive
+schedule clear wither:wither/dive/divetick
+schedule clear wither:wither/dive/divecooldown
 schedule clear wither:wither/dive/land
 
 # Clear all fight schedules

@@ -7,3 +7,5 @@ execute as @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=nearest] at @
 execute at @e[type=wither,tag=ominousWither,limit=1,sort=nearest] as @e[type=player,distance=..100] run playsound minecraft:entity.wither.spawn hostile @e[type=player,distance=..100] ~ ~ ~ 1 .6
 execute at @e[type=wither,tag=ominousWither,limit=1,sort=nearest] run particle electric_spark ~ ~0.8 ~ 0.3 0.5 0.3 8 400 normal
 execute at @e[type=wither,tag=ominousWither,limit=1,sort=nearest] run particle minecraft:end_rod ~ ~2 ~ 0 0 0 0.15 150 normal
+
+tag @e[type=wither,tag=ominousWither] remove MidpointAnimation

@@ -13,9 +13,6 @@ effect clear @a[distance=..100] minecraft:bad_omen
 execute store result score cmdFbk rules run gamerule send_command_feedback
 execute store result score count playerCount run execute if entity @e[type=player,distance=..100]
 
-# Initialize scoreboards that must be set before tick runs
-scoreboard players set ominousWither divecooldown 0
-
 # Schedule all fight functions
 schedule function wither:wither_check 1t
 schedule function wither:wither/fight_start/init 1t
