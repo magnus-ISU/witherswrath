@@ -16,6 +16,7 @@ tag @a remove beamTarget3
 
 # Restore wither
 tag @e[type=wither,tag=ominousWither] remove Beam
+tag @e[type=wither,tag=ominousWither] remove BeamTeleport
 data merge entity @e[type=wither,tag=ominousWither,limit=1] {NoAI:0b,Glowing:0b}
 
 # Schedule next beam attack in 80 seconds

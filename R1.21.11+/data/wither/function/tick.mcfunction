@@ -26,6 +26,8 @@ execute unless entity @e[type=wither_skeleton,tag=wArcher] run tag @e[type=withe
 
 # Teleport wither above player if they're 128-150 blocks away
 execute at @e[type=wither,tag=ominousWither,limit=1] unless entity @a[distance=..128] as @a[distance=128..150,sort=nearest,limit=1] at @s run tp @e[type=wither,tag=ominousWither,limit=1] ~ ~30 ~
+# Bring crystals along if in beam attack
+execute if entity @e[type=wither,tag=ominousWither,tag=Beam] run function wither:wither/phase2/beam/beam_crystals_follow
 
 # Aerial dive: if wither is >12 blocks above a player and within 5 blocks horizontal, slam down
 execute as @e[type=wither,tag=ominousWither,tag=!Diving,limit=1] at @s positioned ~-5 ~-300 ~-5 if entity @a[dx=10,dy=288,dz=10] run function wither:wither/dive/dive

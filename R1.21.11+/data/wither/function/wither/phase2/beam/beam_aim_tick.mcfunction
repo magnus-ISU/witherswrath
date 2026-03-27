@@ -8,6 +8,9 @@ scoreboard players add ominousWither beamTimer 1
 execute at @e[type=wither,tag=ominousWither,limit=1] store result score #nearby_players beamStep if entity @a[distance=..50,gamemode=!spectator]
 execute if score #nearby_players beamStep matches 4.. run scoreboard players add ominousWither beamTimer 1
 
+# Beam pursuit: teleport to fleeing target if any is >150 blocks away (once per beam)
+execute if entity @e[type=wither,tag=ominousWither,tag=!BeamTeleport] run function wither:wither/phase2/beam/beam_pursuit_teleport
+
 # Wither rotation and glowing
 data merge entity @e[type=wither,tag=ominousWither,limit=1] {NoAI:1b,Glowing:1b,active_effects:[{id:"minecraft:resistance",amplifier:255,duration:300,show_particles:0b}]}
 
