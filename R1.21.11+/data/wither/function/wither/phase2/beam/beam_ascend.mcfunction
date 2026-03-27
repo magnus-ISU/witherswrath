@@ -1,9 +1,6 @@
 # Beam Ascent - tp wither up 1.5 blocks/tick for 20 ticks
 execute unless entity @e[type=wither,tag=ominousWither] run return 0
 
-# Clear ascent path (3x30x3 column of air above wither)
-execute at @e[type=wither,tag=ominousWither,limit=1] run fill ~-1 ~ ~-1 ~1 ~30 ~1 air replace
-
 # Move up
 execute as @e[type=wither,tag=ominousWither,limit=1] at @s run tp @s ~ ~1.5 ~
 
