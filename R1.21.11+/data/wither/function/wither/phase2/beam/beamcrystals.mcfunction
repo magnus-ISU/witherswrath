@@ -18,17 +18,18 @@ execute at @e[type=wither,tag=ominousWither,limit=1] run tag @p[distance=..150,g
 # Center head: target random player (could be same in singleplayer)
 execute at @e[type=wither,tag=ominousWither,limit=1] run tag @r[distance=..150,gamemode=!spectator] add beamCenterTarget
 
-# Summon aim markers at target players + 120 blocks up
-execute at @a[tag=beamSideTarget,limit=1] run summon armor_stand ~ ~120 ~ {Team:"Wither",Invisible:1b,Invulnerable:1b,NoGravity:1b,Marker:1b,Tags:["beamTargetSide"]}
-execute at @a[tag=beamCenterTarget,limit=1] run summon armor_stand ~ ~120 ~ {Team:"Wither",Invisible:1b,Invulnerable:1b,NoGravity:1b,Marker:1b,Tags:["beamTargetCenter"]}
+# Summon aim markers at target players + 213 blocks up
+execute at @a[tag=beamSideTarget,limit=1] run summon armor_stand ~ ~213 ~ {Team:"Wither",Invisible:1b,Invulnerable:1b,NoGravity:1b,Marker:1b,Tags:["beamTargetLeft"]}
+execute at @a[tag=beamSideTarget,limit=1] run summon armor_stand ~ ~213 ~ {Team:"Wither",Invisible:1b,Invulnerable:1b,NoGravity:1b,Marker:1b,Tags:["beamTargetRight"]}
+execute at @a[tag=beamCenterTarget,limit=1] run summon armor_stand ~ ~213 ~ {Team:"Wither",Invisible:1b,Invulnerable:1b,NoGravity:1b,Marker:1b,Tags:["beamTargetCenter"]}
 
 # Set initial beam_target on crystals from marker Pos
-data modify entity @e[tag=beamCrystalL,limit=1] beam_target set from entity @e[tag=beamTargetSide,limit=1] Pos
-data modify entity @e[tag=beamCrystalR,limit=1] beam_target set from entity @e[tag=beamTargetSide,limit=1] Pos
+data modify entity @e[tag=beamCrystalL,limit=1] beam_target set from entity @e[tag=beamTargetLeft,limit=1] Pos
 data modify entity @e[tag=beamCrystalC,limit=1] beam_target set from entity @e[tag=beamTargetCenter,limit=1] Pos
+data modify entity @e[tag=beamCrystalR,limit=1] beam_target set from entity @e[tag=beamTargetRight,limit=1] Pos
 
 # Sound
 execute at @e[type=wither,tag=ominousWither,limit=1] run playsound minecraft:entity.ender_dragon.growl hostile @a[distance=..150] ~ ~ ~ 1 1.5
 
 # Start aim tick
-schedule function wither:wither/phase2/beam/beamaimtick 1t
+schedule function wither:wither/phase2/beam/beam_aim_tick 1t

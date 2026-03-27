@@ -5,8 +5,9 @@ kill @e[tag=beamCrystalC]
 kill @e[tag=beamCrystalR]
 
 # Kill aim markers
-kill @e[tag=beamTargetSide]
+kill @e[tag=beamTargetLeft]
 kill @e[tag=beamTargetCenter]
+kill @e[tag=beamTargetRight]
 
 # Remove player target tags
 tag @a remove beamSideTarget

@@ -6,7 +6,7 @@ scoreboard players set #beam_steps beamStep 0
 scoreboard players set #beam_spacing beamStep 0
 
 # Fire raycast from right crystal toward side target (same as left)
-execute at @e[tag=beamCrystalR,limit=1] facing entity @e[tag=beamTargetSide,limit=1] feet run function wither:wither/phase2/beam/beamraycast
+execute at @e[tag=beamCrystalR,limit=1] facing entity @e[tag=beamTargetRight,limit=1] feet run function wither:wither/phase2/beam/beamraycast
 
 # Sound + particles
 execute at @e[type=wither,tag=ominousWither,limit=1] run playsound minecraft:entity.wither.shoot hostile @a[distance=..150] ~ ~ ~ 2 0.9

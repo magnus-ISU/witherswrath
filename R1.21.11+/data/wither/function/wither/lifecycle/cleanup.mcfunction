@@ -36,7 +36,7 @@ schedule clear wither:wither/passive/spawn_captain
 schedule clear wither:wither/passive/skull
 schedule clear wither:wither/phase2/beam/beampre
 schedule clear wither:wither/phase2/beam/beamascend
-schedule clear wither:wither/phase2/beam/beamaimtick
+schedule clear wither:wither/phase2/beam/beam_aim_tick
 schedule clear wither:wither/phase2/beam/beamfire_left
 schedule clear wither:wither/phase2/beam/beamfire_center
 schedule clear wither:wither/phase2/beam/beamfire_right
@@ -68,7 +68,8 @@ schedule clear wither:wither/lifecycle/timeout
     kill @e[tag=beamCrystalL]
     kill @e[tag=beamCrystalC]
     kill @e[tag=beamCrystalR]
-    kill @e[tag=beamTargetSide]
+    kill @e[tag=beamTargetLeft]
+    kill @e[tag=beamTargetRight]
     kill @e[tag=beamTargetCenter]
     tag @a remove beamSideTarget
     tag @a remove beamCenterTarget
