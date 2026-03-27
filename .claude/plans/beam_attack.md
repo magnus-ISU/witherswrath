@@ -1,138 +1,201 @@
-I'd like to add a new attack, which is a beam attack.
+# Beam Attack Implementation Plan
 
-Grok made the following implementation plan with me:
+## Overview
+A Phase 2 wither attack (300-100 HP): the wither blasts upward through a column of creeper explosions, summons tiny ender crystals in its head that project beams toward players with a sweeping descent animation, then fires explosive raycasts along those beam lines in a staggered sequence.
 
-1. The wither flies up with levitation after receiving NoAI. It goes up 30 blocks, or to the ceiling and then down 5 blocks.
-2. The wither summons 3 invisible ender crystals in its heads.
-3. The center head chooses a random player within 150 blocks to target.
-4. The side heads choose the same random player within 150 blocks, which could be the same target as the main head.
-5. The crystals each have a defined animation where the crystal target circles around the target player 120 blocks up for 60 ticks, the target goes down by 0.5 block every tick for 100 ticks, down 1 block every tick for 30 ticks, and then 2 blocks every tick for 20 ticks. Then they stay locked on the target player for 50 ticks. Total: 13 seconds
-6. A raycast is sent out from the wither to the targeted player. Every 3 blocks, an invisible charged creeper is spawned along the raycast, until it runs into a block. The raycasts are all done at the same time, but the explosions are staggered; the first side head fires, 5 ticks later the main head fires, 5 ticks later the second side head fires.
-7. The wither is given AI and other attacks are allowed to start processing.
+## Answers to Open Questions
+- **Trigger**: Phase 2 (300-100 HP), first at 35s after Phase 2 starts, then every 80s
+- **Crystals**: Visible, full size (cannot be scaled or made invisible). Wither Rotation set to [0,0], crystals placed at `~ ~4 ~` (center/top), `~2 ~3 ~` (right), `~-2 ~3 ~` (left) relative to wither
+- **Targeting**: Side heads both target the same player (`@p`). Center head targets `@r` (could be same or different in multiplayer). Side beams fire 10 ticks apart — devastating to the targeted player
+- **Toggle**: Yes, `togglebeam` in config system
+- **Block destruction**: Always on (no toggle check for destruction)
+- **No enraged variant**: Does not trigger below 100 HP
+- **Ascent**: Tp up 1.5 blocks/tick for 20 ticks (30 blocks), with midpoint-style creeper column to clear the path
 
-Grok provided some (wrong) sample code.
+---
 
->>>
+## Attack Sequence
 
-Here is a complete, ready-to-use set of mcfunction files for your exact Wither laser attack.
-The attack works like this:
+### Phase 1: Ascent (~20 ticks / 1 second)
 
-The Wither must have the tag boss.wither.
-When the phase starts, the Wither is teleported to 0 100 0 (as you requested) and hovers there.
-A hidden aim marker is created high above the nearest player (initially ~80 blocks above them → beam points almost straight up).
-Over the first ~4 seconds the marker’s Y lowers by 1 block per tick while still tracking the player’s X/Z (slow angle-down).
-In the last 1 second (20 ticks) the beam locks onto the player.
-Every tick during the phase a raycast fires from the Wither (anchored at eye level) toward the aim marker.
-The raycast spawns a bright guardian-style beam (end_rod + dust_color_transition) that stops at the first solid block.
-Along the ray (every ~2 blocks to keep performance sane) it summons an instant-exploding creeper with default power 3 (≈ radius 6 blocks destruction/damage). You can change the step if you want denser/sparser explosions.
+**`beampre.mcfunction`** — Entry point (called by schedule from tick/phase2 init):
+- Check `togglebeam:Enabled` in `wither:options`
+- Add `Beam` tag to wither
+- `NoAI:1b`, Resistance 255 (300 ticks ≈ 15s, covers entire attack)
+- Glow on
+- Do not save return position: wherever the wither ends up, it will stay there afterwards.
+- Spawn creeper column to clear path (like midpoint.mcfunction):
+  - Creepers every 5 blocks from ~0 to ~30, staggered fuse (1,3,5,7,9,11)
+  - Invisible, silent, Team:"Wither"
+- Play charge-up sound (`entity.wither.spawn` low pitch)
+- Schedule `beamascend` at 1t (start ascending)
+- Schedule `beamascend` to repeat — actually, use a self-rescheduling pattern:
 
-Create the files exactly as shown inside your datapack (data/boss/functions/...).
-1. data/boss/functions/load.mcfunction
-mcfunctionscoreboard objectives add boss.laser dummy "Wither Laser Timer"
-scoreboard objectives add boss.temp dummy
-tellraw @a {"text":"[Boss Datapack] Loaded laser attack","color":"gold"}
-2. data/boss/functions/tick.mcfunction (run every tick – add this to your main tick loop)
-mcfunction# Run laser phase if active
-execute as @e[tag=boss.wither] if score @s boss.laser matches 1.. run function boss:laser/tick
+**`beamascend.mcfunction`** — Runs every tick for 20 ticks:
+- Tp wither `~ ~1.5 ~` (relative up)
+- Particle trail: `lava` + `soul_fire_flame` at wither pos
+- Increment `beamTimer` scoreboard
+- If `beamTimer` < 20: schedule self at 1t
+- If `beamTimer` >= 20: call `beamcrystals` (next phase)
 
-# Optional: auto-start example every 30 seconds (remove or change as needed)
-execute as @e[tag=boss.wither] unless score @s boss.laser matches 1.. if predicate {condition:random_chance,chance:0.033} run function boss:laser/start
-3. data/boss/functions/laser/start.mcfunction
-mcfunction# Teleport Wither to your fixed high location and start the phase
-execute as @e[tag=boss.wither,limit=1] run tp @s 0 100 0
+### Phase 2: Crystal Summon + Beam Animation (~260 ticks / 13 seconds)
 
-# Reset and start timer (100 ticks = 5 seconds)
-scoreboard players set @e[tag=boss.wither,limit=1] boss.laser 100
+**`beamcrystals.mcfunction`** — Summon crystals and aim markers:
+- Reset `beamTimer` to 0
+- Set wither Rotation to `[0f, 0f]` (facing south, level) so crystal positions are consistent. The wither will not move
+- Summon 3 ender crystals at fixed offsets from wither:
+  ```
+  # Center crystal (top of head)
+  execute at @e[type=wither,tag=ominousWither,limit=1] run summon end_crystal ~ ~4 ~ {ShowBottom:0b,Tags:["beamCrystalC"]}
+  # Right crystal (right head)
+  execute at @e[type=wither,tag=ominousWither,limit=1] run summon end_crystal ~2 ~3 ~ {ShowBottom:0b,Tags:["beamCrystalR"]}
+  # Left crystal (left head)
+  execute at @e[type=wither,tag=ominousWither,limit=1] run summon end_crystal ~-2 ~3 ~ {ShowBottom:0b,Tags:["beamCrystalL"]}
+  ```
+- Summon 2 invisible armor stand markers for beam target tracking:
+  - `beamTargetSide` — tp to `@p` then `~ ~120 ~` (side heads' shared target)
+  - `beamTargetCenter` — tp to `@r` then `~ ~120 ~` (center head target)
+- Set initial `BeamTarget` on each crystal to its marker's position
+- Schedule `beamaimtick` at 1t
 
-# Summon (or reset) the hidden aim marker
-kill @e[tag=boss.laser_aim]
-summon marker 0 100 0 {Tags:["boss.laser_aim"]}
+**`beamaimtick.mcfunction`** — Runs every tick, updates beam targets:
+- Increment `beamTimer`
+- Update marker XZ to track their target player's current XZ position
+- **Ticks 1-60** (circling phase): Apply circular XZ offset to markers. Use 12 pre-computed positions (every 30°, 15-block radius), cycling every 5 ticks:
+  ```
+  beamTimer 1-5:   offset +15, +0
+  beamTimer 6-10:  offset +13, +7.5
+  beamTimer 11-15: offset +7.5, +13
+  beamTimer 16-20: offset +0, +15
+  beamTimer 21-25: offset -7.5, +13
+  beamTimer 26-30: offset -13, +7.5
+  beamTimer 31-35: offset -15, +0
+  beamTimer 36-40: offset -13, -7.5
+  beamTimer 41-45: offset -7.5, -13
+  beamTimer 46-50: offset +0, -15
+  beamTimer 51-55: offset +7.5, -13
+  beamTimer 56-60: offset +13, -7.5
+  ```
+- **Ticks 61-160** (slow descent): Move markers down 0.5 blocks/tick. Markers drop 50 blocks (120→70 above player)
+- **Ticks 161-190** (medium descent): Move markers down 1 block/tick. Drop 30 blocks (70→40)
+- **Ticks 191-210** (fast descent): Move markers down 2 blocks/tick. Drop 40 blocks (40→0, at player eye level)
+- **Ticks 211-260** (locked on): Tp markers directly to target player position
+- Each tick: copy marker Pos into crystal `BeamTarget` NBT
+- Each tick: particles along beam for visual feedback (`end_rod` at marker pos)
+- Sound: escalating pitch `entity.experience_orb.pickup` as beam descends (every 20 ticks)
+- At tick 260: schedule `beamfire_left` at 1t
 
-# Set initial aim point: directly above the nearest player
-execute as @e[tag=boss.laser_aim,limit=1] at @s run tp @s @p[gamemode=!spectator]
-execute as @e[tag=boss.laser_aim,limit=1] at @s run tp @s ~ ~80 ~
+**Circle offset implementation**: Rather than 60 separate files, use `beamaimtick.mcfunction` with scoreboard range checks:
+```mcfunction
+# Example for one circle position (ticks 1-5)
+execute if score ominousWither beamTimer matches 1..5 as @e[tag=beamTargetSide] at @s run tp @s ~15 ~ ~0
+```
+The markers first get tp'd to the target player's XZ each tick, THEN the circle offset is applied on top, THEN the Y descent is applied. This keeps horizontal tracking while orbiting.
 
-# Optional: fly the Wither up a bit more and play charge sound
-execute as @e[tag=boss.wither] at @s run playsound entity.wither.ambient hostile @a ~ ~ ~ 10 0.8
-particle end_rod ~ ~ ~ 0 5 0 0 50 force
+### Phase 3: Fire (~10 ticks)
 
-tellraw @a {"text":"Wither laser phase started!","color":"red"}
-4. data/boss/functions/laser/tick.mcfunction
-mcfunction# Decrease timer
-scoreboard players remove @e[tag=boss.wither,limit=1] boss.laser 1
+**`beamfire_left.mcfunction`** — Left side head fires:
+- Execute positioned at `beamCrystalL`, facing `beamTargetSide`
+- Call `beamraycast` (recursive)
+- Boom sound + flash particles
+- Schedule `beamfire_center` at 5t
 
-# Update aim marker (the "slowly angle down" part)
-execute as @e[tag=boss.laser_aim,limit=1] at @s run function boss:laser/update_aim
+**`beamfire_center.mcfunction`** — Center head fires:
+- Execute positioned at `beamCrystalC`, facing `beamTargetCenter`
+- Call `beamraycast`
+- Schedule `beamfire_right` at 5t
 
-# Fire the raycast from the Wither toward the current aim point
-execute as @e[tag=boss.wither,limit=1] at @s anchored eyes facing entity @e[tag=boss.laser_aim,limit=1] eyes run function boss:laser/raycast_start
+**`beamfire_right.mcfunction`** — Right side head fires:
+- Execute positioned at `beamCrystalR`, facing `beamTargetSide` (same target as left)
+- Call `beamraycast`
+- Schedule `beamend` at 10t
 
-# End phase when timer reaches 0
-execute as @e[tag=boss.wither] if score @s boss.laser matches ..0 run function boss:laser/end
-5. data/boss/functions/laser/update_aim.mcfunction
-mcfunction# Copy player's current X and Z (keeps horizontal tracking)
-summon marker ~ ~ ~ {Tags:["boss.temp_player"]}
-execute as @e[tag=boss.temp_player,limit=1] run tp @s @p[gamemode=!spectator]
-data modify entity @e[tag=boss.laser_aim,limit=1] Pos[0] set from entity @e[tag=boss.temp_player,limit=1] Pos[0]
-data modify entity @e[tag=boss.laser_aim,limit=1] Pos[2] set from entity @e[tag=boss.temp_player,limit=1] Pos[2]
-kill @e[tag=boss.temp_player]
-
-# === ANGLE DOWN PHASE ===
-execute as @e[tag=boss.wither] if score @s boss.laser matches 21.. run tp @e[tag=boss.laser_aim,limit=1] ~ ~ -1 ~
-
-# === LOCK ON PHASE (last 1 second) ===
-execute as @e[tag=boss.wither] if score @s boss.laser matches ..20 run tp @e[tag=boss.laser_aim,limit=1] @p[gamemode=!spectator]
-6. data/boss/functions/laser/raycast_start.mcfunction
-mcfunction# Reset step counter for creeper spacing
-scoreboard players set #laser_steps boss.temp 0
-
-# Start the recursive raycast
-function boss:laser/raycast_step
-7. data/boss/functions/laser/raycast_step.mcfunction
-mcfunction# STOP if we hit a solid block
+**`beamraycast.mcfunction`** — Recursive raycast step:
+```mcfunction
+# Stop at solid blocks
 execute unless block ~ ~ ~ #minecraft:replaceable run return 0
 
-# === VISUAL BEAM (guardian / end-rod style) ===
-particle end_rod ~ ~ ~ 0 0 0 0 3 force
-particle dust_color_transition 0.2 0.5 1.0 1.8 0.9 0.95 1.0 ~ ~ ~ 0.2 0.2 0.2 0 12 force
+# Safety limit (max 300 steps = 150 blocks)
+scoreboard players add #beam_steps beamStep 1
+execute if score #beam_steps beamStep matches 300.. run return 0
 
-# === EXPLOSION every ~2 blocks (prevents lag) ===
-scoreboard players add #laser_steps boss.temp 1
-execute if score #laser_steps boss.temp matches 4.. run function boss:laser/summon_creeper
-execute if score #laser_steps boss.temp matches 4.. run scoreboard players set #laser_steps boss.temp 0
+# invisible beam -- no particles, just explosions
 
-# === DAMAGE players in the beam ===
-execute as @a[distance=..1.5,gamemode=!spectator] run damage @s 12 minecraft:magic by @e[tag=boss.wither,limit=1]
+# Spawn creeper every 6 steps (= 3 blocks)
+execute if score #beam_steps beamStep matches 6 run function wither:wither/phase2/beam/beamcreeper
+execute if score #beam_steps beamStep matches 12 run function wither:wither/phase2/beam/beamcreeper
+# ... (use modulo via reset: if matches 6, spawn + reset to 0)
+# Actually: track a second counter for spacing
 
-# Move forward and recurse (0.5 block steps = smooth beam)
-execute positioned ^ ^ ^0.5 run function boss:laser/raycast_step
+# No direct damage to players in beam path, they will be blown up
 
-# Safety limit (max ~200 blocks)
-scoreboard players add #laser_steps boss.temp 1
-execute if score #laser_steps boss.temp matches 400.. run return 0
-8. data/boss/functions/laser/summon_creeper.mcfunction
-mcfunction# Instant exploding creeper (≈ radius 6 blocks)
-summon creeper ~ ~ ~ {NoAI:1b,Silent:1b,Fuse:0s,Invulnerable:1b,Tags:["laser_explode"]}
-9. data/boss/functions/laser/end.mcfunction
-mcfunctionkill @e[tag=boss.laser_aim]
-scoreboard players reset @e[tag=boss.wither] boss.laser
-tellraw @a {"text":"Wither laser phase ended","color":"gray"}
-How to use
+# Step forward 0.5 blocks and recurse
+execute positioned ^ ^ ^0.5 run function wither:wither/phase2/beam/beamraycast
+```
 
-Put all files in data/boss/functions/ (create the folders if needed).
-Run /function boss:load once.
-Make sure your main datapack tick function calls function boss:tick every tick.
-Summon your Wither with the tag:
-/summon wither ~ ~ ~ {Tags:["boss.wither"],NoAI:0b}
-(or add the tag to your existing boss).
+**`beamcreeper.mcfunction`** — Spawn beam explosion:
+```mcfunction
+summon creeper ~ ~ ~ {Team:"Wither",Silent:1b,Fuse:0,ignited:1b,ExplosionRadius:3b,CustomName:"Ominous Wither's Beam",attributes:[{id:"minecraft:scale",base:0.0625}],active_effects:[{id:"minecraft:invisibility",amplifier:0,duration:-1,show_particles:0b}]}
+```
 
-You can tweak:
+### Phase 4: Cleanup
 
-Timer length (change the 100 in start.mcfunction)
-Creeper density (change the 4 in raycast_step)
-Beam colors / particles
-Add charge-up sounds or Wither flying motion in the start function if you want extra flair.
+**`beamend.mcfunction`**:
+- Kill `beamCrystalL`, `beamCrystalC`, `beamCrystalR`
+- Kill `beamTargetSide`, `beamTargetCenter`
+- Remove `Beam` tag
+- `NoAI:0b`, `Glowing:0b`
+- Schedule next beam attack at 80s
 
-This gives you exactly the cinematic “starts pointing straight up above the player → slowly angles down → locks on → exploding beam that stops at blocks” mechanic you described. Let me know if you want the end-crystal beam layered on top or any other tweaks!
+---
 
->>>
+## File List
+
+All under `data/wither/function/wither/phase2/beam/`:
+
+| File | Purpose |
+|------|---------|
+| `beampre.mcfunction` | Entry: NoAI, resistance, creeper column, start ascent |
+| `beamascend.mcfunction` | Self-rescheduling 1t ascent loop (20 ticks) |
+| `beamcrystals.mcfunction` | Summon crystals + aim markers, start aim tick |
+| `beamaimtick.mcfunction` | Self-rescheduling 1t aim loop (260 ticks): circle, descend, lock |
+| `beamfire_left.mcfunction` | Left side raycast fire |
+| `beamfire_center.mcfunction` | Center raycast fire (scheduled +5t) |
+| `beamfire_right.mcfunction` | Right side raycast fire (scheduled +10t) |
+| `beamraycast.mcfunction` | Recursive raycast: particles, creepers, block check |
+| `beamcreeper.mcfunction` | Summon instant-explode creeper |
+| `beamend.mcfunction` | Cleanup: kill entities, restore AI, schedule next |
+
+Toggle files under `data/wither/function/wither/toggle/`:
+
+| File | Purpose |
+|------|---------|
+| `tbeam.mcfunction` | Toggle router |
+| `tbeamon.mcfunction` | Enable beam + UI feedback |
+| `tbeamoff.mcfunction` | Disable beam + UI feedback |
+
+## Integration Points
+
+1. **`load.mcfunction`**: Add `scoreboard objectives add beamTimer dummy` and `scoreboard objectives add beamStep dummy`
+2. **`initialize_storage.mcfunction`**: Add `togglebeam:Enabled` to default options
+3. **`tick.mcfunction`**: No direct change — beam is triggered via `schedule` from Phase 2 start
+4. **`5tick.mcfunction`**: Add `Beam` tag check → appropriate hit handler (like `Charge` → `hit3`)
+5. **Phase 2 entry** (wherever charge is first scheduled): Add `schedule function wither:wither/phase2/beam/beampre 20s`
+6. **`config.mcfunction`** / toggle pages: Add beam toggle button
+7. **`wither/lifecycle/cleanup.mcfunction`**: Kill beam entities on fight end
+8. **`wither/lifecycle/death.mcfunction`**: Kill beam entities on wither death
+
+## Scoreboard Objectives
+
+```
+beamTimer  — tick counter for ascent (0-20) and aim animation (0-260)
+beamStep   — raycast step counter (reset per fire, max 300)
+```
+
+## Technical Notes
+
+- Creeper spacing in raycast: Use two scoreboard counters — `#beam_steps` for total distance (safety cap) and `#beam_spacing` for creeper spacing (reset every 6 steps)
+- The `beamaimtick` circle offsets are applied AFTER tp'ing the marker to the player's XZ, so the marker orbits around the player even if they move
+- Ender crystal `BeamTarget` is set as `{BeamTarget:{X:int,Y:int,Z:int}}` — we copy from marker Pos each tick using `data modify ... set from entity ...`
+- Crystals are full size (cannot be scaled/hidden). Placed at fixed offsets relative to wither with Rotation [0,0] so positions are predictable. They'll be visible floating near the heads — intentional visual
+- Max 50 creepers per beam × 3 beams = 150 total, but staggered 5 ticks apart so max ~50 simultaneous
