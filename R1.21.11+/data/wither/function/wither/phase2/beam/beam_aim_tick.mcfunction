@@ -55,4 +55,4 @@ execute at @e[tag=beamTargetRight,limit=1] run particle end_rod ~ ~ ~ 0.5 0.5 0.
 
 # === CONTINUE OR FIRE ===
 execute if score ominousWither beamTimer matches ..259 run schedule function wither:wither/phase2/beam/beam_aim_tick 1t
-execute if score ominousWither beamTimer matches 260.. run function wither:wither/phase2/beam/beamfire_left
+execute if score ominousWither beamTimer matches 260.. run function wither:wither/phase2/beam/beam_fire_left

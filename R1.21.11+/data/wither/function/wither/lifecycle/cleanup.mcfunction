@@ -3,29 +3,29 @@ scoreboard players set wCharge wcharge1 1
 scoreboard players set wspawn spawn 0
 scoreboard players set wChargereset wchargereset 0
 scoreboard players set enraged wenraged 0
-schedule clear wither:wither/dive/divetick
+schedule clear wither:wither/dive/dive_tick
 schedule clear wither:wither/dive/divecooldown
 schedule clear wither:wither/dive/land
 
 # Clear all fight schedules
 schedule clear wither:wither/phase2/charge/charge
 schedule clear wither:wither/phase2/charge/charge2
-schedule clear wither:wither/phase2/charge/chargepre
-schedule clear wither:wither/phase2/charge/chargetick
-schedule clear wither:wither/phase2/charge/chargereset
+schedule clear wither:wither/phase2/charge/charge_pre
+schedule clear wither:wither/phase2/charge/charge_tick
+schedule clear wither:wither/phase2/charge/charge_reset
 schedule clear wither:wither/phase2/dashes/dash
-schedule clear wither:wither/phase2/dashes/dashto
-schedule clear wither:wither/phase2/dashes/endloop
+schedule clear wither:wither/phase2/dashes/dash_to
+schedule clear wither:wither/phase2/dashes/end_loop
 schedule clear wither:wither/phase1/homing/homing
-schedule clear wither:wither/phase1/homing/homingpre
-schedule clear wither:wither/phase1/homing/homingtick
-schedule clear wither:wither/phase1/homing/homing5tick
-schedule clear wither:wither/phase1/musicphase1
+schedule clear wither:wither/phase1/homing/homing_pre
+schedule clear wither:wither/phase1/homing/homing_tick
+schedule clear wither:wither/phase1/homing/homing_5tick
+schedule clear wither:wither/phase1/music_phase1
 schedule clear wither:wither/phase1/check_player_tick
-schedule clear wither:wither/phase2/musicphase2
-schedule clear wither:wither/phase2/enraged/skulls/killskulls
+schedule clear wither:wither/phase2/music_phase2
+schedule clear wither:wither/phase2/enraged/skulls/kill_skulls
 schedule clear wither:wither/phase2/enraged/skulls/skulls
-schedule clear wither:wither/phase2/enraged/skulls/stopskulls
+schedule clear wither:wither/phase2/enraged/skulls/stop_skulls
 schedule clear wither:wither/phase2/enraged/skulls/rotation
 schedule clear wither:wither/skull/launch
 schedule clear wither:wither/skull/launch_end
@@ -34,13 +34,13 @@ schedule clear wither:wither/skull/burst/launch_burst_loop_reset
 schedule clear wither:wither/passive/spawn
 schedule clear wither:wither/passive/spawn_captain
 schedule clear wither:wither/passive/skull
-schedule clear wither:wither/phase2/beam/beampre
-schedule clear wither:wither/phase2/beam/beamascend
+schedule clear wither:wither/phase2/beam/beam_pre
+schedule clear wither:wither/phase2/beam/beam_ascend
 schedule clear wither:wither/phase2/beam/beam_aim_tick
-schedule clear wither:wither/phase2/beam/beamfire_left
-schedule clear wither:wither/phase2/beam/beamfire_center
-schedule clear wither:wither/phase2/beam/beamfire_right
-schedule clear wither:wither/phase2/beam/beamend
+schedule clear wither:wither/phase2/beam/beam_fire_left
+schedule clear wither:wither/phase2/beam/beam_fire_center
+schedule clear wither:wither/phase2/beam/beam_fire_right
+schedule clear wither:wither/phase2/beam/beam_end
 schedule clear wither:wither/fight_start/part
 schedule clear wither:wither/fight_start/init_ring_explode
 schedule clear wither:wither/unstuck/check

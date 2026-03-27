@@ -4,7 +4,7 @@ tag @s add Phase2
 tag @s add MidpointAnimation
 
 # Schedule beam attack 35s into Phase 2
-execute if data storage wither:options {togglebeam:Enabled} run schedule function wither:wither/phase2/beam/beampre 35s
+execute if data storage wither:options {togglebeam:Enabled} run schedule function wither:wither/phase2/beam/beam_pre 35s
 
 # Takeoff blast column
 execute if data storage wither:options {toggleanimation:Default} at @s run fill ~-1 ~ ~-1 ~1 ~47 ~1 air
@@ -19,13 +19,13 @@ execute if data storage wither:options {toggleanimation:Default} at @s run summo
 
 # FUNCTIONS
 execute if data storage wither:options {toggleanimation:Default} run schedule function wither:wither/midpoint/midpoint2 2s
-execute if data storage wither:options {toggleanimation:Default} run schedule function wither:wither/midpoint/midpointtick 1t
+execute if data storage wither:options {toggleanimation:Default} run schedule function wither:wither/midpoint/midpoint_tick 1t
 
-execute if data storage wither:options {toggleanimation:Default} run schedule function wither:wither/midpoint/midpointparttick 4t
+execute if data storage wither:options {toggleanimation:Default} run schedule function wither:wither/midpoint/midpoint_part_tick 4t
 
 # BEDROCK
 execute if data storage wither:options {toggleanimation:Bedrock} as @e[type=wither,tag=ominousWither,limit=1,sort=nearest] run data merge entity @e[type=wither,tag=ominousWither,limit=1,sort=nearest] {Motion:[0.0,-10.0,0.0]}
-execute if data storage wither:options {toggleanimation:Bedrock} as @e[type=wither,tag=ominousWither,limit=1,sort=nearest] run schedule function wither:wither/midpoint/midpointbedrock 10t
+execute if data storage wither:options {toggleanimation:Bedrock} as @e[type=wither,tag=ominousWither,limit=1,sort=nearest] run schedule function wither:wither/midpoint/midpoint_bedrock 10t
 
 # GO UP GO DOWN
 execute if data storage wither:options {toggleanimation:Default} at @e[type=wither,tag=ominousWither,limit=1,sort=nearest] align xyz positioned ~.5 ~.5 ~.5 run summon armor_stand ~ ~ ~ {Team:"Wither",Invisible:1b,Tags:["midpointpos"],attributes:[{id:"minecraft:scale",base:2}]}
@@ -100,14 +100,14 @@ execute if data storage wither:options {toggleanimation:Default} if score count 
 execute if data storage wither:options {toggleanimation:Default} if score count playerCount matches 10.. run schedule function wither:wither/midpoint/spawns/blaze30 39t
 
 
-execute if data storage wither:options {toggleanimation:Default} run schedule function wither:wither/midpoint/midpointparttickend 50t
+execute if data storage wither:options {toggleanimation:Default} run schedule function wither:wither/midpoint/midpoint_part_tick_end 50t
 
 
 # SPECIAL FX
 execute if data storage wither:options {toggleanimation:Default} at @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=nearest] at @s run playsound minecraft:entity.wither.spawn hostile @a[distance=..30] ~ ~ ~ 2 .8
-schedule clear wither:wither/phase1/musicphase1
+schedule clear wither:wither/phase1/music_phase1
 execute as @a run stopsound @a record minecraft:wither.phase1
-function wither:wither/phase2/musicphase2
+function wither:wither/phase2/music_phase2
 effect give @e[type=wither_skeleton,tag=!wArcher,distance=..20] resistance 3 10
 execute if data storage wither:options {toggleanimation:Default} run data merge entity @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=nearest] {Invulnerable:1b,NoAI:1b,NoGravity:1b,active_effects:[{id:"minecraft:resistance",amplifier:255,duration:5}]}
 

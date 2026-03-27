@@ -31,7 +31,7 @@ execute store result storage withers:launch skulllaunchmot.x double 0.0001 run s
 execute store result storage withers:launch skulllaunchmot.y double 0.0001 run scoreboard players get @e[type=wither_skull,tag=skulllaunch,limit=1] skulllaunchmotY
 execute store result storage withers:launch skulllaunchmot.z double 0.0001 run scoreboard players get @e[type=wither_skull,tag=skulllaunch,limit=1] skulllaunchmotZ
 
-execute as @e[type=minecraft:wither_skull,tag=skulllaunch] at @s run function wither:wither/phase2/enraged/skulls/launchskulls with storage withers:launch skulllaunchmot
+execute as @e[type=minecraft:wither_skull,tag=skulllaunch] at @s run function wither:wither/phase2/enraged/skulls/launch_skulls with storage withers:launch skulllaunchmot
 
 schedule function wither:wither/skull/launch_end 4s
 

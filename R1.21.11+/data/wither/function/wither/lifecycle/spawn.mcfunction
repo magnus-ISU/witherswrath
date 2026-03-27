@@ -16,6 +16,6 @@ kill @e[type=armor_stand,tag=wither_spin,limit=1]
 schedule clear wither:wither/fight_start/bedrock_1t
 schedule clear wither:wither/fight_start/part
 
-schedule function wither:wither/phase1/musicphase1 1t
+schedule function wither:wither/phase1/music_phase1 1t
 
 tag @s remove Invul

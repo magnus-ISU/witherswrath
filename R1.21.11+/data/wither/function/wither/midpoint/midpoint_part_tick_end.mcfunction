@@ -1,0 +1,1 @@
+schedule clear wither:wither/midpoint/midpoint_part_tick

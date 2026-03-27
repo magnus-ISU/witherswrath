@@ -18,14 +18,14 @@ execute store result score count playerCount run execute if entity @e[type=playe
 schedule function wither:wither_check 1t
 schedule function wither:wither/fight_start/init 1t
 schedule function wither:tick 1t
-schedule function wither:5tick 2t
+schedule function wither:5_tick 2t
 schedule function wither:wither/skull/launch 22s
 schedule function wither:wither/skull/burst/launch_burst_loop 30s
 execute if data storage wither:options {toggleanimation:Default} run schedule function wither:wither/passive/skull 12s
 execute if data storage wither:options {toggleanimation:Default} run schedule function wither:wither/motion/gravity 10s
 execute if data storage wither:options {toggleanimation:Default} run schedule function wither:wither/phase1/check_player_tick 12s
 execute if data storage wither:options {toggleanimation:Default} run schedule function wither:wither/fight_start/part 1t
-execute if data storage wither:options {togglehoming:Enabled} run schedule function wither:wither/phase1/homing/homingpre 10s
+execute if data storage wither:options {togglehoming:Enabled} run schedule function wither:wither/phase1/homing/homing_pre 10s
 execute if data storage wither:options {togglespawns:Enabled} run schedule function wither:wither/passive/spawn 15s
 schedule function wither:wither/lifecycle/spawn 219t
 schedule function wither:wither/unstuck/check 15s

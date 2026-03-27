@@ -23,9 +23,9 @@ To trigger the Ominous Wither, summon a wither and have Bad Omen within 32 block
 ### Phase 2 (300 - 100 HP)
 
 - The wither gains increased armor and armor toughness.
-- **Blast column** erupts upward with cascading explosions. The wither ascends, then slams back to the ground with a shockwave.
-- **Phantom Archers** are summoned -- wither skeletons riding invisible phantoms, armed with Flame bows, golden helmets, and netherite chestplates, scaled to the number of players.
-- **Wither Shield** -- While any Phantom Archer is alive, the Ominous Wither is **immune to damage**. You must kill the Phantom Archers to lift the shield.
+- **Phase Transition** -- the wither erupts upward, then slams back to the ground with a shockwave. **Phantom Archers** are summoned -- flying wither skeletons, armed with Flame bows and scaled to the number of players.
+- **Wither Shield** -- While any Phantom Archer is alive, the Ominous Wither is **immune** to damage. You must kill the Phantom Archers to lift the shield.
+- **Beam Attack** -- Every 80 seconds, the wither ascends and targets up to 3 players. Crystal beams spiral down, then unleash doom upon any players who haven't found shelter.
 - **Charge Attack** -- Unlocked when the shield is broken. The wither locks on, freezes in place, then rams toward the nearest player at high speed.
 - **Skeleton Swarm** -- At 150 HP, summons 15 fast, tough wither skeletons.
 
@@ -39,7 +39,7 @@ To trigger the Ominous Wither, summon a wither and have Bad Omen within 32 block
 - **Rotating Skull Ring** -- Orbiting wither skulls spin around the wither, face the player, then launch towards them.
 - **Aura of Destruction** -- All players more than 16 blocks away receive **Wither V**, forcing you to stay close. A ring of black squid ink particles marks the 16-block boundary.
 - **Dashes** -- The wither freezes, faces a player, then dashes toward them repeatedly every 3 seconds.
-- **Horse Riders** -- Summons 3 elite wither skeletons riding **skeleton horses** with netherite horse armor every 15 seconds.
+- **Death Knights** -- Summons 3 elite wither skeletons riding skeleton horses with netherite horse armor every 15 seconds.
 
 ---
 

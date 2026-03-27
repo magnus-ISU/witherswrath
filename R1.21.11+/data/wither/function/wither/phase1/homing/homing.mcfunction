@@ -6,5 +6,5 @@ execute at @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=nearest] run 
 
 
 
-function wither:wither/phase1/homing/homing5tick
-function wither:wither/phase1/homing/homingtick
+function wither:wither/phase1/homing/homing_5tick
+function wither:wither/phase1/homing/homing_tick

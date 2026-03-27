@@ -21,7 +21,7 @@ execute unless entity @e[type=wither_skeleton,tag=wArcher] run effect clear @e[t
 execute unless entity @e[type=wither_skeleton,tag=wArcher] run data merge entity @e[type=wither,tag=ominousWither,tag=shieldActive,limit=1] {Glowing:0b}
 
 # Trigger charge attack once when shield drops
-execute if entity @e[type=wither,tag=ominousWither,tag=shieldActive] unless entity @e[type=wither_skeleton,tag=wArcher] if data storage wither:options {togglecharge:Enabled} as @e[type=wither,tag=ominousWither,limit=1] at @s run function wither:wither/phase2/charge/chargepre
+execute if entity @e[type=wither,tag=ominousWither,tag=shieldActive] unless entity @e[type=wither_skeleton,tag=wArcher] if data storage wither:options {togglecharge:Enabled} as @e[type=wither,tag=ominousWither,limit=1] at @s run function wither:wither/phase2/charge/charge_pre
 execute unless entity @e[type=wither_skeleton,tag=wArcher] run tag @e[type=wither,tag=ominousWither] remove shieldActive
 
 # Teleport wither above player if they're 128-150 blocks away

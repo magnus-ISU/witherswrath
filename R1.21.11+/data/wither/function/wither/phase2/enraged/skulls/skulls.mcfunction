@@ -24,6 +24,6 @@ execute as @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=nearest] at @
 execute as @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=nearest] at @s run summon minecraft:wither_skull ~ ~1 ~ {Tags:["deathtag","23"],Motion:[-0.500,0.4,0.866]}
 execute as @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=nearest] at @s run summon minecraft:wither_skull ~ ~1 ~ {Tags:["deathtag","24"],Motion:[-0.259,0.4,0.966]}
 
-schedule function wither:wither/phase2/enraged/skulls/stopskulls 1s
+schedule function wither:wither/phase2/enraged/skulls/stop_skulls 1s
 
 

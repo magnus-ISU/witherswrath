@@ -3,4 +3,4 @@ execute at @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=nearest] run 
 
 execute at @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=nearest] as @e[type=minecraft:player,distance=7.1..14] at @s run effect give @s levitation 1 20 true
 
-schedule function wither:wither/midpoint/particles/clearlev 5t
+schedule function wither:wither/midpoint/particles/clear_lev 5t

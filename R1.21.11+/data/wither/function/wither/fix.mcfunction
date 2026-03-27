@@ -42,7 +42,7 @@ advancement revoke @a only wither:wither/hit4_wither
 advancement revoke @a only wither:wither/hit5_wither
 advancement revoke @a only wither:wither/hit6_wither
 advancement revoke @a only wither:wither/hit7_wither
-advancement revoke @a only wither:wither/prehit_wither
+advancement revoke @a only wither:wither/pre_hit_wither
 
 schedule clear wither:wither/bedrock/death/deadbedrock1t
 schedule clear wither:wither/bedrock/death/deadbedrock2t
@@ -50,31 +50,31 @@ schedule clear wither:wither/bedrock/death/deadbedrock3t
 schedule clear wither:wither/bedrock/death/deadbedrock4t
 schedule clear wither:wither/phase1/check_player_tick
 schedule clear wither:wither/skull/launch
-schedule clear wither:wither/phase1/musicphase1
-schedule clear wither:wither/phase2/musicphase2
+schedule clear wither:wither/phase1/music_phase1
+schedule clear wither:wither/phase2/music_phase2
 schedule clear wither:wither/phase2/charge/charge
 schedule clear wither:wither/phase2/charge/charge2
-schedule clear wither:wither/phase2/charge/chargepre
-schedule clear wither:wither/phase2/charge/chargetick
-schedule clear wither:wither/phase2/charge/chargereset
-schedule clear wither:wither/phase2/beam/beampre
-schedule clear wither:wither/phase2/beam/beamascend
+schedule clear wither:wither/phase2/charge/charge_pre
+schedule clear wither:wither/phase2/charge/charge_tick
+schedule clear wither:wither/phase2/charge/charge_reset
+schedule clear wither:wither/phase2/beam/beam_pre
+schedule clear wither:wither/phase2/beam/beam_ascend
 schedule clear wither:wither/phase2/beam/beam_aim_tick
-schedule clear wither:wither/phase2/beam/beamfire_left
-schedule clear wither:wither/phase2/beam/beamfire_center
-schedule clear wither:wither/phase2/beam/beamfire_right
-schedule clear wither:wither/phase2/beam/beamend
+schedule clear wither:wither/phase2/beam/beam_fire_left
+schedule clear wither:wither/phase2/beam/beam_fire_center
+schedule clear wither:wither/phase2/beam/beam_fire_right
+schedule clear wither:wither/phase2/beam/beam_end
 schedule clear wither:wither/phase2/dashes/dash
-schedule clear wither:wither/phase2/dashes/dashto
-schedule clear wither:wither/phase2/dashes/endloop
+schedule clear wither:wither/phase2/dashes/dash_to
+schedule clear wither:wither/phase2/dashes/end_loop
 schedule clear wither:wither/phase1/homing/homing
-schedule clear wither:wither/phase1/homing/homingpre
-schedule clear wither:wither/phase1/homing/homingtick
-schedule clear wither:wither/phase1/homing/homing5tick
+schedule clear wither:wither/phase1/homing/homing_pre
+schedule clear wither:wither/phase1/homing/homing_tick
+schedule clear wither:wither/phase1/homing/homing_5tick
 schedule clear wither:wither/phase2/enraged/skulls/skulls
-schedule clear wither:wither/phase2/enraged/skulls/stopskulls
+schedule clear wither:wither/phase2/enraged/skulls/stop_skulls
 schedule clear wither:wither/phase2/enraged/skulls/rotation
-schedule clear wither:wither/phase2/enraged/skulls/killskulls
+schedule clear wither:wither/phase2/enraged/skulls/kill_skulls
 schedule clear wither:wither/phase2/enraged/skulls/1
 schedule clear wither:wither/phase2/enraged/skulls/2
 schedule clear wither:wither/phase2/enraged/skulls/3
@@ -90,11 +90,11 @@ schedule clear wither:wither/fight_start/init
 schedule clear wither:wither/fight_start/init_ring_explode
 schedule clear wither:wither/lifecycle/spawn
 schedule clear wither:wither/midpoint/midpoint2
-schedule clear wither:wither/midpoint/midpointtick
-schedule clear wither:wither/midpoint/midpointparttick
-schedule clear wither:wither/midpoint/midpointbedrock
+schedule clear wither:wither/midpoint/midpoint_tick
+schedule clear wither:wither/midpoint/midpoint_part_tick
+schedule clear wither:wither/midpoint/midpoint_bedrock
 schedule clear wither:wither/midpoint/midpoint_end
-schedule clear wither:wither/midpoint/midpointground
+schedule clear wither:wither/midpoint/midpoint_ground
 schedule clear wither:wither/midpoint/spawns/blaze1
 schedule clear wither:wither/midpoint/spawns/blaze2
 schedule clear wither:wither/midpoint/spawns/blaze3
@@ -130,7 +130,7 @@ schedule clear wither:wither/midpoint/particles/down2
 schedule clear wither:wither/midpoint/particles/down3
 schedule clear wither:wither/midpoint/particles/down4
 schedule clear wither:wither/midpoint/particles/down5
-schedule clear wither:wither/midpoint/particles/clearlev
+schedule clear wither:wither/midpoint/particles/clear_lev
 schedule clear wither:wither/passive/skull
 schedule clear wither:wither/passive/spawn
 schedule clear wither:wither/passive/spawn_captain
@@ -138,7 +138,7 @@ schedule clear wither:wither/skull
 schedule clear wither:wither_check
 schedule clear wither:tick
 schedule clear wither:wither/ominous_check
-schedule clear wither:5tick
+schedule clear wither:5_tick
 schedule clear wither:xp/xp
 schedule clear wither:xp/xp1
 schedule clear wither:xp/xp2
