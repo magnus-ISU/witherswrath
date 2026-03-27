@@ -1,3 +1,6 @@
+# Don't burst during beam attack
+execute if entity @e[type=wither,tag=ominousWither,tag=Beam] run return 0
+
 scoreboard players add count burstcount 1
 
 execute as @e[type=minecraft:wither,tag=ominousWither,limit=1] at @s run rotate @s facing entity @p eyes
