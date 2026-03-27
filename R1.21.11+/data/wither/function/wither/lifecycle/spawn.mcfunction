@@ -9,7 +9,6 @@ execute as @e[type=minecraft:wither,tag=ominousWither] at @s if data storage wit
 scoreboard players set wspawn spawn 0
 execute as @e[type=player] run attribute @s minecraft:gravity modifier remove 1
 
-
 # End loops etc
 
 execute if data storage wither:options {toggleanimation:Bedrock} at @e[type=wither,tag=ominousWither,limit=1] run playsound minecraft:entity.generic.explode hostile @e[type=player,distance=..50] ~ ~ ~ 1 1
@@ -19,3 +18,4 @@ schedule clear wither:wither/fight_start/part
 
 schedule function wither:wither/phase1/musicphase1 1t
 
+tag @s remove Invul

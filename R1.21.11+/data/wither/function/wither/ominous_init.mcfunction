@@ -3,6 +3,7 @@
 
 # Tag and set invulnerability
 tag @s add ominousWither
+tag @s add Invul
 data merge entity @s {Invul:220,CustomName:'Ominous Wither'}
 data modify entity @s attributes append value {id:"minecraft:scale",base:1.5}
 

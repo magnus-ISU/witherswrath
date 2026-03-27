@@ -2,6 +2,7 @@
 execute if entity @e[type=wither,tag=ominousWither,tag=Beam] run return 0
 # Don't dive during the MidpointAnimation
 execute if entity @e[type=wither,tag=ominousWither,tag=MidpointAnimation] run return 0
+# Don't dive during the Invulnerability phase
 
 tag @e[type=wither,tag=ominousWither,limit=1] add Diving
 schedule function wither:wither/dive/divetick 20t
