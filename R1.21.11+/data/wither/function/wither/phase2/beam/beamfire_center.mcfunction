@@ -4,6 +4,7 @@ execute unless entity @e[type=wither,tag=ominousWither] run return 0
 # Reset raycast counters
 scoreboard players set #beam_steps beamStep 0
 scoreboard players set #beam_spacing beamStep 0
+scoreboard players set #beam_penetration beamStep 0
 
 # Fire raycast from center crystal toward center target
 execute at @e[tag=beamCrystalC,limit=1] facing entity @e[tag=beamTargetCenter,limit=1] feet run function wither:wither/phase2/beam/beamraycast

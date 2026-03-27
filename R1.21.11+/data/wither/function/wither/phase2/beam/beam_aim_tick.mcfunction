@@ -4,6 +4,9 @@ execute unless entity @e[type=wither,tag=ominousWither] run return 0
 
 scoreboard players add ominousWither beamTimer 1
 
+# Wither rotation and glowing
+data merge entity @e[type=wither,tag=ominousWither,limit=1] {NoAI:1b,Glowing:1b,active_effects:[{id:"minecraft:resistance",amplifier:255,duration:300,show_particles:0b}]}
+
 # === DISPATCH LEFT BEAM (targets side player) ===
 execute if score ominousWither beamTimer matches 1..50 as @a[tag=beamSideTarget,limit=1,gamemode=!spectator] at @s run function wither:wither/phase2/beam/aim/left_beam_aim_1_to_50
 execute if score ominousWither beamTimer matches 51..100 as @a[tag=beamSideTarget,limit=1,gamemode=!spectator] at @s run function wither:wither/phase2/beam/aim/left_beam_aim_51_to_100

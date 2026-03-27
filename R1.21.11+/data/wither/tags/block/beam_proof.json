@@ -1,0 +1,19 @@
+{
+  "values": [
+    "minecraft:obsidian",
+    "minecraft:crying_obsidian",
+    "minecraft:bedrock",
+    "minecraft:end_stone",
+    "minecraft:end_portal_frame",
+    "minecraft:ancient_debris",
+    "minecraft:netherite_block",
+    "minecraft:anvil",
+    "minecraft:chipped_anvil",
+    "minecraft:damaged_anvil",
+    "minecraft:enchanting_table",
+    "minecraft:heavy_core",
+    "minecraft:respawn_anchor",
+    "minecraft:ender_chest",
+    "minecraft:reinforced_deepslate"
+  ]
+}

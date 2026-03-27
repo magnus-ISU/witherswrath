@@ -11,14 +11,14 @@ execute as @e[type=wither,tag=ominousWither,limit=1] store result score @s Healt
 execute as @e[type=wither,tag=ominousWither,tag=!Phase1] if score @s Health matches 298.. run data modify entity @s Health set value 298.0f
 execute as @e[type=wither,tag=ominousWither,tag=!Dash] if score @s Health matches 100.. run data modify entity @s Health set value 98.0f
 
-# wArcher shield: while any wArcher is alive, keep the Ominous Wither immune and glowing
+# wArcher shield: while any wArcher is alive, continuously keep the Ominous Wither immune and glowing as other things modify effects
 execute if entity @e[type=wither_skeleton,tag=wArcher] run tag @e[type=wither,tag=ominousWither] add shieldActive
 execute if entity @e[type=wither_skeleton,tag=wArcher] run data merge entity @e[type=wither,tag=ominousWither,limit=1] {Health:298.0f,active_effects:[{id:"minecraft:resistance",amplifier:4,duration:-1,show_particles:0b}],Glowing:1b}
 
-# When all wArchers are dead, kill their phantom mounts and lift the shield
+# When all wArchers are dead, kill their phantom mounts and lift the shield for one tick so that the beam can still use it.
 execute unless entity @e[type=wither_skeleton,tag=wArcher] if entity @e[type=phantom,tag=wArcher] run kill @e[type=phantom,tag=wArcher]
-execute unless entity @e[type=wither_skeleton,tag=wArcher] run effect clear @e[type=wither,tag=ominousWither] resistance
-execute unless entity @e[type=wither_skeleton,tag=wArcher] run data merge entity @e[type=wither,tag=ominousWither,limit=1] {Glowing:0b}
+execute unless entity @e[type=wither_skeleton,tag=wArcher] run effect clear @e[type=wither,tag=ominousWither,tag=shieldActive] resistance
+execute unless entity @e[type=wither_skeleton,tag=wArcher] run data merge entity @e[type=wither,tag=ominousWither,tag=shieldActive,limit=1] {Glowing:0b}
 
 # Trigger charge attack once when shield drops
 execute if entity @e[type=wither,tag=ominousWither,tag=shieldActive] unless entity @e[type=wither_skeleton,tag=wArcher] if data storage wither:options {togglecharge:Enabled} as @e[type=wither,tag=ominousWither,limit=1] at @s run function wither:wither/phase2/charge/chargepre
