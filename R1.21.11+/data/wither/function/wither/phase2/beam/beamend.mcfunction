@@ -1,0 +1,20 @@
+# Beam Attack Cleanup
+# Kill crystals
+kill @e[tag=beamCrystalL]
+kill @e[tag=beamCrystalC]
+kill @e[tag=beamCrystalR]
+
+# Kill aim markers
+kill @e[tag=beamTargetSide]
+kill @e[tag=beamTargetCenter]
+
+# Remove player target tags
+tag @a remove beamSideTarget
+tag @a remove beamCenterTarget
+
+# Restore wither
+tag @e[type=wither,tag=ominousWither] remove Beam
+data merge entity @e[type=wither,tag=ominousWither,limit=1] {NoAI:0b,Glowing:0b}
+
+# Schedule next beam attack in 80 seconds
+execute if entity @e[type=wither,tag=ominousWither,scores={Health=100..}] run schedule function wither:wither/phase2/beam/beampre 80s

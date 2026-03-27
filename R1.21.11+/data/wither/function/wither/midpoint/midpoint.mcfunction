@@ -5,6 +5,9 @@ tag @s add Phase2
 scoreboard players set ominousWither divecooldown 1
 schedule function wither:wither/dive/divecooldown 200t
 
+# Schedule beam attack 35s into Phase 2
+execute if data storage wither:options {togglebeam:Enabled} run schedule function wither:wither/phase2/beam/beampre 35s
+
 # Takeoff blast column
 execute if data storage wither:options {toggleanimation:Default} at @s run fill ~-1 ~ ~-1 ~1 ~47 ~1 air
 execute if data storage wither:options {toggleanimation:Default} at @s run summon creeper ~ ~ ~  {Team:"Wither",CustomName:"Ominous Wither's Ascent",Silent:1b,Invulnerable:1b,NoAI:1b,ExplosionRadius:6b,Fuse:1,ignited:1b,active_effects:[{id:"minecraft:invisibility",amplifier:0,duration:-1,show_particles:0b,show_icon:0b}]}

@@ -24,6 +24,8 @@ scoreboard objectives remove wither.temp.px
 scoreboard objectives remove wither.temp.py
 scoreboard objectives remove wither.temp.pz
 scoreboard objectives remove fightInitAge
+scoreboard objectives remove beamTimer
+scoreboard objectives remove beamStep
 
 scoreboard objectives remove rules
 scoreboard objectives remove stages
@@ -39,6 +41,7 @@ advancement revoke @a only wither:wither/hit3_wither
 advancement revoke @a only wither:wither/hit4_wither
 advancement revoke @a only wither:wither/hit5_wither
 advancement revoke @a only wither:wither/hit6_wither
+advancement revoke @a only wither:wither/hit7_wither
 advancement revoke @a only wither:wither/prehit_wither
 
 schedule clear wither:wither/bedrock/death/deadbedrock1t
@@ -54,6 +57,13 @@ schedule clear wither:wither/phase2/charge/charge2
 schedule clear wither:wither/phase2/charge/chargepre
 schedule clear wither:wither/phase2/charge/chargetick
 schedule clear wither:wither/phase2/charge/chargereset
+schedule clear wither:wither/phase2/beam/beampre
+schedule clear wither:wither/phase2/beam/beamascend
+schedule clear wither:wither/phase2/beam/beamaimtick
+schedule clear wither:wither/phase2/beam/beamfire_left
+schedule clear wither:wither/phase2/beam/beamfire_center
+schedule clear wither:wither/phase2/beam/beamfire_right
+schedule clear wither:wither/phase2/beam/beamend
 schedule clear wither:wither/phase2/dashes/dash
 schedule clear wither:wither/phase2/dashes/dashto
 schedule clear wither:wither/phase2/dashes/endloop
@@ -160,6 +170,13 @@ kill @e[type=armor_stand,tag=hStand]
 kill @e[type=armor_stand,tag=starxp]
 kill @e[type=armor_stand,tag=chargew]
 kill @e[type=armor_stand,tag=midpointpos]
+kill @e[tag=beamCrystalL]
+kill @e[tag=beamCrystalC]
+kill @e[tag=beamCrystalR]
+kill @e[tag=beamTargetSide]
+kill @e[tag=beamTargetCenter]
+tag @a remove beamSideTarget
+tag @a remove beamCenterTarget
 kill @e[type=marker,tag=wSpawnMarker]
 execute at @e[type=item,tag=OminousNetherStar,limit=1] run kill @e[type=experience_orb,sort=nearest,distance=..10]
 

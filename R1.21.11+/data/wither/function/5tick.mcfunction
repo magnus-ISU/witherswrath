@@ -17,6 +17,7 @@ execute if entity @e[type=minecraft:wither,tag=ominousWither,limit=1,scores={Hea
 
 execute as @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=nearest] at @s run particle minecraft:ash ~ ~ ~ 10 10 10 0 300
 
+execute if entity @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=nearest,tag=Beam] run function wither:wither/hit/hit7
 execute if entity @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=nearest,tag=Swarm] run function wither:wither/hit/hit6
 execute if entity @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=nearest,tag=Bedrock] run function wither:wither/hit/hit5
 execute if entity @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=nearest,tag=Dash] run function wither:wither/hit/hit4

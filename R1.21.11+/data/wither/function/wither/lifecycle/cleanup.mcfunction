@@ -34,6 +34,13 @@ schedule clear wither:wither/skull/burst/launch_burst_loop_reset
 schedule clear wither:wither/passive/spawn
 schedule clear wither:wither/passive/spawn_captain
 schedule clear wither:wither/passive/skull
+schedule clear wither:wither/phase2/beam/beampre
+schedule clear wither:wither/phase2/beam/beamascend
+schedule clear wither:wither/phase2/beam/beamaimtick
+schedule clear wither:wither/phase2/beam/beamfire_left
+schedule clear wither:wither/phase2/beam/beamfire_center
+schedule clear wither:wither/phase2/beam/beamfire_right
+schedule clear wither:wither/phase2/beam/beamend
 schedule clear wither:wither/fight_start/part
 schedule clear wither:wither/fight_start/init_ring_explode
 schedule clear wither:wither/unstuck/check
@@ -58,6 +65,13 @@ schedule clear wither:wither/lifecycle/timeout
     execute at @e[type=item_display,tag=nether_star,limit=1] run kill @e[type=armor_stand,tag=hStand,distance=..100]
     execute at @e[type=item_display,tag=nether_star,limit=1] run kill @e[type=armor_stand,tag=chargew,distance=..100]
     kill @e[type=marker,tag=wSpawnMarker]
+    kill @e[tag=beamCrystalL]
+    kill @e[tag=beamCrystalC]
+    kill @e[tag=beamCrystalR]
+    kill @e[tag=beamTargetSide]
+    kill @e[tag=beamTargetCenter]
+    tag @a remove beamSideTarget
+    tag @a remove beamCenterTarget
 
 # Remove force-loaded chunks
 forceload remove all
