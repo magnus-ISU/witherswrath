@@ -27,8 +27,8 @@ execute unless entity @e[type=wither_skeleton,tag=wArcher] run tag @e[type=withe
 # Teleport wither above player if they're 128-150 blocks away
 execute at @e[type=wither,tag=ominousWither,limit=1] unless entity @a[distance=..128] as @a[distance=128..150,sort=nearest,limit=1] at @s run tp @e[type=wither,tag=ominousWither,limit=1] ~ ~30 ~
 
-# Aerial dive: if wither is >20 blocks above a player and within 5 blocks horizontal, slam down
-execute if score ominousWither divecooldown matches 0 as @e[type=wither,tag=ominousWither,limit=1] at @s positioned ~-5 ~-300 ~-5 if entity @a[dx=10,dy=280,dz=10] run function wither:wither/dive/dive
+# Aerial dive: if wither is >12 blocks above a player and within 5 blocks horizontal, slam down
+execute if score ominousWither divecooldown matches 0 as @e[type=wither,tag=ominousWither,limit=1] at @s positioned ~-5 ~-300 ~-5 if entity @a[dx=10,dy=288,dz=10] run function wither:wither/dive/dive
 
 # Force chunk load the ominous wither and wArchers
 execute at @e[type=wither,tag=ominousWither,limit=1] run forceload add ~ ~

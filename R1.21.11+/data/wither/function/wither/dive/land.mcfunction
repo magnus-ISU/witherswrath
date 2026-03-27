@@ -1,3 +1,4 @@
+say land
 data merge entity @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=nearest] {NoAI:0b}
 execute as @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=nearest] at @s run summon minecraft:lightning_bolt ~ ~ ~ {}
 execute as @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=nearest] at @s run summon minecraft:creeper ~3 ~1 ~ {Team:"Wither",CustomName:"Ominous Wither's Dive",ExplosionRadius:4,Invulnerable:1b,Fuse:0,ignited:1b,Silent:1b,attributes:[{id:"minecraft:scale",base:0.0625}]}
