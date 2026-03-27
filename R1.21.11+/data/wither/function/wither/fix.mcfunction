@@ -176,8 +176,9 @@ kill @e[tag=beamCrystalR]
 kill @e[tag=beamTargetLeft]
 kill @e[tag=beamTargetRight]
 kill @e[tag=beamTargetCenter]
-tag @a remove beamSideTarget
-tag @a remove beamCenterTarget
+tag @a remove beamTarget1
+tag @a remove beamTarget2
+tag @a remove beamTarget3
 kill @e[type=marker,tag=wSpawnMarker]
 execute at @e[type=item,tag=OminousNetherStar,limit=1] run kill @e[type=experience_orb,sort=nearest,distance=..10]
 

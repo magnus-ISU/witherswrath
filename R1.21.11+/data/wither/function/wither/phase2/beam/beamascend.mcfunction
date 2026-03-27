@@ -13,4 +13,4 @@ scoreboard players add ominousWither beamTimer 1
 
 # Continue or transition to crystals
 execute if score ominousWither beamTimer matches ..19 run schedule function wither:wither/phase2/beam/beamascend 1t
-execute if score ominousWither beamTimer matches 20.. run function wither:wither/phase2/beam/beamcrystals
+execute if score ominousWither beamTimer matches 20.. run function wither:wither/phase2/beam/beam_crystals

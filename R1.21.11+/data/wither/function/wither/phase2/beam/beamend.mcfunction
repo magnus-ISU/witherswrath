@@ -10,8 +10,9 @@ kill @e[tag=beamTargetCenter]
 kill @e[tag=beamTargetRight]
 
 # Remove player target tags
-tag @a remove beamSideTarget
-tag @a remove beamCenterTarget
+tag @a remove beamTarget1
+tag @a remove beamTarget2
+tag @a remove beamTarget3
 
 # Restore wither
 tag @e[type=wither,tag=ominousWither] remove Beam

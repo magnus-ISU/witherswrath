@@ -4,29 +4,33 @@ execute unless entity @e[type=wither,tag=ominousWither] run return 0
 
 scoreboard players add ominousWither beamTimer 1
 
+# Double speed if more than 3 players within 50 blocks of wither
+execute at @e[type=wither,tag=ominousWither,limit=1] store result score #nearby_players beamStep if entity @a[distance=..50,gamemode=!spectator]
+execute if score #nearby_players beamStep matches 4.. run scoreboard players add ominousWither beamTimer 1
+
 # Wither rotation and glowing
 data merge entity @e[type=wither,tag=ominousWither,limit=1] {NoAI:1b,Glowing:1b,active_effects:[{id:"minecraft:resistance",amplifier:255,duration:300,show_particles:0b}]}
 
-# === DISPATCH LEFT BEAM (targets side player) ===
-execute if score ominousWither beamTimer matches 1..50 as @a[tag=beamSideTarget,limit=1,gamemode=!spectator] at @s run function wither:wither/phase2/beam/aim/left_beam_aim_1_to_50
-execute if score ominousWither beamTimer matches 51..100 as @a[tag=beamSideTarget,limit=1,gamemode=!spectator] at @s run function wither:wither/phase2/beam/aim/left_beam_aim_51_to_100
-execute if score ominousWither beamTimer matches 101..150 as @a[tag=beamSideTarget,limit=1,gamemode=!spectator] at @s run function wither:wither/phase2/beam/aim/left_beam_aim_101_to_150
-execute if score ominousWither beamTimer matches 151..200 as @a[tag=beamSideTarget,limit=1,gamemode=!spectator] at @s run function wither:wither/phase2/beam/aim/left_beam_aim_151_to_200
-execute if score ominousWither beamTimer matches 201..260 as @a[tag=beamSideTarget,limit=1,gamemode=!spectator] at @s run function wither:wither/phase2/beam/aim/left_beam_aim_locked
+# === DISPATCH LEFT BEAM (targets 2nd nearest player) ===
+execute if score ominousWither beamTimer matches 1..50 as @a[tag=beamTarget2,limit=1,gamemode=!spectator] at @s run function wither:wither/phase2/beam/aim/left_beam_aim_1_to_50
+execute if score ominousWither beamTimer matches 51..100 as @a[tag=beamTarget2,limit=1,gamemode=!spectator] at @s run function wither:wither/phase2/beam/aim/left_beam_aim_51_to_100
+execute if score ominousWither beamTimer matches 101..150 as @a[tag=beamTarget2,limit=1,gamemode=!spectator] at @s run function wither:wither/phase2/beam/aim/left_beam_aim_101_to_150
+execute if score ominousWither beamTimer matches 151..200 as @a[tag=beamTarget2,limit=1,gamemode=!spectator] at @s run function wither:wither/phase2/beam/aim/left_beam_aim_151_to_200
+execute if score ominousWither beamTimer matches 201..260 as @a[tag=beamTarget2,limit=1,gamemode=!spectator] at @s run function wither:wither/phase2/beam/aim/left_beam_aim_locked
 
-# === DISPATCH CENTER BEAM (targets center player) ===
-execute if score ominousWither beamTimer matches 1..50 as @a[tag=beamCenterTarget,limit=1,gamemode=!spectator] at @s run function wither:wither/phase2/beam/aim/center_beam_aim_1_to_50
-execute if score ominousWither beamTimer matches 51..100 as @a[tag=beamCenterTarget,limit=1,gamemode=!spectator] at @s run function wither:wither/phase2/beam/aim/center_beam_aim_51_to_100
-execute if score ominousWither beamTimer matches 101..150 as @a[tag=beamCenterTarget,limit=1,gamemode=!spectator] at @s run function wither:wither/phase2/beam/aim/center_beam_aim_101_to_150
-execute if score ominousWither beamTimer matches 151..200 as @a[tag=beamCenterTarget,limit=1,gamemode=!spectator] at @s run function wither:wither/phase2/beam/aim/center_beam_aim_151_to_200
-execute if score ominousWither beamTimer matches 201..260 as @a[tag=beamCenterTarget,limit=1,gamemode=!spectator] at @s run function wither:wither/phase2/beam/aim/center_beam_aim_locked
+# === DISPATCH CENTER BEAM (targets nearest player) ===
+execute if score ominousWither beamTimer matches 1..50 as @a[tag=beamTarget1,limit=1,gamemode=!spectator] at @s run function wither:wither/phase2/beam/aim/center_beam_aim_1_to_50
+execute if score ominousWither beamTimer matches 51..100 as @a[tag=beamTarget1,limit=1,gamemode=!spectator] at @s run function wither:wither/phase2/beam/aim/center_beam_aim_51_to_100
+execute if score ominousWither beamTimer matches 101..150 as @a[tag=beamTarget1,limit=1,gamemode=!spectator] at @s run function wither:wither/phase2/beam/aim/center_beam_aim_101_to_150
+execute if score ominousWither beamTimer matches 151..200 as @a[tag=beamTarget1,limit=1,gamemode=!spectator] at @s run function wither:wither/phase2/beam/aim/center_beam_aim_151_to_200
+execute if score ominousWither beamTimer matches 201..260 as @a[tag=beamTarget1,limit=1,gamemode=!spectator] at @s run function wither:wither/phase2/beam/aim/center_beam_aim_locked
 
-# === DISPATCH RIGHT BEAM (targets side player) ===
-execute if score ominousWither beamTimer matches 1..50 as @a[tag=beamSideTarget,limit=1,gamemode=!spectator] at @s run function wither:wither/phase2/beam/aim/right_beam_aim_1_to_50
-execute if score ominousWither beamTimer matches 51..100 as @a[tag=beamSideTarget,limit=1,gamemode=!spectator] at @s run function wither:wither/phase2/beam/aim/right_beam_aim_51_to_100
-execute if score ominousWither beamTimer matches 101..150 as @a[tag=beamSideTarget,limit=1,gamemode=!spectator] at @s run function wither:wither/phase2/beam/aim/right_beam_aim_101_to_150
-execute if score ominousWither beamTimer matches 151..200 as @a[tag=beamSideTarget,limit=1,gamemode=!spectator] at @s run function wither:wither/phase2/beam/aim/right_beam_aim_151_to_200
-execute if score ominousWither beamTimer matches 201..260 as @a[tag=beamSideTarget,limit=1,gamemode=!spectator] at @s run function wither:wither/phase2/beam/aim/right_beam_aim_locked
+# === DISPATCH RIGHT BEAM (targets 3rd nearest player) ===
+execute if score ominousWither beamTimer matches 1..50 as @a[tag=beamTarget3,limit=1,gamemode=!spectator] at @s run function wither:wither/phase2/beam/aim/right_beam_aim_1_to_50
+execute if score ominousWither beamTimer matches 51..100 as @a[tag=beamTarget3,limit=1,gamemode=!spectator] at @s run function wither:wither/phase2/beam/aim/right_beam_aim_51_to_100
+execute if score ominousWither beamTimer matches 101..150 as @a[tag=beamTarget3,limit=1,gamemode=!spectator] at @s run function wither:wither/phase2/beam/aim/right_beam_aim_101_to_150
+execute if score ominousWither beamTimer matches 151..200 as @a[tag=beamTarget3,limit=1,gamemode=!spectator] at @s run function wither:wither/phase2/beam/aim/right_beam_aim_151_to_200
+execute if score ominousWither beamTimer matches 201..260 as @a[tag=beamTarget3,limit=1,gamemode=!spectator] at @s run function wither:wither/phase2/beam/aim/right_beam_aim_locked
 
 # === UPDATE CRYSTAL BEAM TARGETS ===
 data modify entity @e[tag=beamCrystalL,limit=1] beam_target set from entity @e[tag=beamTargetLeft,limit=1] Pos

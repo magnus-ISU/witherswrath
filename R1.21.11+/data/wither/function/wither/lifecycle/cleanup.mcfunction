@@ -71,8 +71,9 @@ schedule clear wither:wither/lifecycle/timeout
     kill @e[tag=beamTargetLeft]
     kill @e[tag=beamTargetRight]
     kill @e[tag=beamTargetCenter]
-    tag @a remove beamSideTarget
-    tag @a remove beamCenterTarget
+    tag @a remove beamTarget1
+    tag @a remove beamTarget2
+    tag @a remove beamTarget3
 
 # Remove force-loaded chunks
 forceload remove all
