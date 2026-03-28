@@ -44,6 +44,7 @@ schedule clear wither:wither/phase2/beam/beam_fire_left
 schedule clear wither:wither/phase2/beam/beam_fire_center
 schedule clear wither:wither/phase2/beam/beam_fire_right
 schedule clear wither:wither/phase2/beam/beam_end
+schedule clear wither:wither/phase2/beam/beam_lock_tick
 schedule clear wither:wither/fight_start/part
 schedule clear wither:wither/fight_start/init_ring_explode
 schedule clear wither:wither/unstuck/check
@@ -78,6 +79,9 @@ schedule clear wither:wither/phase1/movement/spawn_player_tracker
     kill @e[tag=beamTargetLeft]
     kill @e[tag=beamTargetRight]
     kill @e[tag=beamTargetCenter]
+    kill @e[type=marker,tag=beamLock1]
+    kill @e[type=marker,tag=beamLock2]
+    kill @e[type=marker,tag=beamLock3]
     tag @a remove beamTarget1
     tag @a remove beamTarget2
     tag @a remove beamTarget3

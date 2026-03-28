@@ -9,6 +9,11 @@ kill @e[tag=beamTargetLeft]
 kill @e[tag=beamTargetCenter]
 kill @e[tag=beamTargetRight]
 
+# Kill lock markers (release players)
+kill @e[type=marker,tag=beamLock1]
+kill @e[type=marker,tag=beamLock2]
+kill @e[type=marker,tag=beamLock3]
+
 # Remove player target tags
 tag @a remove beamTarget1
 tag @a remove beamTarget2
