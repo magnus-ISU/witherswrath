@@ -15,6 +15,9 @@ execute store result score cmdFbk rules run gamerule send_command_feedback
 execute store result score count playerCount run execute if entity @e[type=player,distance=..100]
 
 # Schedule all fight functions
+# Track player items immediately before any explosions
+function wither:wither/restore_items
+schedule function wither:wither/immortal_maces 1t
 schedule function wither:wither_check 1t
 schedule function wither:wither/fight_start/init 1t
 schedule function wither:tick 1t

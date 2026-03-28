@@ -23,6 +23,6 @@ execute if entity @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=neares
 execute if entity @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=nearest,tag=Dash] run function wither:wither/hit/hit4
 execute if entity @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=nearest,tag=Charge] run function wither:wither/hit/hit3
 execute if entity @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=nearest,tag=Phase1] run function wither:wither/hit/hit2
-execute as @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=nearest] unless data entity @s Tags run function wither:wither/hit/hit
+execute as @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=nearest] unless data entity @s Tags run function wither:wither/hit/hit_reveal_archers
 
 execute if entity @e[type=wither,tag=ominousWither] run schedule function wither:5_tick 5t

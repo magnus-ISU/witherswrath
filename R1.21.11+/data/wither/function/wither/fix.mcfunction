@@ -195,6 +195,9 @@ execute as @e[type=player] run attribute @s minecraft:gravity modifier remove 1
 
 forceload remove all
 
+# Keep restore_items running for 200t after fix to catch late respawns
+schedule function wither:wither/restore_items 200t
+
 function wither:load
 
 tellraw @s {"text":"Wither's Wrath has been fixed!",bold:true,color:"#5e0000"}
