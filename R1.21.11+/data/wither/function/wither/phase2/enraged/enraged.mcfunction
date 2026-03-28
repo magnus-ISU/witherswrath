@@ -8,3 +8,11 @@ execute as @e[type=wither,tag=ominousWither,limit=1] at @s run playsound minecra
 team modify Wither color dark_red
 
 function wither:wither/phase2/enraged/skulls/skulls
+
+# Phase 3 transition: disable AI and strike lightning 10 times, then ground slam
+execute as @e[type=wither,tag=ominousWither,limit=1] run data merge entity @s {NoAI:1b}
+scoreboard players set #lightning stages 0
+schedule function wither:wither/phase2/enraged/lightning_tick 4t
+
+# Start periodic ground check (every 10 seconds)
+schedule function wither:wither/phase2/enraged/ground_check 200t

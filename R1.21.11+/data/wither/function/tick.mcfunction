@@ -30,15 +30,17 @@ execute at @e[type=wither,tag=ominousWither,limit=1] unless entity @a[distance=.
 execute if entity @e[type=wither,tag=ominousWither,tag=Beam] run function wither:wither/phase2/beam/beam_crystals_follow
 
 # Aerial dive: if wither is >12 blocks above a player and within 5 blocks horizontal, slam down
-execute as @e[type=wither,tag=ominousWither,tag=!Diving,limit=1] at @s positioned ~-5 ~-300 ~-5 if entity @a[dx=10,dy=288,dz=10] run function wither:wither/dive/dive
+execute as @e[type=wither,tag=ominousWither,tag=!Diving,tag=!Slamming,limit=1] at @s positioned ~-5 ~-300 ~-5 if entity @a[dx=10,dy=288,dz=10] run function wither:wither/dive/dive
 
 # Force chunk load the ominous wither and wArchers
 execute at @e[type=wither,tag=ominousWither,limit=1] run forceload add ~ ~
 execute as @e[type=wither_skeleton,tag=wArcher] at @s run forceload add ~ ~
 execute as @e[type=phantom,tag=wArcher] at @s run forceload add ~ ~
 
-# Phase 3 (<100 HP): Wither V for players further than 16 blocks, black particle ring around wither
-execute if entity @e[type=wither,tag=ominousWither,scores={Health=..99}] at @e[type=wither,tag=ominousWither,limit=1] run effect give @a[distance=16..150] wither 1 4 true
+# Phase 3 (<100 HP): Wither X for players further than 16 blocks, black particle ring around wither
+execute if entity @e[type=wither,tag=ominousWither,scores={Health=..99}] at @e[type=wither,tag=ominousWither,limit=1] run effect give @a[distance=16..150] wither 3 9 true
+# Deal 2.5 wither damage every 10 ticks to players outside the zone
+execute if entity @e[type=wither,tag=ominousWither,scores={Health=..99}] at @e[type=wither,tag=ominousWither,limit=1] as @a[distance=16..150] at @s run damage @s 2.5 minecraft:wither by @e[type=wither,tag=ominousWither,limit=1]
 execute if entity @e[type=wither,tag=ominousWither,scores={Health=..99}] at @e[type=wither,tag=ominousWither,limit=1] run particle minecraft:squid_ink ~0 ~1 ~16 0 0.3 0 0 3 force
 execute if entity @e[type=wither,tag=ominousWither,scores={Health=..99}] at @e[type=wither,tag=ominousWither,limit=1] run particle minecraft:squid_ink ~4.14 ~1 ~15.45 0 0.3 0 0 3 force
 execute if entity @e[type=wither,tag=ominousWither,scores={Health=..99}] at @e[type=wither,tag=ominousWither,limit=1] run particle minecraft:squid_ink ~8 ~1 ~13.86 0 0.3 0 0 3 force

@@ -6,6 +6,9 @@ scoreboard players set enraged wenraged 0
 schedule clear wither:wither/dive/dive_tick
 schedule clear wither:wither/dive/divecooldown
 schedule clear wither:wither/dive/land
+schedule clear wither:wither/dive/ground_slam_tick
+schedule clear wither:wither/phase2/enraged/lightning_tick
+schedule clear wither:wither/phase2/enraged/ground_check
 
 # Clear all fight schedules
 schedule clear wither:wither/phase2/charge/charge
