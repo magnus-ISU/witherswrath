@@ -41,6 +41,7 @@ advancement revoke @a only wither:wither/hit3_wither
 advancement revoke @a only wither:wither/hit4_wither
 advancement revoke @a only wither:wither/hit5_wither
 advancement revoke @a only wither:wither/hit6_wither
+advancement revoke @a only wither:wither/hit_swarm_trigger_wither
 advancement revoke @a only wither:wither/hit7_wither
 advancement revoke @a only wither:wither/pre_hit_wither
 
@@ -83,6 +84,8 @@ schedule clear wither:wither/skull/burst/launch_burst_loop
 schedule clear wither:wither/skull/burst/launch_burst_loop_reset
 schedule clear wither:wither/unstuck/check
 schedule clear wither:wither/lifecycle/timeout
+schedule clear wither:wither/phase1/hover_cooldown
+schedule clear wither:wither/phase1/movement/spawn_player_tracker
 schedule clear wither:wither/fight_start/part
 schedule clear wither:wither/fight_start/tick
 schedule clear wither:wither/fight_start/bedrock
@@ -180,6 +183,9 @@ tag @a remove beamTarget1
 tag @a remove beamTarget2
 tag @a remove beamTarget3
 kill @e[type=marker,tag=wSpawnMarker]
+kill @e[type=marker,tag=shiftMarker]
+ride @e[type=wither,tag=ominousWither,limit=1] dismount
+kill @e[type=armor_stand,tag=witherMount]
 execute at @e[type=item,tag=OminousNetherStar,limit=1] run kill @e[type=experience_orb,sort=nearest,distance=..10]
 
 execute as @e[type=player] run attribute @s minecraft:gravity modifier remove 1

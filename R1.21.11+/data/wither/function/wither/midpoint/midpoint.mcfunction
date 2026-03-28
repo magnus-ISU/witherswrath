@@ -1,6 +1,10 @@
 # ONE-TIME ONLY: Removing this tag will stop the adv from triggering
 tag @s remove Phase1
 tag @s add Phase2
+
+# Remove Phase 1 mount and shift marker
+function wither:wither/phase1/movement/dismount
+kill @e[type=marker,tag=shiftMarker]
 tag @s add MidpointAnimation
 
 # Schedule beam attack 35s into Phase 2

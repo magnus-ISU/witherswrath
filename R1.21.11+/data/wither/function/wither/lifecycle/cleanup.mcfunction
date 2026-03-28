@@ -45,6 +45,8 @@ schedule clear wither:wither/fight_start/part
 schedule clear wither:wither/fight_start/init_ring_explode
 schedule clear wither:wither/unstuck/check
 schedule clear wither:wither/lifecycle/timeout
+schedule clear wither:wither/phase1/hover_cooldown
+schedule clear wither:wither/phase1/movement/spawn_player_tracker
 
     schedule function wither:xp/xp 1t
 
@@ -65,6 +67,8 @@ schedule clear wither:wither/lifecycle/timeout
     execute at @e[type=item_display,tag=nether_star,limit=1] run kill @e[type=armor_stand,tag=hStand,distance=..100]
     execute at @e[type=item_display,tag=nether_star,limit=1] run kill @e[type=armor_stand,tag=chargew,distance=..100]
     kill @e[type=marker,tag=wSpawnMarker]
+    function wither:wither/phase1/movement/dismount
+    kill @e[type=marker,tag=shiftMarker]
     kill @e[tag=beamCrystalL]
     kill @e[tag=beamCrystalC]
     kill @e[tag=beamCrystalR]

@@ -23,6 +23,7 @@ schedule function wither:wither/skull/launch 22s
 schedule function wither:wither/skull/burst/launch_burst_loop 30s
 execute if data storage wither:options {toggleanimation:Default} run schedule function wither:wither/passive/skull 12s
 execute if data storage wither:options {toggleanimation:Default} run schedule function wither:wither/motion/gravity 10s
+execute if data storage wither:options {toggleanimation:Default} run schedule function wither:wither/phase1/movement/spawn_player_tracker 239t
 execute if data storage wither:options {toggleanimation:Default} run schedule function wither:wither/phase1/check_player_tick 12s
 execute if data storage wither:options {toggleanimation:Default} run schedule function wither:wither/fight_start/part 1t
 execute if data storage wither:options {togglehoming:Enabled} run schedule function wither:wither/phase1/homing/homing_pre 10s
