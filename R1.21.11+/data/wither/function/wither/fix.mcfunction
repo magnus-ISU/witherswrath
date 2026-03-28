@@ -44,6 +44,7 @@ advancement revoke @a only wither:wither/hit6_wither
 advancement revoke @a only wither:wither/hit_swarm_trigger_wither
 advancement revoke @a only wither:wither/hit7_wither
 advancement revoke @a only wither:wither/pre_hit_wither
+advancement revoke @a only wither:wither/placed_star_in_frame
 
 schedule clear wither:wither/bedrock/death/deadbedrock1t
 schedule clear wither:wither/bedrock/death/deadbedrock2t
@@ -153,6 +154,8 @@ schedule clear wither:xp/xp7
 schedule clear wither:xp/xp8
 schedule clear wither:xp/xp9
 schedule clear wither:xp/xp10
+schedule clear wither:nether_star/stop_rising
+schedule clear wither:nether_star/rise
 
 data remove storage temp Head
 

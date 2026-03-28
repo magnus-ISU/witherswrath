@@ -1,0 +1,26 @@
+{
+  "criteria": {
+    "item_frame": {
+      "trigger": "minecraft:player_interacted_with_entity",
+      "conditions": {
+        "entity": {
+          "type": "minecraft:item_frame"
+        }
+      }
+    },
+    "glow_item_frame": {
+      "trigger": "minecraft:player_interacted_with_entity",
+      "conditions": {
+        "entity": {
+          "type": "minecraft:glow_item_frame"
+        }
+      }
+    }
+  },
+  "requirements": [
+    ["item_frame", "glow_item_frame"]
+  ],
+  "rewards": {
+    "function": "wither:nether_star/check_frame"
+  }
+}

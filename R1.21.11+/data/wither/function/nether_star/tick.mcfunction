@@ -3,10 +3,11 @@ execute unless entity @e[type=item_display,tag=nether_star] run return 0
 
 # Rotate display (vehicle) and apply particles
 execute as @e[type=item_display,tag=nether_star] at @s run tp @s ~ ~ ~ ~10 ~
-execute as @e[type=item_display,tag=nether_star] at @s run particle end_rod ^0 ^0.3 ^0.75 0 0 0 0 2 normal
-execute as @e[type=item_display,tag=nether_star] at @s run particle electric_spark ~ ~0.8 ~ 0.01 0 0.01 1 2 normal
-execute as @e[type=item_display,tag=nether_star] at @s run particle end_rod ^0 ^1.4 ^0.75 0 0 0 0 2 normal
-execute as @e[type=item_display,tag=nether_star] at @s if block ^ ^-1 ^ #air run tp ~ ~-.005 ~
+execute as @e[type=item_display,tag=nether_star] at @s run particle end_rod ^0 ^0.3 ^0.75 0 0 0 0.005 1 normal
+execute as @e[type=item_display,tag=nether_star] at @s run particle dust{color:[0.05,0.05,0.05],scale:1.5} ~ ~0.8 ~ 0.4 0.3 0.4 0.01 1 normal
+execute as @e[type=item_display,tag=nether_star] at @s run particle end_rod ^0 ^1.4 ^0.75 0 0 0 0.005 1 normal
+# Rise if placed from item frame (handled by 1-tick rise loop), otherwise slowly descend
+execute as @e[type=item_display,tag=nether_star,tag=!ns_rising] at @s if block ^ ^-1 ^ #air run tp ~ ~-.005 ~
 
 # Clean up orphaned displays (item passenger was picked up)
 tag @e[type=item_display,tag=nether_star] add ns_orphaned
