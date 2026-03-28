@@ -7,7 +7,7 @@ execute if entity @e[type=minecraft:wither,tag=ominousWither,tag=Phase1] run sch
 execute if entity @e[type=minecraft:wither,tag=ominousWither,scores={Health=..99}] as @e[type=minecraft:wither,tag=ominousWither,limit=1] at @s run function wither:wither/passive/spawn_wither_skeletons
 
 # Reschedule based on phase
-execute if entity @e[type=minecraft:wither,tag=ominousWither,tag=Phase1] run schedule function wither:wither/passive/spawn 25s
-execute if entity @e[type=minecraft:wither,tag=ominousWither,scores={Health=..99}] run schedule function wither:wither/passive/spawn 15s
+execute if entity @e[type=minecraft:wither,tag=ominousWither,tag=Phase1] run schedule function wither:wither/passive/spawn 32s
+execute if entity @e[type=minecraft:wither,tag=ominousWither,scores={Health=..99}] run schedule function wither:wither/passive/spawn 16s
 # Keep checking during phase 2 so we catch the transition to phase 3
-execute if entity @e[type=minecraft:wither,tag=ominousWither,tag=Phase2,scores={Health=100..}] run schedule function wither:wither/passive/spawn 5s
+execute if entity @e[type=minecraft:wither,tag=ominousWither,tag=Phase2,scores={Health=100..}] run schedule function wither:wither/passive/spawn 16s
