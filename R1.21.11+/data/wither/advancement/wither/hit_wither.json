@@ -1,6 +1,6 @@
 {
   "rewards": {
-    "function": "wither:wither/hit/hit"
+    "function": "wither:wither/hit/hit_reveal_archers"
   },
   "criteria": {
     "requirement": {
