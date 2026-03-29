@@ -9,7 +9,15 @@ execute as @e[type=wither,tag=ominousWither,limit=1] store result score @s Healt
 
 # Health caps - prevent healing above phase thresholds
 execute as @e[type=wither,tag=ominousWither,tag=!Phase1] if score @s Health matches 298.. run data modify entity @s Health set value 298.0f
-execute as @e[type=wither,tag=ominousWither,tag=!Dash] if score @s Health matches 100.. run data modify entity @s Health set value 98.0f
+# At exactly 100 HP, clamp to 98 (phase 3 transition); 101–150 remains valid for phase 2 melee
+execute as @e[type=wither,tag=ominousWither,tag=!Dash] if score @s Health matches 100..100 run data modify entity @s Health set value 98.0f
+
+execute as @e[type=wither,tag=ominousWither,scores={Health=..100}] run tag @s remove ProximityShield
+execute as @e[type=wither,tag=ominousWither,scores={Health=..100}] run tag @s remove ProximityShieldDown
+execute as @e[type=wither,tag=ominousWither,scores={Health=..100}] run tag @s remove WhiteShieldDive
+execute if entity @e[type=wither,tag=ominousWither,scores={Health=..100}] run schedule clear wither:wither/phase2/white_shield_slam
+execute if entity @e[type=wither,tag=ominousWither,scores={Health=..100}] run schedule clear wither:wither/phase2/proximity_shield_down
+execute if entity @e[type=wither,tag=ominousWither,scores={Health=..100}] run schedule clear wither:wither/phase2/init_proximity_shield
 
 # wArcher shield: while any wArcher is alive, continuously keep the Ominous Wither immune and glowing as other things modify effects
 execute if entity @e[type=wither_skeleton,tag=wArcher] run tag @e[type=wither,tag=ominousWither] add shieldActive
@@ -21,7 +29,7 @@ execute unless entity @e[type=wither_skeleton,tag=wArcher] run effect clear @e[t
 execute unless entity @e[type=wither_skeleton,tag=wArcher] run data merge entity @e[type=wither,tag=ominousWither,tag=shieldActive,limit=1] {Glowing:0b}
 
 # Trigger charge attack once when shield drops
-execute if entity @e[type=wither,tag=ominousWither,tag=shieldActive] unless entity @e[type=wither_skeleton,tag=wArcher] if data storage wither:options {togglecharge:Enabled} as @e[type=wither,tag=ominousWither,limit=1] at @s run function wither:wither/phase2/charge/charge_pre
+execute if entity @e[type=wither,tag=ominousWither,tag=shieldActive] unless entity @e[type=wither_skeleton,tag=wArcher] if data storage wither:options {togglecharge:Enabled} unless entity @e[type=wither,tag=ominousWither,tag=WhiteShieldDive] as @e[type=wither,tag=ominousWither,limit=1] at @s run function wither:wither/phase2/charge/charge_pre
 execute unless entity @e[type=wither_skeleton,tag=wArcher] run tag @e[type=wither,tag=ominousWither] remove shieldActive
 
 # Teleport wither above player if they're 128-150 blocks away
@@ -36,6 +44,11 @@ execute as @e[type=wither,tag=ominousWither,tag=!Diving,tag=!Slamming,limit=1] a
 execute at @e[type=wither,tag=ominousWither,limit=1] run forceload add ~ ~
 execute as @e[type=wither_skeleton,tag=wArcher] at @s run forceload add ~ ~
 execute as @e[type=phantom,tag=wArcher] at @s run forceload add ~ ~
+
+execute if entity @e[type=wither,tag=ominousWither,tag=ProximityShield] run function wither:wither/phase2/update_proximity_shield
+
+# Phase 2 melee (101–150 HP, proximity shield): white smoke ring (as/at so particle ~ coords resolve on the wither)
+execute as @e[type=wither,tag=ominousWither,tag=ProximityShield,limit=1] at @s run function wither:wither/phase2/proximity_white_ring
 
 # Phase 3 (<100 HP): Wither X for players further than 16 blocks, black particle ring around wither
 execute if entity @e[type=wither,tag=ominousWither,scores={Health=..99}] at @e[type=wither,tag=ominousWither,limit=1] run effect give @a[distance=16..150] wither 3 9 true

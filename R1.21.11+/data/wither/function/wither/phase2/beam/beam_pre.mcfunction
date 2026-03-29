@@ -5,6 +5,9 @@ execute unless entity @e[type=wither,tag=ominousWither] run return 0
 
 # Don't fire beam if already beaming
 execute if entity @e[type=wither,tag=ominousWither,tag=Beam] run return 0
+# Don't fire beam during white-shield dive sequence — retry in 4 seconds
+execute if entity @e[type=wither,tag=ominousWither,tag=WhiteShieldDive] run schedule function wither:wither/phase2/beam/beam_pre 4s
+execute if entity @e[type=wither,tag=ominousWither,tag=WhiteShieldDive] run return 0
 # Don't fire beam if actively charging — retry in 4 seconds
 execute if entity @e[type=wither,tag=ominousWither,tag=Charge,tag=!shieldActive] run schedule function wither:wither/phase2/beam/beam_pre 4s
 execute if entity @e[type=wither,tag=ominousWither,tag=Charge,tag=!shieldActive] run return 0

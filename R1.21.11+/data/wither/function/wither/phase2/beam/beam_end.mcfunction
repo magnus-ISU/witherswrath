@@ -25,4 +25,4 @@ tag @e[type=wither,tag=ominousWither] remove BeamTeleport
 data merge entity @e[type=wither,tag=ominousWither,limit=1] {NoAI:0b,Glowing:0b}
 
 # Schedule next beam attack in 60 seconds
-execute if entity @e[type=wither,tag=ominousWither,scores={Health=100..}] run schedule function wither:wither/phase2/beam/beam_pre 60s
+execute if entity @e[type=wither,tag=ominousWither,scores={Health=100..}] unless entity @e[type=wither,tag=ominousWither,tag=WhiteShieldDive] run schedule function wither:wither/phase2/beam/beam_pre 60s

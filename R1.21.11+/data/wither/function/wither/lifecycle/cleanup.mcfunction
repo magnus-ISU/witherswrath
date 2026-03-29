@@ -10,6 +10,9 @@ schedule clear wither:wither/dive/dive_tick
 schedule clear wither:wither/dive/divecooldown
 schedule clear wither:wither/dive/land
 schedule clear wither:wither/dive/ground_slam_tick
+schedule clear wither:wither/phase2/white_shield_slam
+schedule clear wither:wither/phase2/proximity_shield_down
+schedule clear wither:wither/phase2/init_proximity_shield
 schedule clear wither:wither/phase2/enraged/lightning_tick
 schedule clear wither:wither/phase2/enraged/ground_check
 

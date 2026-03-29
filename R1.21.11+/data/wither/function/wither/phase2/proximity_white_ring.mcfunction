@@ -1,0 +1,25 @@
+# Horizontal ring at radius 16 (same layout as phase 3 black ring). Must use execute at @e — bare ~ in a nested function has no position unless at is set.
+execute at @e[type=wither,tag=ominousWither,limit=1] run particle minecraft:white_smoke ~0 ~1 ~16 0 0.3 0 0 4 force
+execute at @e[type=wither,tag=ominousWither,limit=1] run particle minecraft:white_smoke ~4.14 ~1 ~15.45 0 0.3 0 0 4 force
+execute at @e[type=wither,tag=ominousWither,limit=1] run particle minecraft:white_smoke ~8 ~1 ~13.86 0 0.3 0 0 4 force
+execute at @e[type=wither,tag=ominousWither,limit=1] run particle minecraft:white_smoke ~11.31 ~1 ~11.31 0 0.3 0 0 4 force
+execute at @e[type=wither,tag=ominousWither,limit=1] run particle minecraft:white_smoke ~13.86 ~1 ~8 0 0.3 0 0 4 force
+execute at @e[type=wither,tag=ominousWither,limit=1] run particle minecraft:white_smoke ~15.45 ~1 ~4.14 0 0.3 0 0 4 force
+execute at @e[type=wither,tag=ominousWither,limit=1] run particle minecraft:white_smoke ~16 ~1 ~0 0 0.3 0 0 4 force
+execute at @e[type=wither,tag=ominousWither,limit=1] run particle minecraft:white_smoke ~15.45 ~1 ~-4.14 0 0.3 0 0 4 force
+execute at @e[type=wither,tag=ominousWither,limit=1] run particle minecraft:white_smoke ~13.86 ~1 ~-8 0 0.3 0 0 4 force
+execute at @e[type=wither,tag=ominousWither,limit=1] run particle minecraft:white_smoke ~11.31 ~1 ~-11.31 0 0.3 0 0 4 force
+execute at @e[type=wither,tag=ominousWither,limit=1] run particle minecraft:white_smoke ~8 ~1 ~-13.86 0 0.3 0 0 4 force
+execute at @e[type=wither,tag=ominousWither,limit=1] run particle minecraft:white_smoke ~4.14 ~1 ~-15.45 0 0.3 0 0 4 force
+execute at @e[type=wither,tag=ominousWither,limit=1] run particle minecraft:white_smoke ~0 ~1 ~-16 0 0.3 0 0 4 force
+execute at @e[type=wither,tag=ominousWither,limit=1] run particle minecraft:white_smoke ~-4.14 ~1 ~-15.45 0 0.3 0 0 4 force
+execute at @e[type=wither,tag=ominousWither,limit=1] run particle minecraft:white_smoke ~-8 ~1 ~-13.86 0 0.3 0 0 4 force
+execute at @e[type=wither,tag=ominousWither,limit=1] run particle minecraft:white_smoke ~-11.31 ~1 ~-11.31 0 0.3 0 0 4 force
+execute at @e[type=wither,tag=ominousWither,limit=1] run particle minecraft:white_smoke ~-13.86 ~1 ~-8 0 0.3 0 0 4 force
+execute at @e[type=wither,tag=ominousWither,limit=1] run particle minecraft:white_smoke ~-15.45 ~1 ~-4.14 0 0.3 0 0 4 force
+execute at @e[type=wither,tag=ominousWither,limit=1] run particle minecraft:white_smoke ~-16 ~1 ~0 0 0.3 0 0 4 force
+execute at @e[type=wither,tag=ominousWither,limit=1] run particle minecraft:white_smoke ~-15.45 ~1 ~4.14 0 0.3 0 0 4 force
+execute at @e[type=wither,tag=ominousWither,limit=1] run particle minecraft:white_smoke ~-13.86 ~1 ~8 0 0.3 0 0 4 force
+execute at @e[type=wither,tag=ominousWither,limit=1] run particle minecraft:white_smoke ~-11.31 ~1 ~11.31 0 0.3 0 0 4 force
+execute at @e[type=wither,tag=ominousWither,limit=1] run particle minecraft:white_smoke ~-8 ~1 ~13.86 0 0.3 0 0 4 force
+execute at @e[type=wither,tag=ominousWither,limit=1] run particle minecraft:white_smoke ~-4.14 ~1 ~15.45 0 0.3 0 0 4 force

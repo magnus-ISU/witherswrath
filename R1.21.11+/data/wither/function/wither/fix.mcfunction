@@ -156,6 +156,9 @@ schedule clear wither:xp/xp9
 schedule clear wither:xp/xp10
 schedule clear wither:nether_star/stop_rising
 schedule clear wither:nether_star/rise
+schedule clear wither:wither/phase2/white_shield_slam
+schedule clear wither:wither/phase2/proximity_shield_down
+schedule clear wither:wither/phase2/init_proximity_shield
 
 data remove storage temp Head
 

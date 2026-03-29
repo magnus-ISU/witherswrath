@@ -1,0 +1,2 @@
+execute as @e[type=wither,tag=ominousWither,tag=ProximityShield,limit=1] run tag @s add ProximityShieldDown
+execute as @e[type=wither,tag=ominousWither,tag=ProximityShield,limit=1] run data merge entity @s {Glowing:0b}

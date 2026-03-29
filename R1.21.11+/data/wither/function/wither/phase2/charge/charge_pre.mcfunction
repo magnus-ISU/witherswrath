@@ -1,6 +1,9 @@
 # Don't charge if beam attack is active — retry in 4 seconds
 execute if entity @e[type=wither,tag=ominousWither,tag=Beam] run schedule function wither:wither/phase2/charge/charge_pre 4s
 execute if entity @e[type=wither,tag=ominousWither,tag=Beam] run return 0
+# Don't charge during white-shield dive sequence — retry in 4 seconds
+execute if entity @e[type=wither,tag=ominousWither,tag=WhiteShieldDive] run schedule function wither:wither/phase2/charge/charge_pre 4s
+execute if entity @e[type=wither,tag=ominousWither,tag=WhiteShieldDive] run return 0
 
 # PREVENTS FROM BREAKING
 tag @s remove Charge
