@@ -1,5 +1,10 @@
 # Beam Aim Tick - runs every tick for 260 ticks
 # Dispatches to aim sub-functions, updates crystals, particles, and sound cues
+# Cancel beam if white-shield dive is active or NoAI is off (prevents overlapping attacks)
+# Fixes symptom (overlapping) rather than root cause of simultaneous state triggers
+execute if entity @e[type=wither,tag=ominousWither,tag=WhiteShieldDive] run return 0
+execute as @e[type=wither,tag=ominousWither,limit=1] if data entity @s {NoAI:0b} run return 0
+
 execute unless entity @e[type=wither,tag=ominousWither] run return 0
 
 scoreboard players add ominousWither beamTimer 1

@@ -1,4 +1,9 @@
 # Beam Fire - Center crystal (fires at each distinct target)
+# Cancel beam if white-shield dive is active or NoAI is off (prevents overlapping attacks)
+# Fixes symptom (overlapping) rather than root cause of simultaneous state triggers
+execute if entity @e[type=wither,tag=ominousWither,tag=WhiteShieldDive] run return 0
+execute as @e[type=wither,tag=ominousWither,limit=1] if data entity @s {NoAI:0b} run return 0
+
 execute unless entity @e[type=wither,tag=ominousWither] run return 0
 
 # Always fire at center target (nearest player)

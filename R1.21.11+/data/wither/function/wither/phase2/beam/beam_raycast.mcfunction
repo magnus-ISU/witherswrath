@@ -3,6 +3,8 @@
 # Beam-proof blocks (obsidian, bedrock, etc.) stop the beam instantly with no explosion
 
 # Beam-proof blocks stop instantly (no terminal creeper)
+# Destroy single beam-proof block (excluding bedrock) before stopping
+execute if block ~ ~ ~ #wither:beam_proof unless block ~ ~ ~ minecraft:bedrock unless block ~ ~ ~ minecraft:reinforced_deepslate unless block ~ ~ ~ minecraft:end_portal_frame run setblock ~ ~ ~ air
 execute if block ~ ~ ~ #wither:beam_proof run return 0
 
 # Track penetration through solid blocks (6 blocks = 12 steps at 0.5 blocks/step)
