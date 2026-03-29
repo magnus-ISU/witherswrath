@@ -18,6 +18,8 @@ execute at @e[type=wither,tag=ominousWither,limit=1] run scoreboard players add 
 execute at @e[type=wither,tag=ominousWither,limit=1] as @a[distance=..150,scores={wHasMace=..1}] store success score @s wHasMace if items entity @s container.* minecraft:mace
 execute at @e[type=wither,tag=ominousWither,limit=1] as @a[distance=..150,scores={wHasElytra=..1}] store success score @s wHasElytra if items entity @s container.* minecraft:elytra
 
+execute as @a if items entity @s armor.chest minecraft:elytra run scoreboard players set @s wHasElytra 1
+
 # Continue while fight is active or restores are still pending
 execute if entity @e[type=wither,tag=ominousWither] run schedule function wither:wither/restore_items 1t
 execute unless entity @e[type=wither,tag=ominousWither] if entity @a[scores={wHasMace=2}] run schedule function wither:wither/restore_items 1t

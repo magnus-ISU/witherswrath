@@ -1,2 +1,2 @@
 execute as @e[type=wither,tag=ominousWither,tag=ProximityShield,limit=1] run tag @s remove ProximityShieldDown
-execute as @e[type=wither,tag=ominousWither,tag=ProximityShield,limit=1] run data merge entity @s {Glowing:1b,active_effects:[{id:"minecraft:resistance",amplifier:4,duration:30,show_particles:0b,show_icon:1b},{id:"minecraft:glowing",amplifier:0,duration:30,show_particles:0b,show_icon:1b}]}
+execute as @e[type=wither,tag=ominousWither,tag=ProximityShield,limit=1] run data merge entity @s {Glowing:1b,active_effects:[{id:"minecraft:resistance",amplifier:4,duration:50,show_particles:0b,show_icon:1b},{id:"minecraft:glowing",amplifier:0,duration:50,show_particles:0b,show_icon:1b}]}

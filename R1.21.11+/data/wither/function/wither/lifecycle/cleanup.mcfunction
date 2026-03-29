@@ -4,10 +4,9 @@ scoreboard players set wspawn spawn 0
 scoreboard players set wChargereset wchargereset 0
 scoreboard players set enraged wenraged 0
 schedule clear wither:wither/immortal_maces
-# Keep restore_items running for 200t after fight ends to catch late respawns
-schedule function wither:wither/restore_items 200t
+# Keep restore_items running for 1t after fight ends
+schedule function wither:wither/restore_items 1t
 schedule clear wither:wither/dive/dive_tick
-schedule clear wither:wither/dive/divecooldown
 schedule clear wither:wither/dive/land
 schedule clear wither:wither/dive/ground_slam_tick
 schedule clear wither:wither/phase2/white_shield_slam

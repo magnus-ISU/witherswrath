@@ -46,10 +46,6 @@ advancement revoke @a only wither:wither/hit7_wither
 advancement revoke @a only wither:wither/pre_hit_wither
 advancement revoke @a only wither:wither/placed_star_in_frame
 
-schedule clear wither:wither/bedrock/death/deadbedrock1t
-schedule clear wither:wither/bedrock/death/deadbedrock2t
-schedule clear wither:wither/bedrock/death/deadbedrock3t
-schedule clear wither:wither/bedrock/death/deadbedrock4t
 schedule clear wither:wither/phase1/check_player_tick
 schedule clear wither:wither/skull/launch
 schedule clear wither:wither/phase1/music_phase1
@@ -138,7 +134,6 @@ schedule clear wither:wither/midpoint/particles/clear_lev
 schedule clear wither:wither/passive/skull
 schedule clear wither:wither/passive/spawn
 schedule clear wither:wither/passive/spawn_captain
-schedule clear wither:wither/skull
 schedule clear wither:wither_check
 schedule clear wither:tick
 schedule clear wither:wither/ominous_check
@@ -198,8 +193,8 @@ execute as @e[type=player] run attribute @s minecraft:gravity modifier remove 1
 
 forceload remove all
 
-# Keep restore_items running for 200t after fix to catch late respawns
-schedule function wither:wither/restore_items 200t
+# Keep restore_items running for 1t after fix
+schedule function wither:wither/restore_items 1t
 
 function wither:load
 
