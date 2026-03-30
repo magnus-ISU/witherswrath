@@ -4,7 +4,6 @@ scoreboard players set wspawn spawn 0
 scoreboard players set wChargereset wchargereset 0
 scoreboard players set enraged wenraged 0
 schedule clear wither:wither/immortal_maces
-function wither:wither/lifecycle/keep_inventory_end
 schedule clear wither:wither/dive/dive_tick
 schedule clear wither:wither/dive/land
 schedule clear wither:wither/dive/ground_slam_tick

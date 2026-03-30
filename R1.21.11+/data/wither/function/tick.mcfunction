@@ -40,11 +40,10 @@ execute if entity @e[type=wither,tag=ominousWither,tag=Beam] run function wither
 # Aerial dive: if wither is >12 blocks above a player and within 5 blocks horizontal, slam down
 execute as @e[type=wither,tag=ominousWither,tag=!Diving,tag=!Slamming,limit=1] at @s run function wither:wither/dive/dive_entry
 
-# Force chunk load the ominous wither, wArchers, and Spellstorm swarm (souls + relocate anchor)
+# Force chunk load the ominous wither, phantom archers, and spellstorm souls
 execute at @e[type=wither,tag=ominousWither,limit=1] run forceload add ~ ~
 execute as @e[type=wither_skeleton,tag=wArcher] at @s run forceload add ~ ~
 execute as @e[type=wither_skeleton,tag=swarm] at @s run forceload add ~ ~
-execute as @e[type=marker,tag=spellstormSwarmMarker] at @s run forceload add ~ ~
 
 execute if entity @e[type=wither,tag=ominousWither,tag=ProximityShield] run function wither:wither/phase2/update_proximity_shield
 

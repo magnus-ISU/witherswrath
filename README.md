@@ -4,6 +4,8 @@
 
 To trigger the Ominous Wither, summon a wither and have Bad Omen within 32 blocks. Normal withers are not affected and will not change once they have completed summoning.
 
+Keep Inventory will enable during the fight, as the battle is much too difficult to be fun to play with a chance of losing everything. Even so, watch your armor durability and bring extra boxes of totems.
+
 <br>
 
 <details>
@@ -27,18 +29,17 @@ To trigger the Ominous Wither, summon a wither and have Bad Omen within 32 block
 - **Phantom Shield** -- While any Phantom Archer is alive, the Ominous Wither is **immune** to damage. You must kill the Phantom Archers to lift the shield.
 - **Beam Attack** -- Every 60 seconds, the wither ascends and targets up to 3 players. Crystal beams spiral down, then unleash doom upon any players who haven't found shelter.
 - **Charge Attack** -- Unlocked when the shield is broken. The wither locks on, freezes in place, then rams toward the nearest player at high speed.
-- **Proximity Shield** -- When below 150 HP, the wither activates another layer of defense. Players must deal the last 50 HP in melee, for the wither is invulnerable for a few seconds if all players exit a 16 block radius.
+- **Proximity Shield** -- When below 150 HP, the wither activates another layer of defense. Players must deal the last 50 HP in melee, for the wither is invulnerable for a few seconds if all players exit a 16 block radius. Additionally, it will now remain near to the ground, slamming back if it travels too high.
 - **Spellstorm Souls** -- When the Proximity Shield drops, summons 15 fast, tough wither skeletons around each player. If they are ignored, they teleport to the player nearest to the wither with a flash of lightning.
 
 ---
 
 ### Phase 3 / Enraged (100 - 0 HP)
 
-- **Enraged Mode** activates -- the wither's color turns dark red, stays low to the ground, and particle effects intensify.
 - **Resistance III** -- The wither permanently has Resistance III, making it much harder to kill.
 - **Faster Attacks** -- Homing skulls and charge attacks happen at double speed.
-- **Rotating Skull Ring** -- Orbiting wither skulls spin around the wither, face the player, then launch towards them.
-- **Aura of Destruction** -- All players more than 16 blocks away receive **Wither V**, forcing you to stay close. A ring of black squid ink particles marks the 16-block boundary.
+- **Circle of Death** -- Orbiting wither skulls spin around the wither, face the player, then launch towards them.
+- **Aura of Destruction** -- All players more than 16 blocks away receive **Wither X**, forcing you to stay close.
 - **Dashes** -- The wither freezes, faces a player, then dashes toward them repeatedly every 3 seconds.
 - **Death Knights** -- Summons 3 elite wither skeletons riding skeleton horses with netherite horse armor every 15 seconds.
 
@@ -46,7 +47,7 @@ To trigger the Ominous Wither, summon a wither and have Bad Omen within 32 block
 
 ### Other Mechanics
 
-- **Ominous Explosion** -- As soon as the wither changes to the Ominous wither, it lets out a large explosion and 24 witherskulls.
+- **Ominous Arrival** -- As soon as the wither changes to the Ominous wither, it lets out a large explosion and 24 witherskulls.
 - **Aerial Dive** -- If the wither is more than 20 blocks above a player, it dives straight down, slamming into the ground with a large explosion and a **lightning strike**. This keeps it near to the players no matter what.
 - **Teleport Chase** -- If a player is 128-150 blocks away, the wither teleports above them.
 - **Despawn** -- If no players are within 150 blocks (e.g. you die and respawn far away), the wither despawns and the fight ends. It also ends after 20 minutes (to avoid trapping world spawn).
@@ -69,7 +70,7 @@ To trigger the Ominous Wither, summon a wither and have Bad Omen within 32 block
 - **Phantom riders (wArchers)** at the midpoint with a **shield mechanic** protecting the wither.
 - **Downward dive attack** -- aerial slam with creeper explosions and lightning.
 - **Horse riders** are summoned in the final phase; elite netherite wither skeletons on horseback.
-- **Aura of destruction** in the final phase -- Wither V to distant players forcing chaos.
+- **Aura of Ash** in the final phase -- Wither V to distant players forcing chaos.
 - **Resistance III** in the final phase making the wither harder to kill -- it has 750 effective HP.
 - **Skeleton swarm** at 150 HP -- 15 wither skeletons summoned at once.
 - **Nether portal destruction** during the fight.

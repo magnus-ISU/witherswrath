@@ -25,9 +25,6 @@ scoreboard objectives add beamStep dummy
 execute if entity @e[type=minecraft:wither,tag=ominousWither] run tellraw @a ["",{"text":"[ᴡɪᴛʜᴇʀ'ꜱ ᴡʀᴀᴛʜ] ","bold":true,"color":"#322A32"},{"text":"ᴛʜᴇ ᴘᴀᴄᴋ ᴡᴀꜱ (ʀᴇ)ʟᴏᴀᴅᴇᴅ ᴡʜɪʟᴇ ᴀɴ ᴏᴍɪɴᴏᴜꜱ ᴡɪᴛʜᴇʀ ᴡᴀꜱ ᴀʟɪᴠᴇ... ᴋɪʟʟɪɴɢ ɪᴛ!!!","bold":true,"color":"dark_red"}]
 execute if entity @e[type=minecraft:wither,tag=ominousWither] run function wither:wither/fix
 
-# Crash/reload: no ominous wither but fight left keepInventory overridden
-execute unless entity @e[type=minecraft:wither,tag=ominousWither] if data storage wither:fight {keepInventoryFightActive:1b} run function wither:wither/lifecycle/keep_inventory_end
-
 # prevents storage from being set if already initialized previously (saves current settings if any)
 execute unless data storage wither:options {initialized:2} run function wither:initialize_storage
 
