@@ -63,16 +63,16 @@ Keep Inventory will enable during the fight, as the battle is much too difficult
 
 - **Renamed to Ominous Wither** -- and activated by Bad Omen instead of always replacing the wither.
 - **No persistent ticking** -- the tick loop is event-driven, only running during an active fight. There is no performance overhead when not fighting and no scheduled events cluttering things.
-- **Tweaked thresholds for behaviors** to have 3 more consistent phases.
+- **Tweaked thresholds for behaviors** to have 3 more consistent phases, see description above.
 - **Vanilla-size minions** instead of custom scales, with fewer HP or attribute changes.
-- **Wither flees further** -- 25 blocks away instead of very close to melee.
+- **Wither flees further** in phase 1 -- 25 blocks away instead of very close to melee.
 - **Skeleton summons** in Phase 1 (skeletons + captains per player).
-- **Phantom riders (wArchers)** at the midpoint with a **shield mechanic** protecting the wither.
+- **Phantom riders** at the midpoint with a **shield mechanic** protecting the wither and encouraging spear use.
+- **Spellstorm Soul** swarm in phase 2 with another shield mechanic encouraging melee combat and engaging with the minions.
 - **Downward dive attack** -- aerial slam with creeper explosions and lightning.
-- **Horse riders** are summoned in the final phase; elite netherite wither skeletons on horseback.
+- **Horse riders** are summoned in phase 3 (enraged); elite netherite wither skeletons on horseback.
 - **Aura of Ash** in the final phase -- Wither V to distant players forcing chaos.
 - **Resistance III** in the final phase making the wither harder to kill -- it has 750 effective HP.
-- **Skeleton swarm** at 150 HP -- 15 wither skeletons summoned at once.
 - **Nether portal destruction** during the fight.
 - **Teleport Chase** to prevent fleeing with elytra.
 - **Despawning** if it kills all nearby players.
