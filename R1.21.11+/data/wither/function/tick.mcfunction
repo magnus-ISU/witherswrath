@@ -79,9 +79,6 @@ execute if entity @e[type=wither,tag=ominousWither,scores={Health=..99}] at @e[t
 execute if entity @e[type=wither,tag=ominousWither,scores={Health=..99}] at @e[type=wither,tag=ominousWither,limit=1] run particle minecraft:squid_ink ~-8 ~1 ~13.86 0 0.3 0 0 3 force
 execute if entity @e[type=wither,tag=ominousWither,scores={Health=..99}] at @e[type=wither,tag=ominousWither,limit=1] run particle minecraft:squid_ink ~-4.14 ~1 ~15.45 0 0.3 0 0 3 force
 
-# Keep item restore running (safety net)
-schedule function wither:wither/restore_items 1t
-
 # Despawn wither if no players within 150 blocks - massive explosion
 execute as @e[type=wither,tag=ominousWither,limit=1] at @s unless entity @a[distance=..150] run function wither:wither/lifecycle/despawn
 

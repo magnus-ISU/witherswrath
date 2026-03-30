@@ -40,7 +40,6 @@ advancement revoke @a only wither:wither/hit3_wither
 advancement revoke @a only wither:wither/hit4_wither
 advancement revoke @a only wither:wither/hit5_wither
 advancement revoke @a only wither:wither/hit6_wither
-advancement revoke @a only wither:wither/hit_swarm_trigger_wither
 advancement revoke @a only wither:wither/hit7_wither
 advancement revoke @a only wither:wither/pre_hit_wither
 advancement revoke @a only wither:wither/placed_star_in_frame
@@ -200,8 +199,7 @@ execute as @e[type=player] run attribute @s minecraft:gravity modifier remove 1
 
 forceload remove all
 
-# Keep restore_items running for 1t after fix
-schedule function wither:wither/restore_items 1t
+function wither:wither/lifecycle/keep_inventory_end
 
 function wither:load
 
