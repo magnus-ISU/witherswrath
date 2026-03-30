@@ -8,7 +8,7 @@ data merge entity @s {Invul:220,CustomName:'Ominous Wither'}
 data modify entity @s attributes append value {id:"minecraft:scale",base:1.5}
 
 # Remove bad omen from nearby players so they don't trigger a raid
-effect clear @a[distance=..100] minecraft:bad_omen
+effect clear @a[distance=..150] minecraft:bad_omen
 
 # Check gamerules and player count
 execute store result score cmdFbk rules run gamerule send_command_feedback

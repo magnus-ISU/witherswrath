@@ -43,7 +43,6 @@ execute as @e[type=wither,tag=ominousWither,tag=!Diving,tag=!Slamming,limit=1] a
 # Force chunk load the ominous wither and wArchers
 execute at @e[type=wither,tag=ominousWither,limit=1] run forceload add ~ ~
 execute as @e[type=wither_skeleton,tag=wArcher] at @s run forceload add ~ ~
-execute as @e[type=phantom,tag=wArcher] at @s run forceload add ~ ~
 
 execute if entity @e[type=wither,tag=ominousWither,tag=ProximityShield] run function wither:wither/phase2/update_proximity_shield
 
