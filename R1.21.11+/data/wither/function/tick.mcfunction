@@ -38,7 +38,7 @@ execute at @e[type=wither,tag=ominousWither,limit=1] unless entity @a[distance=.
 execute if entity @e[type=wither,tag=ominousWither,tag=Beam] run function wither:wither/phase2/beam/beam_crystals_follow
 
 # Aerial dive: if wither is >12 blocks above a player and within 5 blocks horizontal, slam down
-execute as @e[type=wither,tag=ominousWither,tag=!Diving,tag=!Slamming,limit=1] at @s positioned ~-5 ~-300 ~-5 if entity @a[dx=10,dy=288,dz=10] run function wither:wither/dive/dive
+execute as @e[type=wither,tag=ominousWither,tag=!Diving,tag=!Slamming,limit=1] at @s run function wither:wither/dive/dive_entry
 
 # Force chunk load the ominous wither and wArchers
 execute at @e[type=wither,tag=ominousWither,limit=1] run forceload add ~ ~
