@@ -140,6 +140,7 @@ schedule clear wither:wither/passive/spawn_captain
 schedule clear wither:tick
 schedule clear wither:wither/ominous_check
 schedule clear wither:5_tick
+schedule clear wither:wither/phase2/spellstorm/spellstorm_soul_tick
 schedule clear wither:xp/xp
 schedule clear wither:xp/xp1
 schedule clear wither:xp/xp2
@@ -190,6 +191,7 @@ tag @a remove beamTarget2
 tag @a remove beamTarget3
 kill @e[type=marker,tag=wSpawnMarker]
 kill @e[type=marker,tag=shiftMarker]
+kill @e[type=marker,tag=spellstormSwarmMarker]
 ride @e[type=wither,tag=ominousWither,limit=1] dismount
 kill @e[type=armor_stand,tag=witherMount]
 execute at @e[type=item,tag=OminousNetherStar,limit=1] run kill @e[type=experience_orb,sort=nearest,distance=..10]

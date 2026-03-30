@@ -8,4 +8,4 @@ execute as @e[type=wither,tag=ominousWither,scores={Health=101..150},tag=!Proxim
 execute unless entity @e[type=wither,tag=ominousWither,tag=ProximityShield] run return 0
 execute unless entity @e[type=wither,tag=ominousWither,tag=ProximityShieldDown] run return 0
 
-execute as @e[type=wither,tag=ominousWither] at @s run function wither:wither/phase2/swarm
+execute as @e[type=wither,tag=ominousWither] at @s run function wither:wither/phase2/spellstorm/swarm
