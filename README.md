@@ -15,19 +15,20 @@ To trigger the Ominous Wither, summon a wither and have Bad Omen within 32 block
 - **600 HP**, 1.5x scale, increased knockback resistance, and blast protection.
 - **Burst of Skulls** -- Enhanced skull attacks including burst-fire volleys. Persist in all phases.
 - **Homing Skulls** -- Weaker but never miss. Can be blocked with a Shield. Persist in all phases.
-- **Ranged Attacks** -- The wither will hover 25 blocks away from players for now, keeping its distance and attacking with its new ranged attacks.
-- **Skeleton Summons** -- Every 25 seconds 8 skeletons rise from the ground in a ring around each player, plus a **Skeleton Captain** with a golden helmet, permanent strength, speed, and regeneration.
+- **Ranged Attacks** -- The wither will hover about 30 blocks away from players for now, keeping its distance and attacking with its new ranged attacks.
+- **Buried Army** -- Every 25 seconds 8 skeletons rise from the ground in a ring around each player, plus a **Dead King** with a golden helmet, permanent strength, speed, and instant regeneration.
 
 ---
 
 ### Phase 2 (300 - 100 HP)
 
 - The wither gains increased armor and armor toughness.
-- **Phase Transition** -- the wither erupts upward, then slams back to the ground with a shockwave. **Phantom Archers** are summoned -- flying wither skeletons, armed with Flame bows and scaled to the number of players.
-- **Wither Shield** -- While any Phantom Archer is alive, the Ominous Wither is **immune** to damage. You must kill the Phantom Archers to lift the shield.
-- **Beam Attack** -- Every 80 seconds, the wither ascends and targets up to 3 players. Crystal beams spiral down, then unleash doom upon any players who haven't found shelter.
+- **Phase Transition** -- the wither erupts upward, then slams back to the ground with a shockwave. **Phantom Archers** are summoned -- flying wither skeletons, armed with powerful bows and scaled to the number of players.
+- **Phantom Shield** -- While any Phantom Archer is alive, the Ominous Wither is **immune** to damage. You must kill the Phantom Archers to lift the shield.
+- **Beam Attack** -- Every 60 seconds, the wither ascends and targets up to 3 players. Crystal beams spiral down, then unleash doom upon any players who haven't found shelter.
 - **Charge Attack** -- Unlocked when the shield is broken. The wither locks on, freezes in place, then rams toward the nearest player at high speed.
-- **Skeleton Swarm** -- At 150 HP, summons 15 fast, tough wither skeletons.
+- **Proximity Shield** -- When below 150 HP, the wither activates another layer of defense. Players must deal the last 50 HP in melee, for the wither is invulnerable for a few seconds if all players exit a 16 block radius.
+- **Spellstorm Souls** -- When the Proximity Shield drops, summons 15 fast, tough wither skeletons around each player. If they are ignored, they teleport to the player nearest to the wither with a flash of lightning.
 
 ---
 

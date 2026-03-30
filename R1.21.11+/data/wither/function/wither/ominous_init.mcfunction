@@ -6,6 +6,7 @@ tag @s add ominousWither
 tag @s add Invul
 data merge entity @s {Invul:220,CustomName:'Ominous Wither'}
 data modify entity @s attributes append value {id:"minecraft:scale",base:1.5}
+execute at @s run forceload add ~ ~
 
 # Remove bad omen from nearby players so they don't trigger a raid
 effect clear @a[distance=..150] minecraft:bad_omen
