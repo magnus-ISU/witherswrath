@@ -10,6 +10,8 @@ execute at @e[type=wither,tag=ominousWither,limit=1] as @a[tag=beamTarget1,dista
 execute at @e[type=wither,tag=ominousWither,limit=1] as @a[tag=beamTarget2,distance=110..,limit=1] at @s run tp @e[type=wither,tag=ominousWither,limit=1] ^ ^ ^30
 execute at @e[type=wither,tag=ominousWither,limit=1] as @a[tag=beamTarget3,distance=110..,limit=1] at @s run tp @e[type=wither,tag=ominousWither,limit=1] ^ ^ ^30
 
+execute at @e[type=wither,tag=ominousWither,limit=1] run effect clear @a[distance=..100] minecraft:darkness
+
 # Prevent repeated teleports this beam
 tag @e[type=wither,tag=ominousWither] add BeamTeleport
 
