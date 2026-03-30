@@ -88,6 +88,10 @@ schedule clear wither:wither/fight_start/tick
 schedule clear wither:wither/fight_start/bedrock
 schedule clear wither:wither/fight_start/init
 schedule clear wither:wither/fight_start/init_ring_explode
+schedule clear wither:wither/fight_start/arrival_explosion_tick2
+schedule clear wither:wither/fight_start/arrival_explosion_clear
+schedule clear wither:wither/dive/dive_explosion_tick2
+schedule clear wither:wither/dive/dive_explosion_clear
 schedule clear wither:wither/lifecycle/spawn
 schedule clear wither:wither/midpoint/midpoint2
 schedule clear wither:wither/midpoint/midpoint_tick
@@ -174,6 +178,9 @@ kill @e[type=armor_stand,tag=hStand]
 kill @e[type=armor_stand,tag=starxp]
 kill @e[type=armor_stand,tag=chargew]
 kill @e[type=armor_stand,tag=midpointpos]
+kill @e[type=armor_stand,tag=ArrivalExplosionAnchor]
+kill @e[type=armor_stand,tag=DiveExplosionAnchor]
+tag @a remove ClearResistance
 kill @e[tag=beamCrystalL]
 kill @e[tag=beamCrystalC]
 kill @e[tag=beamCrystalR]

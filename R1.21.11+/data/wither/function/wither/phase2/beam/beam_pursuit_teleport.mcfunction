@@ -17,7 +17,7 @@ tag @e[type=wither,tag=ominousWither] add BeamTeleport
 function wither:wither/phase2/beam/beam_crystals_follow
 
 # Sphere explosion at arrival
-execute as @e[type=wither,tag=ominousWither,limit=1] at @s run function wither:wither/fight_start/init_sphere_summons
+execute as @e[type=wither,tag=ominousWither,limit=1] at @s run function wither:wither/fight_start/arrival_explosion_start
 
 # Sound
 execute at @e[type=wither,tag=ominousWither,limit=1] run playsound minecraft:entity.wither.spawn hostile @a[distance=..150] ~ ~ ~ 2 0.5

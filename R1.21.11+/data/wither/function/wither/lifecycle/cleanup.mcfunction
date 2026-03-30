@@ -52,6 +52,10 @@ schedule clear wither:wither/phase2/beam/beam_end
 schedule clear wither:wither/phase2/beam/beam_lock_tick
 schedule clear wither:wither/fight_start/part
 schedule clear wither:wither/fight_start/init_ring_explode
+schedule clear wither:wither/fight_start/arrival_explosion_tick2
+schedule clear wither:wither/fight_start/arrival_explosion_clear
+schedule clear wither:wither/dive/dive_explosion_tick2
+schedule clear wither:wither/dive/dive_explosion_clear
 schedule clear wither:wither/unstuck/check
 schedule clear wither:wither/lifecycle/timeout
 schedule clear wither:wither/phase1/hover_cooldown
@@ -75,6 +79,9 @@ schedule clear wither:wither/phase1/movement/spawn_player_tracker
     execute at @e[type=item_display,tag=nether_star,limit=1] run kill @e[type=creeper,distance=..80]
     execute at @e[type=item_display,tag=nether_star,limit=1] run kill @e[type=armor_stand,tag=hStand,distance=..100]
     execute at @e[type=item_display,tag=nether_star,limit=1] run kill @e[type=armor_stand,tag=chargew,distance=..100]
+    kill @e[type=armor_stand,tag=ArrivalExplosionAnchor]
+    kill @e[type=armor_stand,tag=DiveExplosionAnchor]
+    tag @a remove ClearResistance
     kill @e[type=marker,tag=wSpawnMarker]
     function wither:wither/phase1/movement/dismount
     kill @e[type=marker,tag=shiftMarker]

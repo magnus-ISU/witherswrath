@@ -1,5 +1,5 @@
-# Spherical explosion - creepers on a sphere to round out the fill cube
-# Executed at the wither's position (called from init_sphere)
+# Spherical explosion — second tick of arrival sequence (after Resistance V); creepers on a sphere
+# Executed at the blast anchor (called from arrival_explosion_tick2)
 # The fill command clears a 13x13x13 cube; these creepers carve the edges into a sphere
 
 # Center

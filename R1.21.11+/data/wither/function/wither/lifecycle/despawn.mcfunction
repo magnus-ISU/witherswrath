@@ -6,7 +6,7 @@ scoreboard players set witherCheck witherCheck 0
 weather clear
 
 # Sphere explosion (same as initial spawn)
-function wither:wither/fight_start/init_sphere_summons
+function wither:wither/fight_start/arrival_explosion_start
 
 # Remove the wither without loot
 tp @s ~ -200 ~
