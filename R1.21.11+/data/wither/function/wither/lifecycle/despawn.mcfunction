@@ -1,6 +1,5 @@
 # Despawn wither when no players are within 150 blocks - executed as and at the wither
 # Prevent normal death sequence from triggering
-scoreboard players set witherCheck witherCheck 0
 
 # Clear weather
 weather clear

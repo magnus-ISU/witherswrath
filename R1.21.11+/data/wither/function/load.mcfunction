@@ -1,6 +1,5 @@
 scoreboard objectives add checkHealth dummy
 scoreboard objectives add playerCount dummy
-scoreboard objectives add witherCheck dummy
 scoreboard objectives add skullposX dummy
 scoreboard objectives add skullposY dummy
 scoreboard objectives add skullposZ dummy

@@ -16,7 +16,6 @@ scoreboard objectives remove skulllaunchmotZ
 scoreboard objectives remove burstcount
 scoreboard objectives remove spawn
 scoreboard objectives remove playerCount
-scoreboard objectives remove witherCheck
 scoreboard objectives remove wither.temp.x
 scoreboard objectives remove wither.temp.y
 scoreboard objectives remove wither.temp.z
@@ -138,7 +137,6 @@ schedule clear wither:wither/midpoint/particles/clear_lev
 schedule clear wither:wither/passive/skull
 schedule clear wither:wither/passive/spawn
 schedule clear wither:wither/passive/spawn_captain
-schedule clear wither:wither_check
 schedule clear wither:tick
 schedule clear wither:wither/ominous_check
 schedule clear wither:5_tick
