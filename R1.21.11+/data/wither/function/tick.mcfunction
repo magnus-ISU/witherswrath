@@ -52,6 +52,7 @@ execute as @e[type=wither,tag=ominousWither,tag=ProximityShield,limit=1] at @s r
 
 # Phase 3 (<100 HP): Wither X for players further than 16 blocks, black particle ring around wither
 execute if entity @e[type=wither,tag=ominousWither,scores={Health=..99}] at @e[type=wither,tag=ominousWither,limit=1] run effect give @a[distance=16..150] wither 3 9 true
+execute if entity @e[type=wither,tag=ominousWither,scores={Health=..99}] at @e[type=wither,tag=ominousWither,limit=1] run effect give @a[distance=16..150] hunger 1 0 true
 # Deal 2.5 wither damage every 10 ticks to players outside the zone
 execute if entity @e[type=wither,tag=ominousWither,scores={Health=..99}] at @e[type=wither,tag=ominousWither,limit=1] as @a[distance=16..150] at @s run damage @s 2.5 minecraft:wither by @e[type=wither,tag=ominousWither,limit=1]
 execute if entity @e[type=wither,tag=ominousWither,scores={Health=..99}] at @e[type=wither,tag=ominousWither,limit=1] run particle minecraft:squid_ink ~0 ~1 ~16 0 0.3 0 0 3 force
