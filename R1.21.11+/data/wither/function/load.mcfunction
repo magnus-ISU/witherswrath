@@ -21,6 +21,7 @@ scoreboard objectives add wither.temp.pz dummy
 scoreboard objectives add fightInitAge dummy
 scoreboard objectives add beamTimer dummy
 scoreboard objectives add beamStep dummy
+scoreboard objectives add targetCount dummy
 
 execute if entity @e[type=minecraft:wither,tag=ominousWither] run tellraw @a ["",{"text":"[ᴡɪᴛʜᴇʀ'ꜱ ᴡʀᴀᴛʜ] ","bold":true,"color":"#322A32"},{"text":"ᴛʜᴇ ᴘᴀᴄᴋ ᴡᴀꜱ (ʀᴇ)ʟᴏᴀᴅᴇᴅ ᴡʜɪʟᴇ ᴀɴ ᴏᴍɪɴᴏᴜꜱ ᴡɪᴛʜᴇʀ ᴡᴀꜱ ᴀʟɪᴠᴇ... ᴋɪʟʟɪɴɢ ɪᴛ!!!","bold":true,"color":"dark_red"}]
 execute if entity @e[type=minecraft:wither,tag=ominousWither] run function wither:wither/fix

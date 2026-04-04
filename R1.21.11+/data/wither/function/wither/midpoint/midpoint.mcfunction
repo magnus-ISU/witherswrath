@@ -39,69 +39,43 @@ execute as @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=nearest] if d
 execute as @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=nearest] at @s run playsound minecraft:entity.wither.break_block block @a[distance=..30] ~ ~ ~ 0.5 .1
 execute at @e[type=minecraft:wither,tag=ominousWither,limit=1,sort=nearest] if data storage wither:options {toggleanimation:Default} run playsound minecraft:entity.wither_skeleton.hurt hostile @a[distance=..30] ~ ~ ~ 0.5 0.1
 
-# SUMMON BLAZES
-execute if data storage wither:options {toggleanimation:Default} if score count playerCount matches ..4 run schedule function wither:wither/midpoint/spawns/blaze1 5t
-execute if data storage wither:options {toggleanimation:Default} if score count playerCount matches ..4 run schedule function wither:wither/midpoint/spawns/blaze2 8t
-execute if data storage wither:options {toggleanimation:Default} if score count playerCount matches ..4 run schedule function wither:wither/midpoint/spawns/blaze3 11t
-execute if data storage wither:options {toggleanimation:Default} if score count playerCount matches ..4 run schedule function wither:wither/midpoint/spawns/blaze4 14t
-execute if data storage wither:options {toggleanimation:Default} if score count playerCount matches ..4 run schedule function wither:wither/midpoint/spawns/blaze5 17t
-execute if data storage wither:options {toggleanimation:Default} if score count playerCount matches ..4 run schedule function wither:wither/midpoint/spawns/blaze6 20t
-execute if data storage wither:options {toggleanimation:Default} if score count playerCount matches ..4 run schedule function wither:wither/midpoint/spawns/blaze7 23t
-execute if data storage wither:options {toggleanimation:Default} if score count playerCount matches ..4 run schedule function wither:wither/midpoint/spawns/blaze8 26t
-execute if data storage wither:options {toggleanimation:Default} if score count playerCount matches ..4 run schedule function wither:wither/midpoint/spawns/blaze9 29t
-execute if data storage wither:options {toggleanimation:Default} if score count playerCount matches ..4 run schedule function wither:wither/midpoint/spawns/blaze10 31t
+# COMPUTE TARGET COUNT: 8 + playerCount * 2
+scoreboard players operation count targetCount = count playerCount
+scoreboard players set #2 targetCount 2
+scoreboard players operation count targetCount *= #2 targetCount
+scoreboard players add count targetCount 8
 
-execute if data storage wither:options {toggleanimation:Default} if score count playerCount matches 5..9 run schedule function wither:wither/midpoint/spawns/blaze1 3t
-execute if data storage wither:options {toggleanimation:Default} if score count playerCount matches 5..9 run schedule function wither:wither/midpoint/spawns/blaze2 5t
-execute if data storage wither:options {toggleanimation:Default} if score count playerCount matches 5..9 run schedule function wither:wither/midpoint/spawns/blaze3 7t
-execute if data storage wither:options {toggleanimation:Default} if score count playerCount matches 5..9 run schedule function wither:wither/midpoint/spawns/blaze4 8t
-execute if data storage wither:options {toggleanimation:Default} if score count playerCount matches 5..9 run schedule function wither:wither/midpoint/spawns/blaze5 9t
-execute if data storage wither:options {toggleanimation:Default} if score count playerCount matches 5..9 run schedule function wither:wither/midpoint/spawns/blaze6 10t
-execute if data storage wither:options {toggleanimation:Default} if score count playerCount matches 5..9 run schedule function wither:wither/midpoint/spawns/blaze7 11t
-execute if data storage wither:options {toggleanimation:Default} if score count playerCount matches 5..9 run schedule function wither:wither/midpoint/spawns/blaze8 13t
-execute if data storage wither:options {toggleanimation:Default} if score count playerCount matches 5..9 run schedule function wither:wither/midpoint/spawns/blaze9 15t
-execute if data storage wither:options {toggleanimation:Default} if score count playerCount matches 5..9 run schedule function wither:wither/midpoint/spawns/blaze10 16t
-execute if data storage wither:options {toggleanimation:Default} if score count playerCount matches 5..9 run schedule function wither:wither/midpoint/spawns/blaze11 17t
-execute if data storage wither:options {toggleanimation:Default} if score count playerCount matches 5..9 run schedule function wither:wither/midpoint/spawns/blaze12 19t
-execute if data storage wither:options {toggleanimation:Default} if score count playerCount matches 5..9 run schedule function wither:wither/midpoint/spawns/blaze13 20t
-execute if data storage wither:options {toggleanimation:Default} if score count playerCount matches 5..9 run schedule function wither:wither/midpoint/spawns/blaze14 21t
-execute if data storage wither:options {toggleanimation:Default} if score count playerCount matches 5..9 run schedule function wither:wither/midpoint/spawns/blaze15 23t
-execute if data storage wither:options {toggleanimation:Default} if score count playerCount matches 5..9 run schedule function wither:wither/midpoint/spawns/blaze16 25t
-execute if data storage wither:options {toggleanimation:Default} if score count playerCount matches 5..9 run schedule function wither:wither/midpoint/spawns/blaze17 27t
-execute if data storage wither:options {toggleanimation:Default} if score count playerCount matches 5..9 run schedule function wither:wither/midpoint/spawns/blaze18 28t
-execute if data storage wither:options {toggleanimation:Default} if score count playerCount matches 5..9 run schedule function wither:wither/midpoint/spawns/blaze19 29t
-execute if data storage wither:options {toggleanimation:Default} if score count playerCount matches 5..9 run schedule function wither:wither/midpoint/spawns/blaze20 31t
-
-execute if data storage wither:options {toggleanimation:Default} if score count playerCount matches 10.. run schedule function wither:wither/midpoint/spawns/blaze1 3t
-execute if data storage wither:options {toggleanimation:Default} if score count playerCount matches 10.. run schedule function wither:wither/midpoint/spawns/blaze2 5t
-execute if data storage wither:options {toggleanimation:Default} if score count playerCount matches 10.. run schedule function wither:wither/midpoint/spawns/blaze3 7t
-execute if data storage wither:options {toggleanimation:Default} if score count playerCount matches 10.. run schedule function wither:wither/midpoint/spawns/blaze4 8t
-execute if data storage wither:options {toggleanimation:Default} if score count playerCount matches 10.. run schedule function wither:wither/midpoint/spawns/blaze5 9t
-execute if data storage wither:options {toggleanimation:Default} if score count playerCount matches 10.. run schedule function wither:wither/midpoint/spawns/blaze6 10t
-execute if data storage wither:options {toggleanimation:Default} if score count playerCount matches 10.. run schedule function wither:wither/midpoint/spawns/blaze7 11t
-execute if data storage wither:options {toggleanimation:Default} if score count playerCount matches 10.. run schedule function wither:wither/midpoint/spawns/blaze8 12t
-execute if data storage wither:options {toggleanimation:Default} if score count playerCount matches 10.. run schedule function wither:wither/midpoint/spawns/blaze9 13t
-execute if data storage wither:options {toggleanimation:Default} if score count playerCount matches 10.. run schedule function wither:wither/midpoint/spawns/blaze10 14t
-execute if data storage wither:options {toggleanimation:Default} if score count playerCount matches 10.. run schedule function wither:wither/midpoint/spawns/blaze11 15t
-execute if data storage wither:options {toggleanimation:Default} if score count playerCount matches 10.. run schedule function wither:wither/midpoint/spawns/blaze12 16t
-execute if data storage wither:options {toggleanimation:Default} if score count playerCount matches 10.. run schedule function wither:wither/midpoint/spawns/blaze13 17t
-execute if data storage wither:options {toggleanimation:Default} if score count playerCount matches 10.. run schedule function wither:wither/midpoint/spawns/blaze14 18t
-execute if data storage wither:options {toggleanimation:Default} if score count playerCount matches 10.. run schedule function wither:wither/midpoint/spawns/blaze15 19t
-execute if data storage wither:options {toggleanimation:Default} if score count playerCount matches 10.. run schedule function wither:wither/midpoint/spawns/blaze16 21t
-execute if data storage wither:options {toggleanimation:Default} if score count playerCount matches 10.. run schedule function wither:wither/midpoint/spawns/blaze17 23t
-execute if data storage wither:options {toggleanimation:Default} if score count playerCount matches 10.. run schedule function wither:wither/midpoint/spawns/blaze18 24t
-execute if data storage wither:options {toggleanimation:Default} if score count playerCount matches 10.. run schedule function wither:wither/midpoint/spawns/blaze19 26t
-execute if data storage wither:options {toggleanimation:Default} if score count playerCount matches 10.. run schedule function wither:wither/midpoint/spawns/blaze20 28t
-execute if data storage wither:options {toggleanimation:Default} if score count playerCount matches 10.. run schedule function wither:wither/midpoint/spawns/blaze21 30t
-execute if data storage wither:options {toggleanimation:Default} if score count playerCount matches 10.. run schedule function wither:wither/midpoint/spawns/blaze22 31t
-execute if data storage wither:options {toggleanimation:Default} if score count playerCount matches 10.. run schedule function wither:wither/midpoint/spawns/blaze23 32t
-execute if data storage wither:options {toggleanimation:Default} if score count playerCount matches 10.. run schedule function wither:wither/midpoint/spawns/blaze24 33t
-execute if data storage wither:options {toggleanimation:Default} if score count playerCount matches 10.. run schedule function wither:wither/midpoint/spawns/blaze25 34t
-execute if data storage wither:options {toggleanimation:Default} if score count playerCount matches 10.. run schedule function wither:wither/midpoint/spawns/blaze26 35t
-execute if data storage wither:options {toggleanimation:Default} if score count playerCount matches 10.. run schedule function wither:wither/midpoint/spawns/blaze27 36t
-execute if data storage wither:options {toggleanimation:Default} if score count playerCount matches 10.. run schedule function wither:wither/midpoint/spawns/blaze28 37t
-execute if data storage wither:options {toggleanimation:Default} if score count playerCount matches 10.. run schedule function wither:wither/midpoint/spawns/blaze29 38t
-execute if data storage wither:options {toggleanimation:Default} if score count playerCount matches 10.. run schedule function wither:wither/midpoint/spawns/blaze30 39t
+# SUMMON PHANTOMS (spread evenly across 36 ticks via bisection ordering)
+execute if data storage wither:options {toggleanimation:Default} if score count targetCount matches 1.. run schedule function wither:wither/midpoint/spawns/blaze1 3t
+execute if data storage wither:options {toggleanimation:Default} if score count targetCount matches 2.. run schedule function wither:wither/midpoint/spawns/blaze2 21t
+execute if data storage wither:options {toggleanimation:Default} if score count targetCount matches 3.. run schedule function wither:wither/midpoint/spawns/blaze3 39t
+execute if data storage wither:options {toggleanimation:Default} if score count targetCount matches 4.. run schedule function wither:wither/midpoint/spawns/blaze4 12t
+execute if data storage wither:options {toggleanimation:Default} if score count targetCount matches 5.. run schedule function wither:wither/midpoint/spawns/blaze5 30t
+execute if data storage wither:options {toggleanimation:Default} if score count targetCount matches 6.. run schedule function wither:wither/midpoint/spawns/blaze6 7t
+execute if data storage wither:options {toggleanimation:Default} if score count targetCount matches 7.. run schedule function wither:wither/midpoint/spawns/blaze7 16t
+execute if data storage wither:options {toggleanimation:Default} if score count targetCount matches 8.. run schedule function wither:wither/midpoint/spawns/blaze8 25t
+execute if data storage wither:options {toggleanimation:Default} if score count targetCount matches 9.. run schedule function wither:wither/midpoint/spawns/blaze9 34t
+execute if data storage wither:options {toggleanimation:Default} if score count targetCount matches 10.. run schedule function wither:wither/midpoint/spawns/blaze10 9t
+execute if data storage wither:options {toggleanimation:Default} if score count targetCount matches 11.. run schedule function wither:wither/midpoint/spawns/blaze11 18t
+execute if data storage wither:options {toggleanimation:Default} if score count targetCount matches 12.. run schedule function wither:wither/midpoint/spawns/blaze12 27t
+execute if data storage wither:options {toggleanimation:Default} if score count targetCount matches 13.. run schedule function wither:wither/midpoint/spawns/blaze13 36t
+execute if data storage wither:options {toggleanimation:Default} if score count targetCount matches 14.. run schedule function wither:wither/midpoint/spawns/blaze14 5t
+execute if data storage wither:options {toggleanimation:Default} if score count targetCount matches 15.. run schedule function wither:wither/midpoint/spawns/blaze15 14t
+execute if data storage wither:options {toggleanimation:Default} if score count targetCount matches 16.. run schedule function wither:wither/midpoint/spawns/blaze16 23t
+execute if data storage wither:options {toggleanimation:Default} if score count targetCount matches 17.. run schedule function wither:wither/midpoint/spawns/blaze17 32t
+execute if data storage wither:options {toggleanimation:Default} if score count targetCount matches 18.. run schedule function wither:wither/midpoint/spawns/blaze18 10t
+execute if data storage wither:options {toggleanimation:Default} if score count targetCount matches 19.. run schedule function wither:wither/midpoint/spawns/blaze19 19t
+execute if data storage wither:options {toggleanimation:Default} if score count targetCount matches 20.. run schedule function wither:wither/midpoint/spawns/blaze20 28t
+execute if data storage wither:options {toggleanimation:Default} if score count targetCount matches 21.. run schedule function wither:wither/midpoint/spawns/blaze21 37t
+execute if data storage wither:options {toggleanimation:Default} if score count targetCount matches 22.. run schedule function wither:wither/midpoint/spawns/blaze22 4t
+execute if data storage wither:options {toggleanimation:Default} if score count targetCount matches 23.. run schedule function wither:wither/midpoint/spawns/blaze23 8t
+execute if data storage wither:options {toggleanimation:Default} if score count targetCount matches 24.. run schedule function wither:wither/midpoint/spawns/blaze24 13t
+execute if data storage wither:options {toggleanimation:Default} if score count targetCount matches 25.. run schedule function wither:wither/midpoint/spawns/blaze25 17t
+execute if data storage wither:options {toggleanimation:Default} if score count targetCount matches 26.. run schedule function wither:wither/midpoint/spawns/blaze26 22t
+execute if data storage wither:options {toggleanimation:Default} if score count targetCount matches 27.. run schedule function wither:wither/midpoint/spawns/blaze27 26t
+execute if data storage wither:options {toggleanimation:Default} if score count targetCount matches 28.. run schedule function wither:wither/midpoint/spawns/blaze28 31t
+execute if data storage wither:options {toggleanimation:Default} if score count targetCount matches 29.. run schedule function wither:wither/midpoint/spawns/blaze29 35t
+execute if data storage wither:options {toggleanimation:Default} if score count targetCount matches 30.. run schedule function wither:wither/midpoint/spawns/blaze30 6t
 
 
 execute if data storage wither:options {toggleanimation:Default} run schedule function wither:wither/midpoint/midpoint_part_tick_end 50t
